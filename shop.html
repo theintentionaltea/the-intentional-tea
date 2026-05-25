@@ -284,7 +284,7 @@
                 <div class="bg-white p-12 md:p-14 flex flex-col items-center text-center space-y-6 shadow-sm border border-black/5">
                     <h2 class="text-2xl md:text-4xl serif italic">Enjoy 20% off your first order.</h2>
                     <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-bold">Join our mailing list. Discount code delivered by email after signup.</p>
-                    <form action="#" class="w-full max-w-md flex flex-col gap-6">
+                    <form onsubmit="handleNewsletterSubmit(event)" class="w-full max-w-md flex flex-col gap-6">
                         <input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email for newsletter" class="bg-transparent border-b border-black/20 py-3 text-[10px] w-full outline-none uppercase tracking-widest text-center focus:border-[#C99B92] transition-colors">
                         <button type="submit" class="bg-black text-white px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#C99B92] transition-all">Join the List</button>
                     </form>
@@ -306,6 +306,16 @@
         </div>
     </footer>
 
+    <div id="newsletter-popup" class="fixed inset-0 z-[200] hidden items-center justify-center p-6 bg-black/50 backdrop-blur-sm" onclick="closeNewsletterPopup()">
+        <div class="bg-white max-w-md w-full p-12 text-center space-y-6 shadow-2xl" onclick="event.stopPropagation()">
+            <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
+            <h3 class="playfair text-3xl">You're in!</h3>
+            <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Use code <strong class="font-bold tracking-widest">INTENTIONAL20</strong> for 20% off your order.</p>
+            <button onclick="closeNewsletterPopup()" class="inline-block bg-[#1a1a1a] text-white px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all">Keep Shopping</button>
+            <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
+        </div>
+    </div>
+
     <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
@@ -314,6 +324,44 @@
     </div>
 
     <script>
+        const BREVO_API_KEY = 'REPLACE_WITH_YOUR_BREVO_API_KEY';
+        const DIGITAL_PRODUCTS_LIST_ID = 0;
+
+        async function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const emailInput = form.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            if (!email) return;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Subscribing...';
+            btn.disabled = true;
+            if (BREVO_API_KEY !== 'REPLACE_WITH_YOUR_BREVO_API_KEY' && DIGITAL_PRODUCTS_LIST_ID !== 0) {
+                try {
+                    await fetch('https://api.brevo.com/v3/contacts', {
+                        method: 'POST',
+                        headers: { 'accept': 'application/json', 'api-key': BREVO_API_KEY, 'content-type': 'application/json' },
+                        body: JSON.stringify({ email, listIds: [DIGITAL_PRODUCTS_LIST_ID], updateEnabled: true })
+                    });
+                } catch (err) {}
+            }
+            showNewsletterPopup();
+        }
+
+        function showNewsletterPopup() {
+            const popup = document.getElementById('newsletter-popup');
+            popup.style.display = 'flex';
+            popup.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNewsletterPopup() {
+            const popup = document.getElementById('newsletter-popup');
+            popup.style.display = 'none';
+            popup.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
         function toggleMenu() {
             const nav = document.getElementById('mobile-nav');
             nav.classList.toggle('active');

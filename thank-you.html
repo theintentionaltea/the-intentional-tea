@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | The Intentional Tea</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Display:ital,wght@0,300;1,300&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+        body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
+        .playfair-italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .serif { font-family: 'Noto Serif Display', serif; font-weight: 300; letter-spacing: 0.03em; }
+        .ui-label { font-family: 'Instrument Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.35em; font-size: 10px; font-weight: 700; }
+        .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
+        .header-link:hover { color: #E2C0B9; }
+        #mobile-nav { display: none; flex-direction: column; }
+        #mobile-nav.active { display: flex; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="w-full bg-[#E2C0B9] py-3 flex justify-center items-center" role="presentation">
+        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off your first order.</p>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="lg:hidden w-1/3">
+                <button onclick="toggleMenu()" class="header-link flex items-center gap-2" aria-label="Toggle Menu">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <span class="pointer-events-none">Menu</span>
+                </button>
+            </div>
+            <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="shop.html" class="header-link">Shop</a>
+                <a href="book.html" class="header-link">Work With Me</a>
+                <a href="about.html" class="header-link">About</a>
+                <a href="blog.html" class="header-link">Blog</a>
+                <a href="social.html" class="header-link">Links</a>
+            </nav>
+            <div class="w-1/3 lg:w-1/5 flex justify-center">
+                <a href="index.html">
+                    <img src="images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain">
+                </a>
+            </div>
+            <div class="w-1/3 lg:w-2/5 flex justify-end">
+                <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#E2C0B9] transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="header-link">Cart</span>
+                </a>
+            </div>
+        </div>
+        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2]">
+            <a href="index.html" class="header-link">Home</a>
+            <a href="shop.html" class="header-link">Shop</a>
+            <a href="book.html" class="header-link">Work With Me</a>
+            <a href="about.html" class="header-link">About</a>
+            <a href="blog.html" class="header-link">Blog</a>
+            <a href="social.html" class="header-link">Links</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bg-[#1a1a1a] py-20 px-6 text-center space-y-4">
+            <h1 class="playfair-italic text-5xl md:text-6xl text-white">Thank You</h1>
+            <p class="text-[10px] uppercase tracking-[0.5em] text-white/50">Your inquiry has been received</p>
+        </section>
+
+        <section class="max-w-2xl mx-auto py-24 px-6 text-center space-y-12">
+            <div class="space-y-6">
+                <p class="ui-label" style="color:#C99B92;">What Happens Next</p>
+                <h2 class="serif italic text-3xl md:text-4xl leading-[1.3]">Here's your Pricing and Services Guide.</h2>
+                <p class="text-sm text-[#2a2a2a] font-light leading-relaxed max-w-md mx-auto">Everything you need to understand your options, timelines, and investment. Download below, and expect a personal response from me within 48 hours.</p>
+            </div>
+
+            <div class="bg-white border border-black/5 shadow-sm p-12 space-y-8">
+                <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
+                <div class="space-y-3">
+                    <h3 class="serif italic text-2xl">Pricing and Services Guide</h3>
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-[#1a1a1a]/40 font-bold">The Intentional Tea · Work With Me</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1glISpFL1xBxihq2sy4HA0VeGsh6elme4/view?usp=sharing"
+                   target="_blank" rel="noopener"
+                   class="inline-block bg-[#1a1a1a] text-white px-12 py-4 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300">
+                    Download the Guide
+                </a>
+                <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">In the meantime, feel free to explore the shop or read the blog.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="shop.html" class="header-link border-b border-black/20 pb-1 hover:text-[#C99B92] hover:border-[#C99B92] transition-colors">Shop the Collection</a>
+                    <a href="blog.html" class="header-link border-b border-black/20 pb-1 hover:text-[#C99B92] hover:border-[#C99B92] transition-colors">Read the Blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#FAF7F2] py-4 px-6 border-t border-black/5" role="contentinfo">
+        <div class="max-w-sm mx-auto flex flex-col items-center gap-3 text-[8px] uppercase tracking-[0.3em] text-[#1a1a1a]/60">
+            <span class="text-[#1a1a1a]/70 font-semibold">© 2026 The Intentional Tea</span>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

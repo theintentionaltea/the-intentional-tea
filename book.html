@@ -363,7 +363,7 @@
                     <p class="text-sm text-[#2a2a2a] font-light max-w-md mx-auto">Fill this out and I'll send you a complete pricing PDF with next steps within 48 hours. No call required to get started.</p>
                 </div>
 
-                <form action="mailto:hello@theintentionaltea.com" method="get" class="space-y-8">
+                <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-8">
                     <div class="space-y-2">
                         <label class="ui-label text-[#1a1a1a]/70 block">Your Name</label>
                         <input type="text" name="name" placeholder="First and last" class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors placeholder-[#1a1a1a]/40">
@@ -384,7 +384,7 @@
                     </div>
                     <div class="space-y-2">
                         <label class="ui-label text-[#1a1a1a]/70 block">What are you building? What feels stuck?</label>
-                        <textarea name="body" rows="5" placeholder="Tell me about your vision, your blocks, and what you're hoping for. No editing needed." class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors resize-none placeholder-[#1a1a1a]/40 leading-relaxed"></textarea>
+                        <textarea name="message" rows="5" placeholder="Tell me about your vision, your blocks, and what you're hoping for. No editing needed." class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors resize-none placeholder-[#1a1a1a]/40 leading-relaxed"></textarea>
                     </div>
                     <div class="pt-2 space-y-4">
                         <button type="submit" class="w-full bg-black text-white py-5 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#1a1a1a] transition-all">
@@ -417,6 +417,44 @@
     </div>
 
     <script>
+        const BREVO_API_KEY = 'REPLACE_WITH_YOUR_BREVO_API_KEY';
+        const BUSINESS_ELEVATION_LIST_ID = 0;
+
+        async function handleInquirySubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.querySelector('input[name="name"]').value.trim();
+            const email = form.querySelector('input[name="email"]').value.trim();
+            const offering = form.querySelector('select[name="offering"]').value;
+            const message = form.querySelector('textarea[name="message"]').value.trim();
+            if (!name || !email) return;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            const offeringLabels = { starter: 'Elevation Starter', full: 'The Full Elevation', ongoing: 'Full Elevation + Ongoing Support', unsure: "I'm not sure yet" };
+            if (BREVO_API_KEY !== 'REPLACE_WITH_YOUR_BREVO_API_KEY' && BUSINESS_ELEVATION_LIST_ID !== 0) {
+                try {
+                    await fetch('https://api.brevo.com/v3/contacts', {
+                        method: 'POST',
+                        headers: { 'accept': 'application/json', 'api-key': BREVO_API_KEY, 'content-type': 'application/json' },
+                        body: JSON.stringify({ email, attributes: { FIRSTNAME: name.split(' ')[0], LASTNAME: name.split(' ').slice(1).join(' ') }, listIds: [BUSINESS_ELEVATION_LIST_ID], updateEnabled: true })
+                    });
+                    await fetch('https://api.brevo.com/v3/smtp/email', {
+                        method: 'POST',
+                        headers: { 'accept': 'application/json', 'api-key': BREVO_API_KEY, 'content-type': 'application/json' },
+                        body: JSON.stringify({
+                            sender: { name: 'The Intentional Tea', email: 'hello@theintentionaltea.com' },
+                            to: [{ email: 'theintentionaltea@gmail.com', name: 'Tiara' }],
+                            replyTo: { email: email, name: name },
+                            subject: `New Inquiry: ${name} — ${offeringLabels[offering] || offering}`,
+                            htmlContent: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Offering:</strong> ${offeringLabels[offering] || offering}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`
+                        })
+                    });
+                } catch (err) {}
+            }
+            window.location.href = 'thank-you.html';
+        }
+
         function toggleMenu() {
             const nav = document.getElementById('mobile-nav');
             nav.classList.toggle('active');
