@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Display:ital,wght@0,300;1,300&family=Instrument+Sans:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
 
         body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
         h1, h2, h3, h4, .serif { font-family: 'Noto Serif Display', serif; font-weight: 300; letter-spacing: 0.03em; }
+        .serif-regular { font-family: 'Noto Serif Display', serif; font-weight: 400; letter-spacing: 0.03em; }
         .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
 
         .bg-rose { background-color: #E2C0B9; }
@@ -55,7 +56,7 @@
 <body class="antialiased">
 
     <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off your first order.</p>
+        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Free digital stickers + 20% off — join our mailing list.</p>
     </div>
 
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
@@ -282,7 +283,7 @@
         <section class="fade-up bg-rose py-24 px-6 mt-8">
             <div class="max-w-5xl mx-auto">
                 <div class="bg-white p-12 md:p-14 flex flex-col items-center text-center space-y-6 shadow-sm border border-black/5">
-                    <h2 class="text-2xl md:text-4xl serif italic">Enjoy 20% off your first order.</h2>
+                    <h2 class="text-2xl md:text-4xl serif-regular italic">Enjoy 20% off your first order.</h2>
                     <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-bold">Join our mailing list. Discount code delivered by email after signup.</p>
                     <form onsubmit="handleNewsletterSubmit(event)" class="w-full max-w-md flex flex-col gap-6">
                         <input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email for newsletter" class="bg-transparent border-b border-black/20 py-3 text-[10px] w-full outline-none uppercase tracking-widest text-center focus:border-[#C99B92] transition-colors">
@@ -305,16 +306,6 @@
             </div>
         </div>
     </footer>
-
-    <div id="newsletter-popup" class="fixed inset-0 z-[200] hidden items-center justify-center p-6 bg-black/50 backdrop-blur-sm" onclick="closeNewsletterPopup()">
-        <div class="bg-white max-w-md w-full p-12 text-center space-y-6 shadow-2xl" onclick="event.stopPropagation()">
-            <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
-            <h3 class="playfair text-3xl">You're in!</h3>
-            <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Use code <strong class="font-bold tracking-widest">INTENTIONAL20</strong> for 20% off your order.</p>
-            <button onclick="closeNewsletterPopup()" class="inline-block bg-[#1a1a1a] text-white px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all">Keep Shopping</button>
-            <div class="w-8 h-[1px] bg-[#E2C0B9] mx-auto"></div>
-        </div>
-    </div>
 
     <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
@@ -345,21 +336,7 @@
                     });
                 } catch (err) {}
             }
-            showNewsletterPopup();
-        }
-
-        function showNewsletterPopup() {
-            const popup = document.getElementById('newsletter-popup');
-            popup.style.display = 'flex';
-            popup.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeNewsletterPopup() {
-            const popup = document.getElementById('newsletter-popup');
-            popup.style.display = 'none';
-            popup.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            window.location.href = 'thank-you-newsletter.html';
         }
 
         function toggleMenu() {

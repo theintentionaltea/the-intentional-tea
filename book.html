@@ -59,7 +59,7 @@
 <body class="antialiased">
 
     <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off your first order.</p>
+        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Free digital stickers + 20% off — join our mailing list.</p>
     </div>
 
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
@@ -365,16 +365,16 @@
 
                 <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-8">
                     <div class="space-y-2">
-                        <label class="ui-label text-[#1a1a1a]/70 block">Your Name</label>
-                        <input type="text" name="name" placeholder="First and last" class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors placeholder-[#1a1a1a]/40">
+                        <label for="inquiry-name" class="ui-label text-[#1a1a1a]/70 block">Your Name</label>
+                        <input id="inquiry-name" type="text" name="name" placeholder="First and last" required class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors placeholder-[#1a1a1a]/40">
                     </div>
                     <div class="space-y-2">
-                        <label class="ui-label text-[#1a1a1a]/70 block">Email Address</label>
-                        <input type="email" name="email" placeholder="hello@yourdomain.com" class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors placeholder-[#1a1a1a]/40">
+                        <label for="inquiry-email" class="ui-label text-[#1a1a1a]/70 block">Email Address</label>
+                        <input id="inquiry-email" type="email" name="email" placeholder="hello@yourdomain.com" required class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors placeholder-[#1a1a1a]/40">
                     </div>
                     <div class="space-y-2">
-                        <label class="ui-label text-[#1a1a1a]/70 block">Which offering interests you?</label>
-                        <select name="offering" class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors text-gray-700 appearance-none cursor-pointer">
+                        <label for="inquiry-offering" class="ui-label text-[#1a1a1a]/70 block">Which offering interests you?</label>
+                        <select id="inquiry-offering" name="offering" class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors text-[#1a1a1a] appearance-none cursor-pointer">
                             <option value="" disabled selected>Select one</option>
                             <option value="starter">Elevation Starter</option>
                             <option value="full">The Full Elevation</option>
@@ -383,8 +383,8 @@
                         </select>
                     </div>
                     <div class="space-y-2">
-                        <label class="ui-label text-[#1a1a1a]/70 block">What are you building? What feels stuck?</label>
-                        <textarea name="message" rows="5" placeholder="Tell me about your vision, your blocks, and what you're hoping for. No editing needed." class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors resize-none placeholder-[#1a1a1a]/40 leading-relaxed"></textarea>
+                        <label for="inquiry-message" class="ui-label text-[#1a1a1a]/70 block">What are you building? What feels stuck?</label>
+                        <textarea id="inquiry-message" name="message" rows="5" placeholder="Tell me about your vision, your blocks, and what you're hoping for. No editing needed." class="w-full bg-transparent border-b border-black/20 py-3 text-sm outline-none focus:border-[#C99B92] transition-colors resize-none placeholder-[#1a1a1a]/40 leading-relaxed"></textarea>
                     </div>
                     <div class="pt-2 space-y-4">
                         <button type="submit" class="w-full bg-black text-white py-5 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#1a1a1a] transition-all">
