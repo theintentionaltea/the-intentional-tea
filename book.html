@@ -178,7 +178,7 @@
                     <!-- Business Elevation — white card -->
                     <div class="service-card p-10 flex flex-col gap-8 bg-white">
                         <div class="space-y-3">
-                            <p class="ui-label text-[#1a1a1a]/60" style="font-size:9px; letter-spacing:0.3em;">Business Elevation</p>
+                            <p class="ui-label text-[#C99B92]">Business Elevation</p>
                         </div>
                         <div class="space-y-4 flex-1">
                             <h3 class="display-italic text-2xl leading-snug text-[#1a1a1a]">Your entire backend, built out.</h3>
@@ -191,6 +191,13 @@
                     </div>
 
                 </div>
+
+                <!-- Bridge: not ready to book -->
+                <div class="hairline-t pt-8 text-center space-y-3">
+                    <p class="text-sm text-[#2a2a2a] font-light">Not sure which service fits your stage? Fill out the inquiry form below and I'll send a recommendation within 48 hours.</p>
+                    <a href="#inquiry-form" class="text-[10px] uppercase tracking-[0.25em] font-bold text-[#C99B92] hover:underline">Go to the form →</a>
+                </div>
+
             </div>
         </section>
 
@@ -244,16 +251,22 @@
             </div>
         </section>
 
-        <!-- Newsletter CTA -->
-        <section class="bg-[#E2C0B9] py-24 px-6">
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-white p-12 md:p-14 flex flex-col items-center text-center space-y-6 shadow-sm border border-black/5 rounded-md">
-                    <h2 class="text-2xl md:text-4xl playfair">Enjoy 20% off your first order.</h2>
-                    <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-bold">Join our mailing list. Discount code delivered by email after signup.</p>
-                    <form onsubmit="handleNewsletterSubmit(event)" class="w-full max-w-md flex flex-col gap-6">
-                        <input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email for newsletter" class="bg-transparent border-b border-black/20 py-3 text-[10px] w-full outline-none uppercase tracking-widest text-center focus:border-[#C99B92] transition-colors">
-                        <button type="submit" class="bg-black text-white px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#C99B92] transition-all">Join the List</button>
-                    </form>
+        <!-- Inquiry Form -->
+        <section id="inquiry-form" class="bg-[#FAF7F2] py-20 px-6">
+            <div class="max-w-5xl mx-auto space-y-10">
+                <div class="text-center space-y-4">
+                    <p class="ui-label text-[#C99B92]">Ready to Begin</p>
+                    <h2 class="display-italic text-4xl md:text-5xl leading-[1.2]">Tell me about your business.</h2>
+                    <p class="text-sm text-[#2a2a2a] font-light max-w-md mx-auto">Fill this out and I'll follow up within 48 hours with a recommendation and next steps.</p>
+                </div>
+                <div class="bg-white border border-black/5 rounded-md overflow-hidden shadow-sm">
+                    <iframe
+                        src="https://insidious-ski-77b.notion.site/ebd//7beafa44053541bda39c66bbc2538d23"
+                        width="100%"
+                        style="min-height:700px; border:0; display:block;"
+                        title="Business Inquiry Form"
+                        loading="lazy"
+                    ></iframe>
                 </div>
             </div>
         </section>
