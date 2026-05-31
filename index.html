@@ -20,7 +20,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
 
-        body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
+        body { background-color: #FAF7F2; color: #2D2826; font-family: 'Instrument Sans', sans-serif; }
         h1, h2, h3, h4, .serif { font-family: 'Noto Serif Display', serif; font-weight: 300; letter-spacing: 0.03em; }
         .serif-regular { font-family: 'Noto Serif Display', serif; font-weight: 400; letter-spacing: 0.03em; }
         .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
@@ -44,7 +44,7 @@
 <body class="antialiased">
 
     <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Free digital stickers + 20% off — join our mailing list.</p>
+        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Free stickers &amp; e-books + 20% off — join our mailing list.</p>
     </div>
 
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
@@ -103,10 +103,12 @@
             </div>
         </section>
 
+        <div class="rule-gradient"></div>
+
         <section class="fade-up bg-white py-24 px-6 text-center">
             <div class="max-w-4xl mx-auto">
                 <h3 class="text-[14px] uppercase tracking-[0.5em] text-rose font-bold mb-8">Our Philosophy</h3>
-                <p class="serif-regular italic text-3xl md:text-4xl text-[#1a1a1a] leading-relaxed">A digital ecosystem designed to bridge the gap between where you are and <span class="underline underline-offset-8 decoration-1" style="color:#C99B92;">who you are becoming.</span></p>
+                <p class="serif italic text-3xl md:text-4xl text-[#2D2826] leading-relaxed">A digital ecosystem designed to bridge the gap between where you are and <span style="color:#C99B92;">who you are becoming.</span></p>
             </div>
         </section>
 
@@ -114,17 +116,17 @@
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
                 <div class="space-y-4">
                     <span class="playfair text-5xl text-white">01</span>
-                    <h3 class="text-[14px] uppercase tracking-[0.2em] font-bold">Intentional by Design</h3>
+                    <h3 class="text-[10px] uppercase tracking-[0.2em] font-bold">Intentional by Design</h3>
                     <p class="text-[15px] text-black/70 font-light px-6">Whether it's your life or your livelihood, everything here is built to work, not just look good.</p>
                 </div>
                 <div class="space-y-4">
                     <span class="playfair text-5xl text-white">02</span>
-                    <h3 class="text-[14px] uppercase tracking-[0.2em] font-bold">Personal Organization</h3>
+                    <h3 class="text-[10px] uppercase tracking-[0.2em] font-bold">Personal Organization</h3>
                     <p class="text-[15px] text-black/70 font-light px-6">Planners, systems, and tools built for the woman designing her daily life with intention.</p>
                 </div>
                 <div class="space-y-4">
                     <span class="playfair text-5xl text-white">03</span>
-                    <h3 class="text-[14px] uppercase tracking-[0.2em] font-bold">Business Infrastructure</h3>
+                    <h3 class="text-[10px] uppercase tracking-[0.2em] font-bold">Business Infrastructure</h3>
                     <p class="text-[15px] text-black/70 font-light px-6">Operational systems and digital infrastructure for small businesses done running on chaos.</p>
                 </div>
             </div>
@@ -132,18 +134,20 @@
 
         <section class="fade-up max-w-7xl mx-auto py-16 px-6">
             <div class="space-y-10">
-                <div class="text-center space-y-4">
-                    <p class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">The Collection</p>
-                    <h2 class="text-4xl md:text-5xl serif-regular italic">Digital Planning</h2>
-                    <div class="w-12 h-[1px] bg-rose mx-auto"></div>
-                    <p class="text-sm text-[#2a2a2a] font-light max-w-xl mx-auto">Tools you purchase once and use for years. Undated, hyperlinked, and built to move with your life.</p>
+                <div class="flex items-end justify-between border-b border-black/10 pb-6">
+                    <div class="space-y-2">
+                        <p class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">The Collection</p>
+                        <h2 class="text-4xl md:text-5xl serif italic">Digital Planning</h2>
+                    </div>
+                    <a href="shop.html" class="text-[10px] uppercase tracking-[0.2em] font-bold border-b border-black pb-1 hover:text-rose hover:border-rose transition-colors whitespace-nowrap mb-2">View All →</a>
                 </div>
+                <p class="text-sm text-[#2D2826] font-light max-w-xl">Tools you purchase once and use for years. Undated, hyperlinked, and built to move with your life.</p>
                 <div class="flex items-center gap-4 md:gap-8">
-                    <button id="carousel-prev" onclick="carouselPrev()" class="flex-shrink-0 w-12 h-12 border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all" aria-label="Previous products">
+                    <button id="carousel-prev" onclick="carouselPrev()" class="flex-shrink-0 w-12 h-12 border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all rounded-md" aria-label="Previous products">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
                     <div id="product-carousel" class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 min-h-[380px]"></div>
-                    <button id="carousel-next" onclick="carouselNext()" class="flex-shrink-0 w-12 h-12 border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all" aria-label="Next products">
+                    <button id="carousel-next" onclick="carouselNext()" class="flex-shrink-0 w-12 h-12 border border-black/20 flex items-center justify-center hover:bg-black hover:text-white transition-all rounded-md" aria-label="Next products">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
                 </div>
@@ -151,62 +155,64 @@
             </div>
         </section>
 
-        <section class="fade-up bg-black py-28 px-6 text-white text-center">
-            <div class="max-w-3xl mx-auto space-y-6">
-                <h3 class="text-[14px] uppercase tracking-[0.5em] text-rose font-bold">Personalized Support</h3>
-                <h2 class="text-4xl md:text-5xl serif-regular italic leading-tight">Beyond the Frameworks</h2>
-                <div class="w-12 h-[1px] bg-rose mx-auto my-6"></div>
-                <p class="text-lg font-light leading-relaxed max-w-xl mx-auto text-gray-300">While digital tools provide the structure, our custom services and reports go deeper.</p>
+        <section class="fade-up bg-black py-24 px-6 text-white">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-6 md:pt-4">
+                    <p class="text-[10px] uppercase tracking-[0.5em] text-rose font-bold">Personalized Support</p>
+                    <h2 class="text-4xl md:text-5xl serif italic leading-tight">Beyond the Frameworks</h2>
+                    <div class="w-12 h-[1px] bg-rose"></div>
+                    <p class="text-base font-light leading-relaxed text-gray-300 max-w-sm">While digital tools provide the structure, our custom services and reports go deeper.</p>
+                    <a href="book.html" class="inline-block bg-[#E2C0B9] text-black px-10 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition-all">Explore Services</a>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white overflow-hidden group rounded-md">
+                        <div class="bg-white flex items-center justify-center p-6 aspect-[4/3]">
+                            <img src="images/Astrology_Report_Home.png" alt="The Intentional Astrology Report" class="h-full w-auto max-w-full shadow-lg group-hover:scale-[1.03] transition-transform duration-700 object-contain">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <span class="text-[9px] uppercase tracking-[0.4em] text-rose font-bold">The Signature Experience</span>
+                            <h3 class="text-lg serif italic leading-snug text-[#2D2826]">The Intentional Astrology Report</h3>
+                            <p class="text-xs font-light text-[#2D2826]/70 leading-relaxed">A personalized birth chart reading synthesizing Astrology, Human Design, and Tarot.</p>
+                            <div class="flex items-center justify-between pt-3 border-t border-black/5">
+                                <span class="text-sm font-light text-[#2D2826]">$111.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/grjtk" class="gumroad-scroll text-[9px] uppercase tracking-widest font-bold text-[#2D2826] border-b border-[#2D2826] hover:text-rose hover:border-rose transition-colors">Order →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white overflow-hidden group rounded-md">
+                        <div class="bg-white flex items-center justify-center p-6 aspect-[4/3]">
+                            <img src="images/Business_Services_Home.png" alt="Business Elevation Services" class="h-full w-auto max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-700">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <span class="text-[9px] uppercase tracking-[0.4em] text-rose font-bold">Business Elevation</span>
+                            <h3 class="text-lg serif italic leading-snug text-[#2D2826]">Your business works. Let's make it run.</h3>
+                            <p class="text-xs font-light text-[#2D2826]/70 leading-relaxed">Operational systems and digital infrastructure for small businesses done doing everything manually.</p>
+                            <div class="flex items-center justify-between pt-3 border-t border-black/5">
+                                <span class="text-sm font-light text-[#2D2826]">Custom Pricing</span>
+                                <a href="book.html" class="text-[9px] uppercase tracking-widest font-bold text-[#2D2826] border-b border-[#2D2826] hover:text-rose hover:border-rose transition-colors">Learn More →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="fade-up max-w-7xl mx-auto py-24 px-6">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="border border-black/5 bg-white overflow-hidden group">
-                    <div class="bg-gray-50 flex items-center justify-center p-10 aspect-video">
-                        <img src="images/Astrology_Report_Home.png" alt="The Intentional Astrology Report" class="h-full w-auto max-w-full shadow-xl group-hover:scale-[1.02] transition-transform duration-700 object-contain">
-                    </div>
-                    <div class="p-10 space-y-5">
-                        <span class="text-[10px] uppercase tracking-[0.5em] text-rose font-bold">The Signature Experience</span>
-                        <h2 class="text-3xl md:text-4xl italic serif leading-tight">The Intentional Astrology Report</h2>
-                        <p class="text-sm leading-relaxed text-[#2a2a2a] font-light">A personalized birth chart reading synthesizing Astrology, Human Design, and Tarot.</p>
-                        <div class="pt-2 flex items-center justify-between">
-                            <span class="text-lg font-light">$111.00</span>
-                            <a href="https://intentionaltea.gumroad.com/l/grjtk" class="gumroad-scroll bg-black text-white px-8 py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-rose transition-colors">Order Your Report</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="border border-black/5 bg-white overflow-hidden group">
-                    <div class="bg-[#ECE7DC] flex items-center justify-center p-10 aspect-video">
-                        <img src="images/Business_Services_Home.png" alt="Business Elevation Services" class="h-full w-auto max-w-full object-contain group-hover:scale-[1.02] transition-transform duration-700">
-                    </div>
-                    <div class="p-10 space-y-5">
-                        <span class="text-[10px] uppercase tracking-[0.5em] text-rose font-bold">Business Elevation</span>
-                        <h2 class="text-3xl md:text-4xl italic serif leading-tight">Your business works. Let's make it run.</h2>
-                        <p class="text-sm leading-relaxed text-[#2a2a2a] font-light">Operational systems and digital infrastructure for small businesses done doing everything manually.</p>
-                        <div class="pt-2 flex items-center justify-between">
-                            <span class="text-lg font-light">Custom Pricing</span>
-                            <a href="book.html" class="inline-block bg-black text-white px-8 py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-rose transition-colors">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="rule-gradient"></div>
 
         <section class="fade-up bg-white py-20 px-6">
             <div class="max-w-3xl mx-auto text-center space-y-4">
                 <h3 class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">The Final Step</h3>
-                <h2 class="serif-regular italic text-3xl md:text-4xl text-[#1a1a1a]">Transformation is not found in the acquisition of tools, but in the <span style="color:#C99B92;">daily integration</span> of your truth.</h2>
-                <p class="text-xs font-light text-[#2a2a2a]/70 leading-relaxed max-w-lg mx-auto pt-4">After the framework is set and the report is read, the real work begins in the quiet moments of your morning.</p>
+                <h2 class="serif italic text-3xl md:text-4xl text-[#2D2826]">Transformation is not found in the acquisition of tools, but in the <span style="color:#C99B92;">daily integration</span> of your truth.</h2>
+                <p class="text-xs font-light text-[#2D2826]/70 leading-relaxed max-w-lg mx-auto pt-4">After the framework is set and the report is read, the real work begins in the quiet moments of your morning.</p>
             </div>
         </section>
 
-        <div class="bg-[#FAF7F2] h-24 w-full"></div>
+        <div class="rule-gradient"></div>
 
         <section class="fade-up bg-rose py-24 px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="bg-white p-12 md:p-14 flex flex-col items-center text-center space-y-6 shadow-sm">
-                    <h2 class="text-2xl md:text-4xl serif-regular italic">Enjoy 20% off your first order.</h2>
+                <div class="bg-white p-12 md:p-14 flex flex-col items-center text-center space-y-6 shadow-sm rounded-md">
+                    <h2 class="text-2xl md:text-4xl serif italic">Enjoy 20% off your first order.</h2>
                     <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold">Join our mailing list. Discount code delivered by email after signup.</p>
                     <form onsubmit="handleNewsletterSubmit(event)" class="w-full max-w-md flex flex-col gap-6">
                         <label for="newsletter-email-home" class="sr-only">Email address</label>
@@ -219,8 +225,8 @@
     </main>
 
     <footer class="bg-[#FAF7F2] py-4 px-6 border-t border-black/5" role="contentinfo">
-        <div class="max-w-sm mx-auto flex flex-col items-center gap-3 text-[8px] uppercase tracking-[0.3em] text-[#1a1a1a]/60">
-            <span class="text-[#1a1a1a]/70 font-semibold">© 2026 The Intentional Tea</span>
+        <div class="max-w-sm mx-auto flex flex-col items-center gap-3 text-[8px] uppercase tracking-[0.3em] text-[#2D2826]/60">
+            <span class="text-[#2D2826]/70 font-semibold">© 2026 The Intentional Tea</span>
             <div class="flex gap-6">
                 <button onclick="openModal('terms')" class="hover:text-black transition-colors">Terms</button>
                 <button onclick="openModal('refund')" class="hover:text-black transition-colors">Refunds</button>
