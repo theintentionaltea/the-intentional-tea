@@ -311,27 +311,21 @@
     </div>
 
     <script>
-        const BREVO_API_KEY = 'REPLACE_WITH_YOUR_BREVO_API_KEY';
-        const DIGITAL_PRODUCTS_LIST_ID = 0;
-
         async function handleNewsletterSubmit(e) {
             e.preventDefault();
             const form = e.target;
-            const emailInput = form.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
+            const email = form.querySelector('input[type="email"]').value.trim();
             if (!email) return;
             const btn = form.querySelector('button[type="submit"]');
             btn.textContent = 'Subscribing...';
             btn.disabled = true;
-            if (BREVO_API_KEY !== 'REPLACE_WITH_YOUR_BREVO_API_KEY' && DIGITAL_PRODUCTS_LIST_ID !== 0) {
-                try {
-                    await fetch('https://api.brevo.com/v3/contacts', {
-                        method: 'POST',
-                        headers: { 'accept': 'application/json', 'api-key': BREVO_API_KEY, 'content-type': 'application/json' },
-                        body: JSON.stringify({ email, listIds: [DIGITAL_PRODUCTS_LIST_ID], updateEnabled: true })
-                    });
-                } catch (err) {}
-            }
+            try {
+                await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ email, listId: 7 })
+                });
+            } catch (err) {}
             window.location.href = 'thank-you-newsletter.html';
         }
 
