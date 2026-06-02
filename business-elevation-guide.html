@@ -616,24 +616,48 @@
   /* ── PRINT ── */
   @media print {
     html, body { background: white; margin: 0; padding: 0; }
+
     .page {
       width: 100%;
+      height: 100vh;
       min-height: 0;
       margin: 0;
       padding: 0;
       box-shadow: none;
       border: none;
-      overflow: visible;
+      overflow: hidden;
       page-break-after: always;
       break-after: page;
-      page-break-inside: avoid;
-      break-inside: avoid;
     }
     .page:last-child { page-break-after: auto; break-after: auto; }
+
+    /* Tighten interior page padding so content fits */
+    .page-inner {
+      padding: 48px 56px;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .page-header {
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+    }
+
+    /* Slightly compress headings and body spacing */
+    .section-heading { font-size: 34px; margin-bottom: 6px; }
+    .section-body p { margin-bottom: 10px; }
+    .bullet-list li { padding: 5px 0; }
+    .callout { padding: 18px 24px; margin: 14px 0; }
+    .phase-content { padding-bottom: 18px; }
+    .timeline { margin-top: 16px; }
+
+    /* Cover and close fill the page */
     .cover { height: 100vh; min-height: 0; }
-    .close-page { min-height: 100vh; }
-    .page-inner { overflow: visible; }
+    .cover-body { padding: 56px 72px 40px; }
+    .cover-toc { padding: 20px 72px; }
+    .close-page { min-height: 100vh; padding: 60px; }
+
     .phase, .pkg-card, .faq-item, .callout { page-break-inside: avoid; break-inside: avoid; }
+
     @page { margin: 0; size: letter portrait; }
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
   }
