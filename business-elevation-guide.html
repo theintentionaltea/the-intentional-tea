@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Elevation Services & Pricing Guide — The Intentional Tea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-2: #F2E2DD;
+    --cream-3: #EDE3DD;
+    --ink: #2D2826;
+    --ink-2: #2D2826;
+    --muted: rgba(45,40,38,0.55);
+    --rose: #B58880;
+    --rose-light: #E4C7BF;
+    --line: rgba(45,40,38,0.15);
+    --page-w: 760px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #EDE3DD;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: var(--page-w);
+    min-height: 1076px;
+    background: var(--cream);
+    margin: 32px auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .serif { font-family: 'Noto Serif Display', serif; }
+  .serif-italic { font-family: 'Noto Serif Display', serif; font-style: italic; }
+  .ui { font-family: 'Jost', sans-serif; }
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+  }
+
+  /* ── DIAMOND ── */
+  .diamond {
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--rose);
+    transform: rotate(45deg);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .diamond-outline {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border: 1px solid var(--rose);
+    transform: rotate(45deg);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    height: 1px;
+    background: var(--line);
+    flex: 1;
+  }
+
+  /* ── HAIRLINE ── */
+  .hairline { border: 1px solid var(--line); }
+  .hairline-rose { border: 1px solid var(--rose-light); }
+  hr.rule { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+
+  /* ── PAGE 1: COVER ── */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    height: 1076px;
+    background: var(--cream);
+    position: relative;
+  }
+  .cover-top-band {
+    background: var(--ink-2);
+    padding: 14px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cover-top-band span {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 60px;
+    position: relative;
+  }
+  .cover-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 32px;
+  }
+  .cover-title {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 72px;
+    line-height: 1.0;
+    font-weight: 400;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+  .cover-subtitle {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--ink-2);
+    margin-bottom: 48px;
+  }
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose);
+    margin-bottom: 32px;
+  }
+  .cover-description {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 60px;
+  }
+  .cover-url {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .cover-corner-ornament {
+    position: absolute;
+    bottom: 60px;
+    right: 80px;
+    text-align: right;
+  }
+  .cover-toc {
+    border-top: 1px solid var(--line);
+    padding: 28px 80px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .cover-toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── INTERIOR PAGES ── */
+  .page-inner {
+    padding: 64px 72px;
+    min-height: 1076px;
+    display: flex;
+    flex-direction: column;
+  }
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 48px;
+  }
+  .page-num {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .page-title-sm {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-heading {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+  }
+  .section-heading em { font-style: italic; color: var(--rose); }
+  .section-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .section-body p { margin-bottom: 16px; }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── BULLET LIST ── */
+  .bullet-list { list-style: none; margin-top: 16px; }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(26,26,26,0.06);
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li .diamond { margin-top: 5px; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--cream-2);
+    border: 1px solid var(--line);
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+  .callout-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+  .callout p {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* ── PHASE TIMELINE ── */
+  .timeline { margin-top: 24px; }
+  .phase {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 24px;
+    margin-bottom: 0;
+  }
+  .phase-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .phase-num {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--rose);
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--rose-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .phase-line {
+    width: 1px;
+    flex: 1;
+    background: var(--line);
+    margin: 4px auto;
+    min-height: 24px;
+  }
+  .phase-content { padding-bottom: 28px; }
+  .phase-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 6px;
+    margin-top: 8px;
+  }
+  .phase-body {
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .phase:last-child .phase-line { display: none; }
+
+  /* ── PACKAGE CARDS ── */
+  .packages { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+  .pkg-card {
+    border: 1px solid var(--line);
+    padding: 24px 28px;
+    position: relative;
+  }
+  .pkg-card.featured {
+    border-color: var(--rose-light);
+    background: linear-gradient(135deg, var(--cream) 0%, #F7F0E8 100%);
+  }
+  .pkg-featured-badge {
+    position: absolute;
+    top: -1px; right: 28px;
+    background: var(--rose);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+  }
+  .pkg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .pkg-name {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink-2);
+  }
+  .pkg-name em { font-style: italic; }
+  .pkg-price { text-align: right; }
+  .pkg-price-main {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink-2);
+  }
+  .pkg-price-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .pkg-timeline {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 10px;
+  }
+  .pkg-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pkg-includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .pkg-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: rgba(26,26,26,0.05);
+    padding: 3px 9px;
+  }
+
+  /* ── ONGOING SUPPORT ADD-ON ── */
+  .addon-section {
+    margin-top: 24px;
+    border: 1px solid var(--rose-light);
+    background: var(--cream-2);
+    padding: 20px 28px;
+  }
+  .addon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .addon-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+  .addon-name {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink-2);
+  }
+  .addon-name em { font-style: italic; }
+  .addon-pricing {
+    display: flex;
+    gap: 20px;
+    margin-top: 4px;
+  }
+  .addon-tier {
+    text-align: center;
+  }
+  .addon-tier-price {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+  .addon-tier-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .addon-note {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ── VALUE COMPARISON ── */
+  .value-table {
+    margin-top: 24px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .value-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: var(--ink-2);
+    padding: 12px 20px;
+  }
+  .value-table-header span {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .value-table-header span:not(:first-child) { text-align: right; }
+  .value-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 11px 20px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .value-row:last-child { border-bottom: none; }
+  .value-row:nth-child(even) { background: rgba(26,26,26,0.02); }
+  .value-item {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .value-market {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+  }
+  .value-included {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: var(--rose);
+    text-align: right;
+    font-weight: 500;
+  }
+  .value-total-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 14px 20px;
+    background: var(--cream-2);
+    border-top: 2px solid var(--rose-light);
+  }
+  .value-total-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .value-total-market {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 16px;
+    color: var(--muted);
+    text-align: right;
+    text-decoration: line-through;
+    text-decoration-color: var(--rose);
+  }
+  .value-total-price {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink-2);
+    text-align: right;
+    font-weight: 400;
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-q {
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+  }
+  .faq-a {
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  /* ── CLOSE PAGE ── */
+  .close-page {
+    background: var(--ink-2);
+    min-height: 1076px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    text-align: center;
+  }
+  .close-headline {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .close-headline em { font-style: italic; color: var(--rose-light); }
+  .close-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    line-height: 1.75;
+    color: rgba(250,247,242,0.6);
+    max-width: 480px;
+    margin: 24px auto 48px;
+  }
+  .close-cta {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--rose-light);
+    border: 1px solid rgba(201,155,146,0.4);
+    padding: 14px 36px;
+    display: inline-block;
+  }
+  .close-url {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.35);
+    margin-top: 48px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    html, body { background: white; margin: 0; padding: 0; }
+    .page {
+      width: 100%;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      border: none;
+      overflow: visible;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .page:last-child { page-break-after: auto; break-after: auto; }
+    .cover { height: 100vh; min-height: 0; }
+    .close-page { min-height: 100vh; }
+    .page-inner { overflow: visible; }
+    .phase, .pkg-card, .faq-item, .callout { page-break-inside: avoid; break-inside: avoid; }
+    @page { margin: 0; size: letter portrait; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-top-band">
+      <span>The Intentional Tea</span>
+      <span>Business Elevation Services</span>
+      <span>theintentionaltea.com</span>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">Services & Pricing Guide</div>
+      <div class="cover-title serif">Business<br><em>Elevation.</em></div>
+      <div class="cover-subtitle serif">Infrastructure for businesses<br>built to last.</div>
+      <div class="cover-divider"></div>
+      <div class="cover-description">
+        Operational systems, digital infrastructure, and business elevation for small businesses done doing everything manually. This guide covers how the work is done, what's included in each engagement, and how to get started.
+      </div>
+      <div class="cover-url">theintentionaltea.com/work-with-me</div>
+      <div class="cover-corner-ornament">
+        <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end;">
+          <div class="diamond-outline"></div>
+          <div class="diamond"></div>
+          <div class="diamond-outline"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-toc">
+      <div class="cover-toc-item"><div class="diamond"></div> Who This Is For</div>
+      <div class="cover-toc-item"><div class="diamond"></div> The Process</div>
+      <div class="cover-toc-item"><div class="diamond"></div> Packages & Pricing</div>
+      <div class="cover-toc-item"><div class="diamond"></div> What It's Worth</div>
+      <div class="cover-toc-item"><div class="diamond"></div> How It Works</div>
+      <div class="cover-toc-item"><div class="diamond"></div> FAQ</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: HELLO -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">02</span>
+      <span class="page-title-sm">Hello & Welcome</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Hello & Welcome</div>
+    <div class="section-heading">I'm Tiara —<br>and your business<br>deserves infrastructure<br>that actually <em>holds.</em></div>
+    <div style="margin-top:36px;" class="section-body">
+      <p>I spent six years in corporate operations, sales enablement, and instructional design, building the systems that kept other people's companies running. Then I left, built my own digital business from scratch — products, content systems, automation workflows, multi-platform strategy — and figured out pretty quickly what the difference is between a business that looks operational and one that actually is.</p>
+      <p>The gap is almost never the product. Small businesses that reach out to me already have the thing — a real service, real customers, real years of experience. What they're missing is the structure around it: consistent pricing, a professional web presence, booking systems that don't require a text to every customer, and documentation that makes the whole thing run without the owner being the connective tissue for everything.</p>
+      <p>That's what Business Elevation is. I come in, do the research they'd never do themselves, build the infrastructure, and hand them something that runs. They keep doing what they're good at. The backend handles itself.</p>
+    </div>
+    <div class="callout" style="margin-top:auto;">
+      <div class="callout-label">In this guide</div>
+      <p>You'll find a breakdown of the methodology, what's included in each engagement, what to expect from the process, and the details you need to decide what's right for your business.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: WHO -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">03</span>
+      <span class="page-title-sm">Who This Is For</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Who This Is For</div>
+    <div class="section-heading">Your business is<br>running. But <em>you're</em><br>the one holding<br>it together.</div>
+    <div style="margin-top:20px;" class="section-body">
+      <p>This is for established businesses with a real product and real customers — not businesses still finding their footing. The operational chaos comes from not having professional infrastructure, not from lacking a viable offer.</p>
+    </div>
+    <ul class="bullet-list" style="margin-top:24px;">
+      <li><div class="diamond"></div><span>Customers reach out but your booking process is chaos — texts, DMs, verbal confirmations, none of it connected</span></li>
+      <li><div class="diamond"></div><span>Your pricing is inconsistent, or you've been quoting from memory and you're not sure your numbers are right anymore</span></li>
+      <li><div class="diamond"></div><span>You have no website, or the one you have doesn't reflect where you actually are or what you actually charge</span></li>
+      <li><div class="diamond"></div><span>You're doing manually what should be automated — confirmations, reminders, follow-ups, payment collection</span></li>
+      <li><div class="diamond"></div><span>You've been meaning to "get organized" for a while, but the day-to-day keeps coming and it never happens</span></li>
+      <li><div class="diamond"></div><span>Someone handed you a referral and you want to look and function like the business the referral implied you were</span></li>
+    </ul>
+    <div class="callout" style="margin-top:32px;">
+      <div class="callout-label">This is not for</div>
+      <p>Businesses just starting out that need help finding their product or audience. Business Elevation is for businesses that already have the product, the customers, and the track record — and need someone to build the professional infrastructure around what's already working.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: PROCESS -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">04</span>
+      <span class="page-title-sm">The Process</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">The Methodology</div>
+    <div class="section-heading">Five phases.<br>One <em>complete</em><br>operational build.</div>
+    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
+      <p>Every engagement follows the same five-phase structure. The depth and deliverables scale by tier — but the methodology is consistent regardless of which package you choose.</p>
+    </div>
+    <div class="timeline">
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">01</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Discovery</div>
+          <div class="phase-body">An independent audit of everything that already exists — Google Drive, existing forms, social accounts, whatever you have. I review it before asking questions, so when we talk, we're not starting from zero.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">02</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Research & Analysis</div>
+          <div class="phase-body">Four to six direct competitors researched. Pricing history reconstructed. Market rates mapped. Tool audit completed. You would never spend eight hours doing this. I do it once, document it cleanly, and hand you conclusions that would have taken months to arrive at.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">03</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">The Business Elevation Report</div>
+          <div class="phase-body">Your signature deliverable. A complete professional document covering competitive landscape, unified pricing recommendation, add-on and upsell strategy, operations framework, website plan, and tech stack. It's yours whether you continue or not — though most clients do.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">04</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Build</div>
+          <div class="phase-body">Website, booking system, automations, Google Business Profile, intake forms, CRM, and all supporting documents. Nothing in the report stays hypothetical. It gets built.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">05</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Handoff & Training</div>
+          <div class="phase-body">Complete handoff document. Recorded 60-minute training call. How-to guides for the tools you'll use most. 30-day check-in to make sure everything is running correctly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: PACKAGES -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">05</span>
+      <span class="page-title-sm">Packages & Pricing</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Choose Your Entry Point</div>
+    <div class="section-heading">Three tiers.<br>One <em>methodology.</em></div>
+
+    <div class="packages">
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div>
+            <div class="pkg-name serif"><em>Digital</em> Presence</div>
+            <div class="pkg-timeline">Approximately 1–2 weeks</div>
+          </div>
+          <div class="pkg-price">
+            <div class="pkg-price-main serif">$1,500+</div>
+            <div class="pkg-price-sub">Starting at · scoped at intake</div>
+          </div>
+        </div>
+        <div class="pkg-desc">For businesses with a real product and real customers but nothing professional holding it together online. A Google presence, clean website, working booking system, and the basics running — in about a week.</div>
+        <div class="pkg-includes">
+          <span class="pkg-tag">Abbreviated Elevation Report</span>
+          <span class="pkg-tag">Google Business Profile</span>
+          <span class="pkg-tag">1–2 page website</span>
+          <span class="pkg-tag">Booking system setup</span>
+          <span class="pkg-tag">Pricing one-sheet</span>
+          <span class="pkg-tag">Handoff document</span>
+          <span class="pkg-tag">30-day check-in</span>
+        </div>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="pkg-featured-badge">Most Complete</div>
+        <div class="pkg-header">
+          <div>
+            <div class="pkg-name serif">Full <em>Elevation</em></div>
+            <div class="pkg-timeline">4–6 weeks</div>
+          </div>
+          <div class="pkg-price">
+            <div class="pkg-price-main serif">$3,000+</div>
+            <div class="pkg-price-sub">Starting at · scoped at intake</div>
+          </div>
+        </div>
+        <div class="pkg-desc">The complete operational infrastructure build. Research, strategy, website, systems, automations, and a handoff that actually makes sense. When this engagement is done, the business runs differently than it did before.</div>
+        <div class="pkg-includes">
+          <span class="pkg-tag">Full competitor research</span>
+          <span class="pkg-tag">Complete Elevation Report</span>
+          <span class="pkg-tag">Custom website (5–6 pages)</span>
+          <span class="pkg-tag">Booking automation</span>
+          <span class="pkg-tag">Google Business Profile</span>
+          <span class="pkg-tag">CRM + booking tracker</span>
+          <span class="pkg-tag">Automated email sequences</span>
+          <span class="pkg-tag">Intake form rebuild</span>
+          <span class="pkg-tag">60-min recorded training call</span>
+          <span class="pkg-tag">30-day check-in</span>
+        </div>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div>
+            <div class="pkg-name serif"><em>Multi-Entity</em></div>
+            <div class="pkg-timeline">6–10 weeks</div>
+          </div>
+          <div class="pkg-price">
+            <div class="pkg-price-main serif">$5,000+</div>
+            <div class="pkg-price-sub">Starting at · scoped at intake</div>
+          </div>
+        </div>
+        <div class="pkg-desc">For businesses operating across multiple locations, entities, or revenue streams that need a unified infrastructure — one backend that holds everything together regardless of how many moving parts there are.</div>
+        <div class="pkg-includes">
+          <span class="pkg-tag">Everything in Full Elevation</span>
+          <span class="pkg-tag">Multi-location setup</span>
+          <span class="pkg-tag">Cross-entity systems</span>
+          <span class="pkg-tag">Staff/team documentation</span>
+          <span class="pkg-tag">Advanced automations</span>
+          <span class="pkg-tag">Priority scheduling</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="addon-section">
+      <div class="addon-header">
+        <div>
+          <div class="addon-title">Add-On · Available at Any Tier</div>
+          <div class="addon-name serif">Ongoing <em>Support</em></div>
+        </div>
+        <div class="addon-pricing">
+          <div class="addon-tier">
+            <div class="addon-tier-price serif">$100</div>
+            <div class="addon-tier-label">/ month<br>Tier 1</div>
+          </div>
+          <div class="addon-tier">
+            <div class="addon-tier-price serif">$150</div>
+            <div class="addon-tier-label">/ month<br>Tier 2</div>
+          </div>
+          <div class="addon-tier">
+            <div class="addon-tier-price serif">$250</div>
+            <div class="addon-tier-label">/ month<br>Tier 3</div>
+          </div>
+          <div class="addon-tier">
+            <div class="addon-tier-price serif" style="color:var(--rose);">17% off</div>
+            <div class="addon-tier-label">quarterly<br>discount</div>
+          </div>
+        </div>
+      </div>
+      <div class="addon-note">Updates, maintenance, new integrations, automation support, and priority 48-hr response. Cancel anytime with 30 days notice. Can be added after project close — $150 re-onboarding fee applies if more than 60 days have passed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: WHAT IT'S WORTH -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">06</span>
+      <span class="page-title-sm">What It's Worth</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Value Comparison</div>
+    <div class="section-heading">What this costs<br>when you <em>build it</em><br>piece by piece.</div>
+    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
+      <p>These are market rates for what's included in the Full Elevation engagement — hired separately, at prevailing freelance rates. The comparison below is conservative. Most clients would pay more.</p>
+    </div>
+
+    <div class="value-table">
+      <div class="value-table-header">
+        <span>Deliverable</span>
+        <span>Market Rate</span>
+        <span>Included At</span>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Custom website (5–6 pages, responsive)</div>
+        <div class="value-market">$2,500–$5,000</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Competitor research & analysis</div>
+        <div class="value-market">$800–$1,500</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Pricing strategy & documentation</div>
+        <div class="value-market">$500–$1,000</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Booking system setup & automation</div>
+        <div class="value-market">$400–$800</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">CRM setup & intake form rebuild</div>
+        <div class="value-market">$300–$600</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Automated email sequences</div>
+        <div class="value-market">$400–$800</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Google Business Profile optimization</div>
+        <div class="value-market">$200–$400</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Training call + handoff documentation</div>
+        <div class="value-market">$300–$500</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-total-row">
+        <div class="value-total-label">Total if purchased separately</div>
+        <div class="value-total-market">$5,400–$10,600</div>
+        <div class="value-total-price serif">$3,000+</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <div class="callout-label">What makes this different</div>
+      <p>Hiring separately means coordinating five different people, managing timelines across all of them, and hoping the final product holds together. This is one engagement, one point of contact, one methodology from start to finish.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 7: HOW IT WORKS -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">07</span>
+      <span class="page-title-sm">How It Works</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">From First Contact to Fully Operational</div>
+    <div class="section-heading">Six steps from<br><em>inquiry</em> to<br>infrastructure.</div>
+
+    <div style="margin-top:32px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">01</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Fill Out the Inquiry Form</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Seven questions. Five minutes. Find it at theintentionaltea.com/work-with-me.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">02</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Receive a Recommendation</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Within 48 hours: which tier makes sense, what the investment looks like, and what the timeline is.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">03</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Deposit Locks Your Spot</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">$350 deposit secures your project start date. No calendar access before deposit. Non-refundable.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">04</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Kickoff Call</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">30–45 minutes. Not a sales call — you've already paid. This is the start of Phase 1.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">05</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Build Phase</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">You focus on running the business. I handle the infrastructure. I'll check in at key milestones.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Noto Serif Display',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">06</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Handoff</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Documented, recorded, and yours. Balance due at handoff. 30-day check-in scheduled before we hang up.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:28px;">
+      <div class="callout-label">Payment Terms</div>
+      <p>$350 deposit to begin across all tiers. Balance due at handoff before final files and credentials are transferred. Deposit is non-refundable.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 8: WHAT TO EXPECT -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">08</span>
+      <span class="page-title-sm">What to Expect</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">A Few Things Worth Knowing</div>
+    <div class="section-heading">What you should<br>know <em>before</em><br>you reach out.</div>
+    <ul class="bullet-list" style="margin-top:32px;">
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">The report is yours, full stop.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">The Business Elevation Report is a deliverable, not a proposal. You paid for it. It's yours whether you continue after that point or not.</div>
+        </div>
+      </li>
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">One revision round is included.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">If something isn't right after review, we fix it — once, with consolidated feedback. Additional rounds are billed at $100/hour.</div>
+        </div>
+      </li>
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">Timeline depends on you too.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">The project clock starts the day your deposit is received AND your intake is returned. Delays in providing access or information extend the timeline accordingly.</div>
+        </div>
+      </li>
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">Final payment before final transfer.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">The balance is due at handoff, before files and credentials transfer. You'll receive an invoice one week before the handoff call.</div>
+        </div>
+      </li>
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">Everything you paid for is yours.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">All deliverables — website, documents, templates, systems — transfer to you in full upon receipt of final payment.</div>
+        </div>
+      </li>
+      <li>
+        <div class="diamond" style="margin-top:5px;"></div>
+        <div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">Ongoing support can be added at any time.</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">Monthly or quarterly. Cancel anytime with 30 days notice. A $150 re-onboarding fee applies if added more than 60 days after project close.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- PAGE 9: FAQ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="page-header">
+      <span class="page-num serif">09</span>
+      <span class="page-title-sm">Frequently Asked Questions</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Frequently Asked Questions</div>
+    <div class="section-heading">Questions you<br>probably <em>have.</em></div>
+    <div style="margin-top:32px;">
+      <div class="faq-item">
+        <div class="faq-q">Do I need to have a certain size business or revenue level?</div>
+        <div class="faq-a">No. The Digital Presence tier is specifically designed for businesses in early operational stages. What matters is that you have a real product or service and real customers — not a particular revenue threshold.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I'm not sure which tier is right for me?</div>
+        <div class="faq-a">Fill out the inquiry form. After reviewing your responses, I'll tell you which tier makes sense and why. You don't have to figure that out before you reach out.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you do discovery calls before I pay?</div>
+        <div class="faq-a">No. The inquiry form is the first step. After you submit, I respond within 48 hours with a recommendation. If you want to move forward, you pay the $350 deposit. The kickoff call is the start of the work, not a sales conversation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if the business owner isn't comfortable with new tools?</div>
+        <div class="faq-a">That's exactly who I build for. The tools I implement are ones your team can actually use. The handoff documentation and training call are designed for non-technical owners.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What industries do you work with?</div>
+        <div class="faq-a">Small service businesses where the owner delivers the service directly and the chaos comes from not having professional infrastructure. Event services, personal services, food and beverage, health and wellness, creative services, trades. If you're wondering whether you fit, fill out the form and I'll tell you directly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I add ongoing support after the project is done?</div>
+        <div class="faq-a">Yes. Monthly or quarterly, added at any time after handoff. Priced at $100/$150/$250/month by tier, with 17% off quarterly. A $150 re-onboarding fee applies if more than 60 days have passed since project close.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 10: CLOSE -->
+<div class="page">
+  <div class="close-page">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:48px;">
+      <div class="diamond-outline" style="width:6px;height:6px;border-color:rgba(201,155,146,0.4);"></div>
+      <div class="diamond" style="width:6px;height:6px;background:var(--rose-light);"></div>
+      <div class="diamond-outline" style="width:6px;height:6px;border-color:rgba(201,155,146,0.4);"></div>
+    </div>
+    <div class="close-headline">Your business<br>has the product.<br>Let's build the<br><em>infrastructure.</em></div>
+    <div class="close-sub">Fill out the inquiry form and I'll follow up within 48 hours with a recommendation and next steps. You don't need to know which tier is right before you reach out.</div>
+    <div class="close-cta">Start Your Inquiry</div>
+    <div class="close-url">theintentionaltea.com/work-with-me</div>
+    <div style="margin-top:64px; padding-top:32px; border-top:1px solid rgba(250,247,242,0.1); width:100%; text-align:center;">
+      <div style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(250,247,242,0.25);">The Intentional Tea · Business Elevation Services · Tiara Stewart · theintentionaltea.com</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
