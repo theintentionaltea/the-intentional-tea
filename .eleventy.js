@@ -15,7 +15,6 @@ module.exports = function(eleventyConfig) {
     "work-with-me.html",
     "404.html",
     "thank-you-newsletter.html",
-    "business-elevation-guide.html",
   ];
   staticPages.forEach((page) => {
     eleventyConfig.addPassthroughCopy(page);
