@@ -5,6 +5,11 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[[redirects]]
+  from = "/work-with-me"
+  to = "/book"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

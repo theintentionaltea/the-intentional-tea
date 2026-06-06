@@ -12,7 +12,6 @@ module.exports = function(eleventyConfig) {
     "shop.html",
     "social.html",
     "favorites.html",
-    "work-with-me.html",
     "404.html",
     "thank-you-newsletter.html",
   ];
