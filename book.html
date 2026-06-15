@@ -28,6 +28,7 @@
         .noto-italic { font-family: 'Noto Serif Display', serif; font-style: italic; font-weight: 300; letter-spacing: 0.03em; }
         .hero-display { font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 400; letter-spacing: 0.01em; }
         .ui-label { font-family: 'Inter Tight', sans-serif; text-transform: uppercase; letter-spacing: 0.32em; font-size: 10px; font-weight: 600; }
+        #process-grid > div { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .serif-light { font-family: 'Noto Serif Display', serif; font-weight: 300; letter-spacing: 0.03em; }
 
         .bg-rose { background-color: #E2C0B9; }
@@ -61,7 +62,7 @@
 <body class="antialiased">
 
     <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off plus freebies.</p>
+        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off + freebies.</p>
     </div>
 
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
@@ -138,10 +139,11 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="space-y-6">
                         <p class="ui-label text-[#1a1a1a]">My Approach</p>
-                        <h2 class="display-italic baskerville text-3xl md:text-4xl leading-[1.2]">Architecture before action.</h2>
+                        <h2 class="display-italic text-3xl md:text-4xl leading-[1.2]">Architecture before action.</h2>
                         <div class="space-y-5">
-                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Most small businesses already have what matters: a real product, real customers, and real momentum. What they're missing is the structure around it.</p>
-                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">So I come in, do the research, build the infrastructure, and hand you something that actually runs. You keep doing what you're good at. The backend handles itself.</p>
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Most small businesses already have what matters: a real product, real customers, and real momentum. What they're missing is the structure around it — the systems, automations, and infrastructure that make the whole thing run without you holding it together manually.</p>
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">I don't hand you a template and call it a system. I come in, learn how your business actually operates, build the infrastructure that fits it, and hand you something that works. You keep doing what you're good at. The backend handles itself.</p>
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Every engagement follows the same five-phase process. The depth and deliverables scale with the project. Start where your business is.</p>
                         </div>
                     </div>
                     <div class="overflow-hidden rounded-md aspect-[4/3]">
@@ -155,59 +157,114 @@
         <section id="offerings" class="bg-[#F0DDD9] py-16 px-6">
             <div class="max-w-5xl mx-auto space-y-10">
 
-                <div class="space-y-3">
-                    <p class="ui-label text-[#C99B92]">The Offerings</p>
-                    <h2 class="display-serif baskerville text-3xl md:text-4xl">Three tiers. One methodology.</h2>
-                    <p class="text-sm text-[#2a2a2a] font-light max-w-lg">Every engagement follows the same five-phase process. The depth and deliverables scale by tier. Start where your business is.</p>
+                <div class="space-y-3 text-center">
+                    <p class="ui-label text-[#C99B92]">Digital Infrastructure</p>
+                    <h2 class="display-italic text-3xl md:text-4xl">Website, systems, and operations infrastructure.</h2>
+                    <p class="text-sm text-[#2a2a2a] font-light max-w-xl mx-auto leading-relaxed">Three project tiers. The same five-phase process across all of them. Scope and deliverables scale with your business.</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6">
 
                     <!-- Tier 1 -->
-                    <div class="service-card p-8 flex flex-col gap-6 bg-white">
-                        <div>
-                            <p class="ui-label text-[#C99B92] mb-3">Digital Presence</p>
-                            <p class="text-2xl font-light" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at <strong class="font-normal">$1,500</strong></p>
-                            <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/50 mt-1">1–2 weeks · scoped at intake</p>
+                    <div class="service-card p-8 flex flex-col gap-4 bg-white">
+                        <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <p class="ui-label text-[#C99B92]">Tier 01</p>
+                            <div>
+                                <h3 class="display-italic text-2xl text-[#1a1a1a]">Digital Presence</h3>
+                                <p class="text-lg font-normal mt-1 text-[#2a2a2a]" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at $1,500</p>
+                                <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/75 mt-1">1–2 weeks · scoped at intake</p>
+                            </div>
+                            <p class="noto-italic text-sm text-[#C99B92] min-h-[2.5rem] flex items-center justify-center">Online and operational, fast.</p>
                         </div>
-                        <div class="space-y-3 flex-1">
-                            <h3 class="noto-italic text-xl leading-snug text-[#1a1a1a]" style="font-weight:400;">Online and operational, fast.</h3>
-                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Google presence, clean website, working booking system, and the basics running in about a week.</p>
+                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light min-h-[4rem]">A clean, functional foundation built around how your business actually works, not a generic template with your logo dropped in.</p>
+                        <p class="text-xs text-[#2a2a2a]/70 italic leading-relaxed"><strong class="not-italic text-[#2a2a2a]">Best for:</strong> Solo service providers, creatives, consultants, and small businesses launching or relaunching their digital presence.</p>
+                        <div class="flex-1">
+                            <p class="text-[10px] uppercase tracking-[0.1em] font-bold text-[#1a1a1a] mb-3">What's typically included</p>
+                            <ul class="space-y-2">
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Google Business Profile setup and optimization</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Clean, mobile-responsive website (up to 5 pages)</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Booking system integration</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Contact and intake form setup</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Basic SEO configuration (titles, meta descriptions, alt text)</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Domain and email setup guidance</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">30-day post-launch support window</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Loom walkthrough of everything built</li>
+                            </ul>
                         </div>
-                        <div class="hairline-t pt-5 mt-auto">
-                            <button onclick="openInquiryForm()" class="block w-full text-center border border-black/25 text-[#1a1a1a] py-3 text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#1a1a1a] hover:text-white transition-all">Request a Quote</button>
+                        <div class="hairline-t pt-4 mt-auto">
+                            <button onclick="openInquiryForm()" class="text-[10px] uppercase tracking-[0.25em] font-bold hover:text-[#C99B92] transition-colors">Request a Quote →</button>
                         </div>
                     </div>
 
                     <!-- Tier 2 -->
-                    <div class="service-card p-8 flex flex-col gap-6 bg-white" style="border-top: 2px solid #C99B92;">
-                        <div>
-                            <p class="ui-label text-[#C99B92] mb-3">Full Elevation</p>
-                            <p class="text-2xl font-light" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at <strong class="font-normal">$3,000</strong></p>
-                            <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/50 mt-1">4–6 weeks · scoped at intake</p>
+                    <div class="service-card p-8 flex flex-col gap-4 bg-white" style="border-top: 2px solid #C99B92;">
+                        <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="ui-label text-[#C99B92]">Tier 02</p>
+                            <div>
+                                <h3 class="display-italic text-2xl text-[#1a1a1a]">Full Elevation</h3>
+                                <p class="text-lg font-normal mt-1 text-[#2a2a2a]" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at $3,000</p>
+                                <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/75 mt-1">4–6 weeks · scoped at intake</p>
+                            </div>
+                            <p class="noto-italic text-sm text-[#C99B92] min-h-[2.5rem] flex items-center justify-center">The complete operational infrastructure build.</p>
                         </div>
-                        <div class="space-y-3 flex-1">
-                            <h3 class="noto-italic text-xl leading-snug text-[#1a1a1a]" style="font-weight:400;">The complete operational infrastructure build.</h3>
-                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Website, systems, automations, CRM, email sequences, and a handoff that actually makes sense. When this is done, the business runs differently.</p>
+                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light min-h-[4rem]">The full rebuild: website, systems, automations, CRM, email, and a handoff that actually makes sense. When this is done, the business runs differently.</p>
+                        <p class="text-xs text-[#2a2a2a]/70 italic leading-relaxed"><strong class="not-italic text-[#2a2a2a]">Best for:</strong> Established service businesses, coaches, consultants, and creative studios ready to stop running operations manually.</p>
+                        <div class="flex-1">
+                            <p class="text-[10px] uppercase tracking-[0.1em] font-bold text-[#1a1a1a] mb-3">What's typically included</p>
+                            <ul class="space-y-2">
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Everything in Digital Presence, plus:</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">CRM setup and client pipeline configuration</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Automated client onboarding (intake → contract → payment → welcome)</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Email marketing platform setup with welcome sequence</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Booking and scheduling automation</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Client portal or centralized communication hub</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Workflow documentation for your core process</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Tech stack audit and consolidation</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Full handoff with Loom walkthroughs</li>
+                            </ul>
                         </div>
-                        <div class="hairline-t pt-5 mt-auto">
-                            <button onclick="openInquiryForm()" class="block w-full text-center bg-[#1a1a1a] text-white py-3 text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#C99B92] transition-all">Request a Quote</button>
+                        <div class="hairline-t pt-4 mt-auto">
+                            <button onclick="openInquiryForm()" class="text-[10px] uppercase tracking-[0.25em] font-bold hover:text-[#C99B92] transition-colors">Request a Quote →</button>
                         </div>
                     </div>
 
                     <!-- Tier 3 -->
-                    <div class="service-card p-8 flex flex-col gap-6 bg-white">
-                        <div>
-                            <p class="ui-label text-[#C99B92] mb-3">Multi-Entity</p>
-                            <p class="text-2xl font-light" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at <strong class="font-normal">$5,000</strong></p>
-                            <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/50 mt-1">6–10 weeks · scoped at intake</p>
+                    <div class="service-card p-8 flex flex-col gap-4 bg-white">
+                        <div class="flex flex-col items-center gap-3 text-center">
+                            <div class="w-12 h-12 rounded-full bg-[#1a1a1a] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <p class="ui-label text-[#C99B92]">Tier 03</p>
+                            <div>
+                                <h3 class="display-italic text-2xl text-[#1a1a1a]">Multi-Entity</h3>
+                                <p class="text-lg font-normal mt-1 text-[#2a2a2a]" style="font-family:'Noto Serif Display',Georgia,serif;">Starting at $5,000</p>
+                                <p class="text-[10px] uppercase tracking-[0.15em] text-[#2a2a2a]/75 mt-1">6–10 weeks · scoped at intake</p>
+                            </div>
+                            <p class="noto-italic text-sm text-[#C99B92] min-h-[2.5rem] flex items-center justify-center">One backend for every moving part.</p>
                         </div>
-                        <div class="space-y-3 flex-1">
-                            <h3 class="noto-italic text-xl leading-snug text-[#1a1a1a]" style="font-weight:400;">One backend for every moving part.</h3>
-                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">For businesses operating across multiple locations, entities, or revenue streams that need unified infrastructure holding everything together.</p>
+                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light min-h-[4rem]">Unified infrastructure across multiple locations, entities, or revenue streams, so everything finally talks to each other.</p>
+                        <p class="text-xs text-[#2a2a2a]/70 italic leading-relaxed"><strong class="not-italic text-[#2a2a2a]">Best for:</strong> Business owners operating across multiple revenue streams, brick-and-mortar plus online, or multiple service lines needing one coherent backend.</p>
+                        <div class="flex-1">
+                            <p class="text-[10px] uppercase tracking-[0.1em] font-bold text-[#1a1a1a] mb-3">What's typically included</p>
+                            <ul class="space-y-2">
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Everything in Full Elevation, plus:</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Multi-brand or multi-location infrastructure design</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Unified client experience across all entities</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Cross-entity reporting and operational visibility</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Team-facing dashboards and role-based workflows</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Delegation systems and access management</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Scalability documentation</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Full handoff with Loom walkthroughs</li>
+                            </ul>
                         </div>
-                        <div class="hairline-t pt-5 mt-auto">
-                            <button onclick="openInquiryForm()" class="block w-full text-center border border-black/25 text-[#1a1a1a] py-3 text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-[#1a1a1a] hover:text-white transition-all">Request a Quote</button>
+                        <div class="hairline-t pt-4 mt-auto">
+                            <button onclick="openInquiryForm()" class="text-[10px] uppercase tracking-[0.25em] font-bold hover:text-[#C99B92] transition-colors">Request a Quote →</button>
                         </div>
                     </div>
 
@@ -234,33 +291,128 @@
             </div>
         </section>
 
-        <!-- 04 · THE PROCESS -->
-        <section class="bg-white py-24 px-6">
-            <div class="max-w-5xl mx-auto space-y-14">
-                <div class="space-y-3">
-                    <p class="ui-label text-[#C99B92]">The Process</p>
-                    <h2 class="display-serif baskerville text-3xl md:text-4xl">What working together looks like.</h2>
+        <!-- 03.5 · ENTRY OFFERS -->
+        <section class="bg-white py-20 px-6">
+            <div class="max-w-5xl mx-auto space-y-10">
+                <div class="space-y-3 text-center">
+                    <p class="ui-label text-[#C99B92]">Not ready for a full project?</p>
+                    <h2 class="display-italic text-3xl md:text-4xl">Start with clarity, not a commitment.</h2>
+                    <p class="text-sm text-[#2a2a2a] font-light max-w-lg mx-auto leading-relaxed">Both apply toward a full project if you decide to move forward within 30 days.</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
-                    <div class="hairline p-8 space-y-3">
-                        <span class="step-number">01</span>
-                        <h3 class="display-serif baskerville text-base">Fill Out the Form</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Tell me about your business, what's chaotic, and what you're trying to get done. The application takes about five minutes.</p>
+                <div class="grid md:grid-cols-2 gap-5">
+                    <!-- Clarity Session compact -->
+                    <div class="service-card p-8 flex flex-col gap-4 bg-[#FAF7F2]">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-[#F0DDD9] flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="display-italic text-xl leading-snug">The Clarity Session</h3>
+                                <p class="text-[11px] uppercase tracking-[0.1em] text-[#2a2a2a]/50 mt-1">$175 · 60-minute call</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">A focused 60-minute call where we look at your business together. You leave with a written summary and prioritized action plan — whether you hire me to build it or not.</p>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.1em] font-bold text-[#1a1a1a] mb-2">Includes</p>
+                            <ul class="space-y-1.5">
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Pre-call intake form</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Written recap within 48 hours</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Prioritized action list with tool recommendations</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">7-day follow-up window</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-[#2a2a2a]/60 italic"><strong class="not-italic text-[#2a2a2a]/80">Best for:</strong> Anyone who isn't sure which tier fits, or needs clarity before committing.</p>
+                        <p class="text-xs text-[#C99B92]">Fee credited toward any project booked within 30 days.</p>
+                        <div class="mt-auto pt-2">
+                            <button onclick="openInquiryForm()" class="text-[10px] uppercase tracking-[0.15em] font-bold hover:text-[#C99B92] transition-colors">Book your session →</button>
+                        </div>
                     </div>
-                    <div class="hairline p-8 space-y-3">
-                        <span class="step-number">02</span>
-                        <h3 class="display-serif baskerville text-base">I Review + Respond (48 hrs)</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">I read every inquiry personally and follow up within 48 hours with a scoped next step, or an honest note if it's not a fit.</p>
+                    <!-- Backend Audit compact -->
+                    <div class="service-card p-8 flex flex-col gap-4 bg-[#FAF7F2]">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-[#F0DDD9] flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="display-italic text-xl leading-snug">The Backend Audit</h3>
+                                <p class="text-[11px] uppercase tracking-[0.1em] text-[#2a2a2a]/50 mt-1">Starting at $400 · No call required</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">A done-for-you assessment of your existing systems, tools, and digital infrastructure. Delivered as a clear, written document with a prioritized build plan.</p>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.1em] font-bold text-[#1a1a1a] mb-2">Includes</p>
+                            <ul class="space-y-1.5">
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Detailed intake form</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Review of your website, CRM, email, booking, and other tools</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Written audit with prioritized recommendations</li>
+                                <li class="text-sm text-[#2a2a2a] font-light pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-[#C99B92]">Delivered within 5 business days</li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-[#2a2a2a]/60 italic"><strong class="not-italic text-[#2a2a2a]/80">Best for:</strong> Anyone with something already set up that isn't quite working, who wants a clear roadmap before going further.</p>
+                        <p class="text-xs text-[#C99B92]">Fee credited toward any project booked within 30 days.</p>
+                        <div class="mt-auto pt-2">
+                            <button onclick="openInquiryForm()" class="text-[10px] uppercase tracking-[0.15em] font-bold hover:text-[#C99B92] transition-colors">Request an audit →</button>
+                        </div>
                     </div>
-                    <div class="hairline p-8 space-y-3">
-                        <span class="step-number">03</span>
-                        <h3 class="display-serif baskerville text-base">$350 Deposit Locks Your Spot</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">A flat $350 deposit confirms your project and locks in your start date across all tiers. That's where the build officially begins.</p>
-                    </div>
-                    <div class="hairline p-8 space-y-3">
-                        <span class="step-number">04</span>
-                        <h3 class="display-serif baskerville text-base">Kickoff + Build</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">I do the research, handle the setup, and build out the infrastructure your business needs. You stay in the loop. That's the whole point.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 · THE PROCESS -->
+        <section class="bg-white pt-16 pb-28 px-6">
+            <div class="max-w-5xl mx-auto space-y-14">
+                <div class="space-y-3 text-center">
+                    <p class="ui-label text-[#C99B92]">The Architecture Process</p>
+                    <h2 class="display-italic text-3xl md:text-4xl">A clear process. From start to handoff.</h2>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-[22px] left-[10%] right-[10%] h-px bg-black/15 z-0"></div>
+                    <div id="process-grid" class="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
+                        <div class="space-y-4">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C99B92] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-medium">Fill out the form</h3>
+                                <p class="text-[11px] text-[#2a2a2a]/60 leading-relaxed">Tell me about your business, what's chaotic, and what you're trying to get done.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C99B92] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-medium">Then I take a look</h3>
+                                <p class="text-[11px] text-[#2a2a2a]/60 leading-relaxed">I read every inquiry myself and get back to you within 48 hours, either with next steps or an honest no.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C99B92] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-medium">$350 locks your spot</h3>
+                                <p class="text-[11px] text-[#2a2a2a]/60 leading-relaxed">A flat deposit confirms your project and start date. That's where the build officially begins.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C99B92] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-medium">Kickoff + build</h3>
+                                <p class="text-[11px] text-[#2a2a2a]/60 leading-relaxed">I do the research, handle the setup, and build the infrastructure your business needs.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="w-11 h-11 rounded-full bg-[#FAF7F2] border border-[#C99B92] flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-sm font-medium">Handoff + support</h3>
+                                <p class="text-[11px] text-[#2a2a2a]/60 leading-relaxed">A complete walkthrough of everything built. Ongoing Support keeps me available after.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,39 +427,95 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="space-y-6 border-l border-[#C99B92] pl-8">
                         <p class="display-italic baskerville text-lg md:text-xl text-white leading-relaxed">"I came in with seven projects and left with one clear direction. I didn't lose the other six. I finally understood how they fit together."</p>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-white/50">Strategy Session Client</p>
+                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-white/50">Clarity Session Client</p>
                     </div>
                     <div class="space-y-6 border-l border-[#C99B92] pl-8">
-                        <p class="display-italic baskerville text-lg md:text-xl text-white leading-relaxed">"This wasn't coaching. It was architecture. She looked at my entire life and helped me see a structure I couldn't have built alone."</p>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-white/50">Alignment Intensive Client</p>
+                        <p class="display-italic baskerville text-lg md:text-xl text-white leading-relaxed">"This wasn't coaching. It was architecture. She looked at my entire business and helped me see a structure I couldn't have built alone."</p>
+                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-white/50">Full Elevation Client</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="bg-[#FAF7F2] py-24 px-6">
-            <div class="max-w-5xl mx-auto space-y-12">
-                <div class="space-y-4">
+        <section class="bg-[#FAF7F2] py-16 px-6">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="space-y-3 text-center">
                     <p class="ui-label text-[#C99B92]">Common Questions</p>
-                    <h2 class="display-serif baskerville text-3xl md:text-4xl">What you might be wondering.</h2>
+                    <h2 class="display-italic text-2xl md:text-3xl">What you might be wondering.</h2>
                 </div>
                 <div class="space-y-0">
-                    <div class="faq-item py-8 space-y-3">
-                        <h3 class="text-sm font-bold uppercase tracking-widest">Is this business coaching?</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">No. This is operational systems setup and digital infrastructure. I build things: websites, booking systems, automations, CRMs. Not strategy sessions.</p>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">Is this business coaching?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">No. This is operational systems setup and digital infrastructure. I build things: websites, booking systems, automations, CRMs. Not strategy sessions.</p>
+                        </div>
                     </div>
-                    <div class="faq-item py-8 space-y-3">
-                        <h3 class="text-sm font-bold uppercase tracking-widest">What kinds of businesses do you work with?</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Primarily service businesses, creatives, entrepreneurs. If you have a real product or service and a chaotic backend, this is for you.</p>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">What kinds of businesses do you work with?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Primarily service businesses, creatives, entrepreneurs. If you have a real product or service and a chaotic backend, this is for you.</p>
+                        </div>
                     </div>
-                    <div class="faq-item py-8 space-y-3">
-                        <h3 class="text-sm font-bold uppercase tracking-widest">How long does it take?</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Digital Presence is 1–2 weeks. Full Elevation is 4–6 weeks. Multi-Entity is 6–10 weeks. Timeline starts once your deposit is paid and intake is returned.</p>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">Can I start with a Clarity Session before committing?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Yes, and that's often how we begin. The session fee is credited toward any project booked within 30 days.</p>
+                        </div>
                     </div>
-                    <div class="faq-item py-8 space-y-3">
-                        <h3 class="text-sm font-bold uppercase tracking-widest">Do you offer payment plans?</h3>
-                        <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">A flat $350 deposit holds your spot across all tiers. The remaining balance is due at handoff before files and credentials transfer.</p>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">What if I'm not sure which tier fits me?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Fill out the inquiry form and I'll scope it honestly, or book a Clarity Session and we'll figure it out together.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">How long does it take?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Digital Presence is 1–2 weeks. Full Elevation is 4–6 weeks. Multi-Entity is 6–10 weeks. Timeline starts once your deposit is paid and intake is returned.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">What tools do you work with?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Notion, Zapier, Squarespace, Wix, Shopify, Calendly, Flodesk, and more depending on what your business needs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border-t border-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">What do I need ready before we start?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">Not much. Fill out the intake form honestly, and be available for a kickoff call and ready to share access. I handle the rest.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item border-t border-black/10 border-b border-b-black/10">
+                        <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between py-6 text-left group">
+                            <h3 class="text-sm font-bold tracking-wide">Do you offer payment plans?</h3>
+                            <span class="faq-icon text-[#C99B92] text-2xl font-light ml-4 flex-shrink-0 leading-none">+</span>
+                        </button>
+                        <div class="faq-answer hidden pb-6">
+                            <p class="text-sm text-[#2a2a2a] leading-relaxed font-light">A flat $350 deposit holds your spot across all tiers. The remaining balance is due at handoff before files and credentials transfer.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -448,6 +656,18 @@
             }
             btn.textContent = original;
             btn.disabled = false;
+        }
+
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = !answer.classList.contains('hidden');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+            document.querySelectorAll('.faq-icon').forEach(s => s.textContent = '+');
+            if (!isOpen) {
+                answer.classList.remove('hidden');
+                icon.textContent = '−';
+            }
         }
 
         const fadeObserver = new IntersectionObserver((entries) => {
