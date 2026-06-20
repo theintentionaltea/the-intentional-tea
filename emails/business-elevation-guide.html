@@ -602,14 +602,14 @@
       padding: 0;
       box-shadow: none;
       border: none;
-      overflow: hidden;
+      overflow: visible;
       page-break-after: always;
       break-after: page;
     }
     .page:last-child { page-break-after: auto; break-after: auto; }
     .cover { height: 100vh; min-height: 0; }
     .close-page { height: 100vh; min-height: 0; }
-    .page-inner { overflow: hidden; }
+    .page-inner { overflow: visible; }
     .phase, .pkg-card, .faq-item, .callout { page-break-inside: avoid; break-inside: avoid; }
 
     /* Packages page: compact to fit on one page */
@@ -718,64 +718,135 @@
   </div>
 </div>
 
-<!-- PAGE 4: PROCESS -->
+<!-- PAGE 4: HOW IT WORKS -->
 <div class="page">
   <div class="page-inner" style="padding:64px 80px;">
     <div class="page-header">
       <span class="page-num serif">04</span>
-      <span class="page-title-sm">The Process</span>
+      <span class="page-title-sm">How It Works</span>
       <span class="page-title-sm">The Intentional Tea</span>
     </div>
-    <div class="eyebrow" style="margin-bottom:20px;">The Methodology</div>
-    <div class="section-heading">Five phases. One <em>complete</em> operational build.</div>
-    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
-      <p>Every build engagement follows the same five-phase structure. The depth and deliverables scale with scope — but the methodology is consistent regardless of which engagement you choose.</p>
+    <div class="eyebrow" style="margin-bottom:20px;">From First Contact to Fully Operational</div>
+    <div class="section-heading">Five steps from <em>deposit</em> to handoff.</div>
+
+    <p style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted); margin-top:12px; margin-bottom:24px;">Start by requesting a quote at theintentionaltea.com/book. After I review your inquiry, I'll follow up within 48 hours with a recommendation. Then:</p>
+
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">01</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Deposit Locks Your Spot</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Clarity &amp; Audit is paid in full ($400) to book. Build engagements require a $500 deposit to secure your start date. Non-refundable. No calendar access before payment.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">02</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Intake Form</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">After payment, you'll receive a detailed intake form. Complete it fully before your kickoff date — the project clock doesn't start until it's returned.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">03</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Kickoff + Build</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">For Clarity &amp; Audit: the working session is your kickoff. For builds: we align on scope and timeline, then I get to work. You focus on running the business.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px;">
+          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">04</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Review + Revisions</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">One round of consolidated revisions is included. I'll send everything for your review before we finalize. Additional rounds are billed at $100/hour.</div>
+        </div>
+        <div style="border:1px solid var(--line); padding:24px; grid-column: span 2;">
+          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">05</div>
+          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Handoff + Support</div>
+          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Complete handoff documentation, a recorded 60-minute training call, and a 30-day check-in. Balance due at handoff before final files and credentials transfer. Ongoing support available after any build engagement.</div>
+        </div>
+      </div>
     </div>
-    <div class="timeline">
-      <div class="phase">
-        <div class="phase-num-col"><div class="phase-num serif">01</div><div class="phase-line"></div></div>
-        <div class="phase-content">
-          <div class="phase-title">Discovery</div>
-          <div class="phase-body">An independent audit of everything that already exists — Google Drive, existing forms, social accounts, whatever you have. I review it before asking questions, so when we talk, we're not starting from zero.</div>
-        </div>
-      </div>
-      <div class="phase">
-        <div class="phase-num-col"><div class="phase-num serif">02</div><div class="phase-line"></div></div>
-        <div class="phase-content">
-          <div class="phase-title">Research & Analysis</div>
-          <div class="phase-body">Four to six direct competitors researched. Pricing history reconstructed. Market rates mapped. Tool audit completed. You would never spend eight hours doing this. I do it once, document it cleanly, and hand you conclusions that would have taken months to arrive at.</div>
-        </div>
-      </div>
-      <div class="phase">
-        <div class="phase-num-col"><div class="phase-num serif">03</div><div class="phase-line"></div></div>
-        <div class="phase-content">
-          <div class="phase-title">The Operations Report</div>
-          <div class="phase-body">Your signature deliverable. A complete professional document covering competitive landscape, unified pricing recommendation, add-on and upsell strategy, operations framework, website plan, and tech stack. It's yours whether you continue or not — though most clients do.</div>
-        </div>
-      </div>
-      <div class="phase">
-        <div class="phase-num-col"><div class="phase-num serif">04</div><div class="phase-line"></div></div>
-        <div class="phase-content">
-          <div class="phase-title">Build</div>
-          <div class="phase-body">Website, booking system, automations, Google Business Profile, intake forms, CRM, and all supporting documents. Nothing in the report stays hypothetical. It gets built.</div>
-        </div>
-      </div>
-      <div class="phase">
-        <div class="phase-num-col"><div class="phase-num serif">05</div><div class="phase-line"></div></div>
-        <div class="phase-content">
-          <div class="phase-title">Handoff & Training</div>
-          <div class="phase-body">Complete handoff document. Recorded 60-minute training call. How-to guides for the tools you'll use most. 30-day check-in to make sure everything is running correctly.</div>
-        </div>
-      </div>
+
+    <div class="callout" style="margin-top:28px;">
+      <div class="callout-label">Payment Terms</div>
+      <p>Clarity & Audit is paid in full ($400) to book. Build engagements require a $500 deposit to begin. Balance due at handoff before final files and credentials are transferred. Deposit is non-refundable.</p>
     </div>
   </div>
 </div>
 
-<!-- PAGE 5: PACKAGES & PRICING -->
+<!-- PAGE 5: WHAT IT'S WORTH -->
 <div class="page">
   <div class="page-inner" style="padding:64px 80px;">
     <div class="page-header">
       <span class="page-num serif">05</span>
+      <span class="page-title-sm">What It's Worth</span>
+      <span class="page-title-sm">The Intentional Tea</span>
+    </div>
+    <div class="eyebrow" style="margin-bottom:20px;">Value Comparison</div>
+    <div class="section-heading">What this costs when you <em>build it</em> piece by piece.</div>
+    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
+      <p>These are market rates for what's included in the Infrastructure Build — hired separately, at prevailing freelance rates. The comparison below is conservative. Most clients would pay more.</p>
+    </div>
+
+    <div class="value-table">
+      <div class="value-table-header">
+        <span>Deliverable</span>
+        <span>Market Rate</span>
+        <span>Included At</span>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Custom website (5–6 pages, responsive)</div>
+        <div class="value-market">$2,500–$5,000</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Competitor research & analysis</div>
+        <div class="value-market">$800–$1,500</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Pricing strategy & documentation</div>
+        <div class="value-market">$500–$1,000</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Booking system setup & automation</div>
+        <div class="value-market">$400–$800</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">CRM setup & intake form rebuild</div>
+        <div class="value-market">$300–$600</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Automated email sequences</div>
+        <div class="value-market">$400–$800</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Google Business Profile optimization</div>
+        <div class="value-market">$200–$400</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-row">
+        <div class="value-item">Training call + handoff documentation</div>
+        <div class="value-market">$300–$500</div>
+        <div class="value-included">Included</div>
+      </div>
+      <div class="value-total-row">
+        <div class="value-total-label">Total if purchased separately</div>
+        <div class="value-total-market">$5,400–$10,600</div>
+        <div class="value-total-price serif">$2,500+</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <div class="callout-label">What makes this different</div>
+      <p>Hiring separately means coordinating five different people, managing timelines across all of them, and hoping the final product holds together. This is one engagement, one point of contact, one methodology from start to finish.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: PACKAGES & PRICING -->
+<div class="page">
+  <div class="page-inner" style="padding:64px 80px;">
+    <div class="page-header">
+      <span class="page-num serif">06</span>
       <span class="page-title-sm">Packages &amp; Pricing</span>
       <span class="page-title-sm">The Intentional Tea</span>
     </div>
@@ -875,129 +946,55 @@
   </div>
 </div>
 
-<!-- PAGE 6: WHAT IT'S WORTH -->
-<div class="page">
-  <div class="page-inner" style="padding:64px 80px;">
-    <div class="page-header">
-      <span class="page-num serif">06</span>
-      <span class="page-title-sm">What It's Worth</span>
-      <span class="page-title-sm">The Intentional Tea</span>
-    </div>
-    <div class="eyebrow" style="margin-bottom:20px;">Value Comparison</div>
-    <div class="section-heading">What this costs when you <em>build it</em> piece by piece.</div>
-    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
-      <p>These are market rates for what's included in the Infrastructure Build — hired separately, at prevailing freelance rates. The comparison below is conservative. Most clients would pay more.</p>
-    </div>
-
-    <div class="value-table">
-      <div class="value-table-header">
-        <span>Deliverable</span>
-        <span>Market Rate</span>
-        <span>Included At</span>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Custom website (5–6 pages, responsive)</div>
-        <div class="value-market">$2,500–$5,000</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Competitor research & analysis</div>
-        <div class="value-market">$800–$1,500</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Pricing strategy & documentation</div>
-        <div class="value-market">$500–$1,000</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Booking system setup & automation</div>
-        <div class="value-market">$400–$800</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">CRM setup & intake form rebuild</div>
-        <div class="value-market">$300–$600</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Automated email sequences</div>
-        <div class="value-market">$400–$800</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Google Business Profile optimization</div>
-        <div class="value-market">$200–$400</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-row">
-        <div class="value-item">Training call + handoff documentation</div>
-        <div class="value-market">$300–$500</div>
-        <div class="value-included">Included</div>
-      </div>
-      <div class="value-total-row">
-        <div class="value-total-label">Total if purchased separately</div>
-        <div class="value-total-market">$5,400–$10,600</div>
-        <div class="value-total-price serif">$2,500+</div>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:24px;">
-      <div class="callout-label">What makes this different</div>
-      <p>Hiring separately means coordinating five different people, managing timelines across all of them, and hoping the final product holds together. This is one engagement, one point of contact, one methodology from start to finish.</p>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE 7: HOW IT WORKS -->
+<!-- PAGE 7: THE BUILD PROCESS -->
 <div class="page">
   <div class="page-inner" style="padding:64px 80px;">
     <div class="page-header">
       <span class="page-num serif">07</span>
-      <span class="page-title-sm">How It Works</span>
+      <span class="page-title-sm">The Build Process</span>
       <span class="page-title-sm">The Intentional Tea</span>
     </div>
-    <div class="eyebrow" style="margin-bottom:20px;">From First Contact to Fully Operational</div>
-    <div class="section-heading">Six steps from <em>inquiry</em> to infrastructure.</div>
-
-    <div style="margin-top:32px;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">01</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Fill Out the Inquiry Form</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Seven questions. Five minutes. Find it at theintentionaltea.com/book.</div>
-        </div>
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">02</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Receive a Recommendation</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Within 48 hours: which engagement makes sense, what the investment looks like, and what the timeline is.</div>
-        </div>
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">03</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Payment Locks Your Spot</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Clarity & Audit is paid in full upfront. Build engagements require a $350 deposit to secure your start date. No calendar access before payment. Non-refundable.</div>
-        </div>
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">04</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Kickoff</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">For builds: 30–45 minute kickoff call, not a sales call — you've already paid. For Clarity & Audit: this is the working session itself.</div>
-        </div>
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">05</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Build Phase</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">You focus on running the business. I handle the infrastructure. I'll check in at key milestones.</div>
-        </div>
-        <div style="border:1px solid var(--line); padding:24px;">
-          <div style="font-family:'Lora',serif; font-size:32px; color:var(--rose); margin-bottom:8px;">06</div>
-          <div style="font-family:'Jost',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:8px;">Handoff</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12px; line-height:1.7; color:var(--muted);">Documented, recorded, and yours. Balance due at handoff. 30-day check-in scheduled before we hang up.</div>
+    <div class="eyebrow" style="margin-bottom:20px;">The Methodology</div>
+    <div class="section-heading">Five phases. One <em>complete</em> operational build.</div>
+    <div style="margin-top:8px; margin-bottom:28px;" class="section-body">
+      <p>Every build engagement follows the same five-phase structure. The depth and deliverables scale with scope — but the methodology is consistent regardless of which engagement you choose.</p>
+    </div>
+    <div class="timeline">
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">01</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Discovery</div>
+          <div class="phase-body">An independent audit of everything that already exists — Google Drive, existing forms, social accounts, whatever you have. I review it before asking questions, so when we talk, we're not starting from zero.</div>
         </div>
       </div>
-    </div>
-
-    <div class="callout" style="margin-top:28px;">
-      <div class="callout-label">Payment Terms</div>
-      <p>Clarity & Audit is paid in full ($400) to book. Build engagements require a $350 deposit to begin. Balance due at handoff before final files and credentials are transferred. Deposit is non-refundable.</p>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">02</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Research & Analysis</div>
+          <div class="phase-body">Four to six direct competitors researched. Pricing history reconstructed. Market rates mapped. Tool audit completed. You would never spend eight hours doing this. I do it once, document it cleanly, and hand you conclusions that would have taken months to arrive at.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">03</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Planning &amp; Scope</div>
+          <div class="phase-body">Your signature deliverable. A complete professional document covering competitive landscape, unified pricing recommendation, add-on and upsell strategy, operations framework, website plan, and tech stack. It's yours whether you continue or not — though most clients do.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">04</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Build</div>
+          <div class="phase-body">Website, booking system, automations, Google Business Profile, intake forms, CRM, and all supporting documents. Every item in the scope gets built.</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num-col"><div class="phase-num serif">05</div><div class="phase-line"></div></div>
+        <div class="phase-content">
+          <div class="phase-title">Handoff & Training</div>
+          <div class="phase-body">Complete handoff document. Recorded 60-minute training call. How-to guides for the tools you'll use most. 30-day check-in to make sure everything is running correctly.</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1013,13 +1010,6 @@
     <div class="eyebrow" style="margin-bottom:20px;">A Few Things Worth Knowing</div>
     <div class="section-heading">What you should know <em>before</em> you reach out.</div>
     <ul class="bullet-list" style="margin-top:32px;">
-      <li>
-        <div class="diamond" style="margin-top:5px;"></div>
-        <div>
-          <div style="font-family:'Jost',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-2); margin-bottom:4px;">The Operations Report is yours, full stop.</div>
-          <div style="font-family:'Jost',sans-serif; font-size:12.5px; line-height:1.7; color:var(--muted);">The Operations Report is a deliverable, not a proposal. You paid for it. It's yours whether you continue after that point or not.</div>
-        </div>
-      </li>
       <li>
         <div class="diamond" style="margin-top:5px;"></div>
         <div>
