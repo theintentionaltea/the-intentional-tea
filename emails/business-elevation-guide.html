@@ -612,14 +612,22 @@
     .page-inner { overflow: visible; }
     .phase, .pkg-card, .faq-item, .callout { page-break-inside: avoid; break-inside: avoid; }
 
-    /* Packages page: compact to fit on one page */
-    .page-header { margin-bottom: 28px; padding-bottom: 14px; }
-    .packages { gap: 10px; margin-top: 14px; }
-    .pkg-card { padding: 16px 22px; }
-    .pkg-desc { font-size: 11.5px; margin-bottom: 8px; padding-bottom: 8px; }
-    .pkg-includes { gap: 4px; }
-    .pkg-tag { padding: 3px 8px; font-size: 9px; }
-    .addon-section { margin-top: 14px; padding: 14px 22px; }
+    /* Packages page: aggressive compaction to fit one printed page */
+    #page-packages .page-inner { padding: 36px 56px !important; }
+    #page-packages .eyebrow { margin-bottom: 6px !important; }
+    #page-packages .section-heading { font-size: 30px !important; }
+    #page-packages > .page-inner > div[style*="flex-direction:column"] { gap: 8px !important; margin-top: 14px !important; }
+    #page-packages .pkg-card { padding: 10px 16px !important; }
+    #page-packages [style*="gap:24px"] { gap: 14px !important; }
+    #page-packages .pkg-name { font-size: 14px !important; }
+    #page-packages .pkg-price-main { font-size: 14px !important; margin-top: 3px !important; }
+    #page-packages .pkg-timeline { margin-top: 3px !important; }
+    #page-packages [style*="margin-top:18px"] { margin-top: 6px !important; font-size: 11px !important; line-height: 1.45 !important; }
+    #page-packages li { font-size: 11px !important; line-height: 1.4 !important; padding: 2px 0 !important; }
+    #page-packages .pkg-featured-badge { font-size: 7px !important; padding: 2px 6px !important; }
+    #page-packages .addon-section { margin-top: 6px !important; padding: 10px 14px !important; }
+    #page-packages .addon-name { font-size: 18px !important; }
+    #page-packages .addon-note { font-size: 10.5px !important; }
 
     /* Value page */
     .callout { padding: 18px 24px; margin: 18px 0; }
@@ -843,7 +851,7 @@
 </div>
 
 <!-- PAGE 6: PACKAGES & PRICING -->
-<div class="page">
+<div class="page" id="page-packages">
   <div class="page-inner" style="padding:64px 80px;">
     <div class="page-header">
       <span class="page-num serif">06</span>
