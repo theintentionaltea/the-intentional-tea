@@ -7,7 +7,12 @@
 
 [[redirects]]
   from = "/work-with-me"
-  to = "/book"
+  to = "/services"
+  status = 301
+
+[[redirects]]
+  from = "/book"
+  to = "/services"
   status = 301
 
 [[headers]]

@@ -1,4 +1,4 @@
-﻿---
+---
 permalink: /blog.html
 eleventyExcludeFromCollections: true
 ---
@@ -22,151 +22,224 @@ eleventyExcludeFromCollections: true
     <link rel="stylesheet" href="/style.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Noto+Serif+Display:ital,wght@0,300;1,300&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
 
         body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Noto Serif Display', serif; font-weight: 300; letter-spacing: 0.03em; }
+        h1, h2, h3, h4, .serif { font-family: 'Lora', serif; font-weight: 400; letter-spacing: 0.02em; }
         .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .playfair-italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .lora { font-family: 'Lora', serif; font-weight: 400; }
         .baskerville { font-family: 'Libre Baskerville', serif !important; font-style: italic; font-weight: 400; letter-spacing: 0.04em; }
+
         .bg-rose { background-color: #E2C0B9; }
         .text-rose { color: #C99B92; }
+        .white-card { background-color: white; border: 1px solid rgba(0,0,0,0.05); }
+
         .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
         .header-link:hover { color: #E2C0B9; }
+
         #mobile-nav { display: none; flex-direction: column; }
         #mobile-nav.active { display: flex; }
+
+        .filter-btn { text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.18); background: transparent; cursor: pointer; transition: all 0.2s ease; color: #1a1a1a; border-radius: 4px; }
+        .filter-btn:hover { border-color: #C99B92; color: #C99B92; }
+        .filter-btn.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
     </style>
 </head>
 <body class="antialiased">
-
-    <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off + freebies.</p>
-    </div>
 
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="lg:hidden w-1/3">
                 <button onclick="toggleMenu()" class="header-link flex items-center gap-2" aria-label="Toggle Menu">
-                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                    <span class="pointer-events-none" aria-hidden="true">Menu</span>
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <span class="pointer-events-none">Menu</span>
                 </button>
             </div>
-            <nav class="hidden lg:flex w-2/5 justify-start space-x-6" aria-label="Main navigation">
+
+            <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
                 <a href="/index.html" class="header-link">Home</a>
-                <a href="/shop.html" class="header-link">Shop</a>
-                <a href="/book.html" class="header-link">Work With Me</a>
                 <a href="/about.html" class="header-link">About</a>
-                <a href="/blog.html" class="header-link border-b border-black/20 text-rose">Blog</a>
-                <a href="/social.html" class="header-link">Links</a>
+                <a href="/services.html" class="header-link">Services</a>
+                <a href="/shop.html" class="header-link">Shop</a>
+                <a href="/blog.html" class="header-link">Blog</a>
             </nav>
+
             <div class="w-1/3 lg:w-1/5 flex justify-center">
                 <a href="/index.html">
                     <img src="/images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain">
                 </a>
             </div>
+
             <div class="w-1/3 lg:w-2/5 flex justify-end space-x-6 items-center">
-                <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group" aria-label="Cart">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:text-rose transition-colors" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <button class="hidden md:block header-link">Search</button>
+                <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:text-rose transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                     <span class="header-link">Cart</span>
                 </a>
             </div>
         </div>
-        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2]" aria-label="Mobile navigation">
-            <a href="/index.html" class="header-link">Home</a>
-            <a href="/shop.html" class="header-link">Shop</a>
-            <a href="/book.html" class="header-link">Work With Me</a>
-            <a href="/about.html" class="header-link">About</a>
-            <a href="/blog.html" class="header-link text-rose">Blog</a>
-            <a href="/social.html" class="header-link">Links</a>
+
+        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
+            <a href="/index.html" class="header-link block">Home</a>
+            <a href="/about.html" class="header-link block">About</a>
+            <a href="/services.html" class="header-link block">Services</a>
+            <a href="/shop.html" class="header-link block">Shop</a>
+            <a href="/blog.html" class="header-link block">Blog</a>
         </nav>
     </header>
 
-    <section class="bg-[#1a1a1a] py-20 px-6 text-center space-y-4">
-        <h1 class="playfair text-5xl md:text-6xl text-white">The Intentional Tea Blog</h1>
-        <p class="text-[10px] uppercase tracking-[0.5em] text-white/50">Perspective. Strategy. Intention.</p>
-    </section>
+    <main id="main-content">
 
-    <main id="main-content" class="max-w-5xl mx-auto pt-16 pb-24 px-6">
-
-        {% set posts = collections.posts | reverse %}
-        {% if posts.length > 0 %}
-
-        <div class="space-y-12">
-            <div class="flex items-center justify-between border-b border-black/10 pb-4">
-                <h2 class="text-sm uppercase tracking-[0.3em] font-bold text-[#1a1a1a]">Latest Posts</h2>
-                <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]/40">{{ posts.length }} post{% if posts.length != 1 %}s{% endif %}</span>
+        <!-- Hero -->
+        <section class="bg-black py-28 px-6 text-center">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <span class="pill pill-dark">The Journal</span>
+                <h1 class="hero-headline playfair-italic text-5xl md:text-6xl text-white leading-[1.15]">The Intentional Tea Blog</h1>
+                <p class="hero-btn text-sm text-white/75 font-light leading-relaxed max-w-md mx-auto">Essays on business, life architecture, systems, and intentional growth.</p>
+                <div class="hero-btn">
+                    <a href="#latest-essays" class="inline-block bg-[#E2C0B9] text-black px-12 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition-all">Read the Latest Essay</a>
+                </div>
             </div>
+        </section>
 
-            <div class="grid md:grid-cols-2 gap-14">
-                {% for post in posts %}
-                <article>
-                    <a href="{{ post.url }}" class="group space-y-5 block">
-                        <div class="space-y-3">
-                            {% if post.data.category %}
-                            <span class="text-[9px] uppercase tracking-widest font-bold" style="color:#C99B92;">{{ post.data.category }}</span>
-                            {% endif %}
-                            <h3 class="text-2xl serif italic leading-snug group-hover:text-rose transition-colors">{{ post.data.title }}</h3>
-                            {% if post.data.description %}
-                            <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">{{ post.data.description }}</p>
-                            {% endif %}
+        <!-- MARQUEE: DARK -->
+        <div class="marquee-wrapper marquee-dark" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Building Intentionally</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Life Architecture</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Business Systems</span><span class="marquee-sep"></span>
+                <span class="marquee-item">The Intersection</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Alignment &amp; Fit</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Building Intentionally</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Life Architecture</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Business Systems</span><span class="marquee-sep"></span>
+                <span class="marquee-item">The Intersection</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Alignment &amp; Fit</span><span class="marquee-sep"></span>
+            </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <section class="max-w-7xl mx-auto px-6 pt-10 pb-0">
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="foundation">Foundation</button>
+                <button class="filter-btn" data-filter="strategy">Strategy</button>
+                <button class="filter-btn" data-filter="systems">Systems</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="personal-growth">Personal Growth</button>
+            </div>
+        </section>
+
+        <!-- Featured Essay -->
+        <section class="max-w-7xl mx-auto py-12 px-6">
+            <div class="grid md:grid-cols-2 gap-0 border border-black/5 overflow-hidden rounded-md">
+                <div class="overflow-hidden">
+                    <img src="/images/Blog_Welcome.png" alt="Welcome essay" class="w-full h-full object-cover" style="min-height:280px; filter:brightness(0.85);">
+                </div>
+                <div class="bg-white p-10 md:p-14 flex flex-col justify-center space-y-6">
+                    <p class="text-[9px] uppercase tracking-[0.4em] font-bold" style="color:#9B4F4A;">Featured Essay</p>
+                    <h2 class="playfair-italic text-3xl md:text-4xl text-[#1a1a1a] leading-[1.3]">A Welcome to The Intentional Tea</h2>
+                    <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">An introduction to the space we're building — essays on business, life architecture, systems, and intentional growth. More coming soon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Essays -->
+        <section id="latest-essays" class="max-w-7xl mx-auto pb-16 px-6">
+            <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/80 mb-8">Latest Essays</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <article class="flex flex-col">
+                    <div class="aspect-square rounded-md mb-4 bg-[#EDE8E3] border border-black/5 flex items-center justify-center">
+                        <div class="text-center space-y-2 px-6">
+                            <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Coming Soon</p>
                         </div>
-                        <div class="flex items-center justify-between border-t border-black/5 pt-4">
-                            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]/40">{{ post.data.date | postDate }}</span>
-                            <span class="text-[10px] uppercase tracking-widest font-bold border-b border-black group-hover:text-rose group-hover:border-rose transition-colors">Read &rarr;</span>
-                        </div>
-                    </a>
+                    </div>
+                    <div class="space-y-2 flex-1 flex flex-col">
+                        <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Essay</p>
+                        <h3 class="playfair-italic text-lg text-[#1a1a1a]/60 leading-snug">More coming soon</h3>
+                        <p class="text-xs text-[#2a2a2a]/70 font-light leading-relaxed flex-1">New essays dropping soon. Subscribe to get notified.</p>
+                    </div>
                 </article>
-                {% endfor %}
+
+                <article class="flex flex-col">
+                    <div class="aspect-square rounded-md mb-4 bg-[#EDE8E3] border border-black/5 flex items-center justify-center">
+                        <div class="text-center space-y-2 px-6">
+                            <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 flex-1 flex flex-col">
+                        <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Essay</p>
+                        <h3 class="playfair-italic text-lg text-[#1a1a1a]/60 leading-snug">More coming soon</h3>
+                        <p class="text-xs text-[#2a2a2a]/70 font-light leading-relaxed flex-1">New essays dropping soon. Subscribe to get notified.</p>
+                    </div>
+                </article>
+
+                <article class="flex flex-col">
+                    <div class="aspect-square rounded-md mb-4 bg-[#EDE8E3] border border-black/5 flex items-center justify-center">
+                        <div class="text-center space-y-2 px-6">
+                            <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 flex-1 flex flex-col">
+                        <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Essay</p>
+                        <h3 class="playfair-italic text-lg text-[#1a1a1a]/60 leading-snug">More coming soon</h3>
+                        <p class="text-xs text-[#2a2a2a]/70 font-light leading-relaxed flex-1">New essays dropping soon. Subscribe to get notified.</p>
+                    </div>
+                </article>
+
+                <article class="flex flex-col">
+                    <div class="aspect-square rounded-md mb-4 bg-[#EDE8E3] border border-black/5 flex items-center justify-center">
+                        <div class="text-center space-y-2 px-6">
+                            <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 flex-1 flex flex-col">
+                        <p class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#1a1a1a]/60">Essay</p>
+                        <h3 class="playfair-italic text-lg text-[#1a1a1a]/60 leading-snug">More coming soon</h3>
+                        <p class="text-xs text-[#2a2a2a]/70 font-light leading-relaxed flex-1">New essays dropping soon. Subscribe to get notified.</p>
+                    </div>
+                </article>
+
             </div>
-        </div>
+        </section>
 
-        {% else %}
-
-        <div class="text-center py-24 space-y-6">
-            <p class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">Coming Soon</p>
-            <h2 class="serif italic text-3xl">The first post is on its way.</h2>
-            <p class="text-sm text-[#2a2a2a] font-light">In the meantime, explore the shop or learn more about the brand.</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="/shop.html" class="header-link border-b border-black/20 pb-1 hover:text-[#C99B92] hover:border-[#C99B92] transition-colors">Shop the Collection</a>
-                <a href="/about.html" class="header-link border-b border-black/20 pb-1 hover:text-[#C99B92] hover:border-[#C99B92] transition-colors">About the Brand</a>
+        <!-- Newsletter -->
+        <section class="bg-[#1a1a1a] py-0 px-0">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-px bg-white/10">
+                    <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 border border-[#C99B92]/40 flex items-center justify-center flex-shrink-0" style="border-radius:10px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list</h2>
+                        </div>
+                        <p class="text-sm text-white/45 font-light leading-relaxed">New content, resources, and 20% off your first order.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center space-y-4">
+                        <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
+                            <label for="newsletter-email-blog" class="sr-only">Email address</label>
+                            <input id="newsletter-email-blog" type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address for newsletter signup" class="w-full bg-transparent border border-white/20 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/30 focus:border-[#C99B92] transition-colors">
+                            <button type="submit" class="w-full bg-[#C99B92] text-white py-4 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all">Join the List</button>
+                        </form>
+                        <p class="text-[9px] uppercase tracking-[0.2em] text-white/70 font-bold text-center">No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        {% endif %}
+        </section>
 
     </main>
-
-    <!-- Email Capture -->
-    <section class="bg-[#1a1a1a] py-0 px-0">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-px bg-white/10">
-                <div class="bg-[#1a1a1a] p-10 md:p-14 space-y-5">
-                    <div class="w-10 h-10 border border-[#C99B92]/40 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="text-[9px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">Mailing List</p>
-                        <h2 class="baskerville text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list for 20% off + freebies.</h2>
-                    </div>
-                    <p class="text-xs text-white/50 font-light leading-relaxed">Free sticker pack, e-books, and your discount code. Delivered instantly after you sign up.</p>
-                </div>
-                <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center space-y-4">
-                    <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
-                        <label for="newsletter-email-blog" class="sr-only">Email address</label>
-                        <input id="newsletter-email-blog" type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address for newsletter signup" class="w-full bg-transparent border border-white/20 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/30 focus:border-[#C99B92] transition-colors">
-                        <button type="submit" class="w-full bg-[#C99B92] text-white py-4 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all">Join the List</button>
-                    </form>
-                    <p class="text-[9px] uppercase tracking-[0.2em] text-white/25 font-bold text-center">No spam. Unsubscribe anytime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer class="bg-[#FAF7F2] py-5 px-8 border-t border-black/5" role="contentinfo">
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
             <div class="flex items-center justify-center md:justify-start gap-5">
                 <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
                 <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
                 <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
                 <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
             </div>
@@ -185,7 +258,7 @@ eleventyExcludeFromCollections: true
 
     <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-[#1a1a1a]/40 hover:text-black" aria-label="Close modal">Close [x]</button>
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
             <div id="modal-content"></div>
         </div>
     </div>
@@ -196,17 +269,29 @@ eleventyExcludeFromCollections: true
             nav.classList.toggle('active');
         }
 
-        function handleNewsletterSubmit(e) {
+        async function handleNewsletterSubmit(e) {
             e.preventDefault();
-            const email = document.getElementById('newsletter-email-blog').value;
-            window.location.href = '/thank-you-newsletter.html?email=' + encodeURIComponent(email);
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value.trim();
+            if (!email) return;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Subscribing...';
+            btn.disabled = true;
+            try {
+                await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ email, listId: 7 })
+                });
+            } catch (err) {}
+            window.location.href = '/thank-you-newsletter.html';
         }
 
         const policyContent = {
-            terms: `<h2 class="playfair text-3xl mb-6">Terms &amp; Conditions</h2><p class="text-sm leading-relaxed text-[#2a2a2a]">Standard terms for digital licensing. Products are for personal use only.</p>`,
-            refund: `<h2 class="playfair text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-[#2a2a2a]">Due to the nature of digital products, all sales of The Intentional Tea products are final.</p>`,
-            privacy: `<h2 class="playfair text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-[#2a2a2a]">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`,
-            disclaimer: `<h2 class="playfair text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-[#2a2a2a]">The content on this blog is for informational and educational purposes only and does not constitute professional advice.</p>`
+            terms: '<h2 class="serif italic text-3xl mb-6">Terms & Conditions</h2><p class="text-sm leading-relaxed text-gray-600">Standard terms for digital licensing. Products are for personal use only.</p>',
+            refund: '<h2 class="serif italic text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-gray-600">Due to the nature of digital products, all sales of The Intentional Tea products are final.</p>',
+            privacy: '<h2 class="serif italic text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-gray-600">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>',
+            disclaimer: '<h2 class="serif italic text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-gray-600">The content on this site is for informational and educational purposes only and does not constitute professional advice.</p>'
         };
 
         function openModal(type) {

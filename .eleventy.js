@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
   const staticPages = [
     "index.html",
     "about.html",
-    "book.html",
+    "services.html",
     "shop.html",
     "social.html",
     "404.html",
