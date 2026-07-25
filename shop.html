@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Shop | The Intentional Tea</title>
-    <meta name="description" content="Explore the collection of digital tools for the Soft Authority. Architecture for an intentional life including the Alignment Collection and Life Reset.">
+    <meta name="description" content="Explore the collection of digital tools for an intentional life and business. The Intentional Tea: digital planning, life reset, astrology, and more.">
     <meta property="og:title" content="Shop | The Intentional Tea">
-    <meta property="og:description" content="Digital planning tools and architectural frameworks for an intentional life.">
+    <meta property="og:description" content="Digital planning tools and frameworks for an intentional life and business.">
     <meta property="og:image" content="images/Logo_Main.png">
     <meta property="og:url" content="https://theintentionaltea.com/shop.html">
 
@@ -20,46 +20,183 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
 
-        body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Lora', serif; font-weight: 400; letter-spacing: 0.02em; }
-        .serif-regular { font-family: 'Lora', serif; font-weight: 400; letter-spacing: 0.02em; }
+        :root {
+            --cream: #FAF7F2;
+            --blush: #E2C0B9;
+            --blush-muted: #C99B92;
+            --ink: #1a1a1a;
+            --text: #2D2826;
+            --shadow-card: 0 4px 24px -4px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 16px 40px -8px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 12px;
+        }
+
+        body { background-color: var(--cream); color: var(--text); font-family: 'Instrument Sans', sans-serif; }
+
         .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
-        .baskerville { font-family: 'Libre Baskerville', serif !important; font-style: italic; font-weight: 400; letter-spacing: 0.04em; }
+        .lora { font-family: 'Lora', serif; font-weight: 400; }
+        .lora-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
+        .baskerville { font-family: 'Libre Baskerville', serif; font-style: italic; font-weight: 400; letter-spacing: 0.04em; }
+        .label-text { font-family: 'Instrument Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.35em; font-size: 10px; font-weight: 700; }
 
-        .bg-rose { background-color: #E2C0B9; }
-        .text-rose { color: #C99B92; }
+        /* Pills */
+        .pill {
+            display: inline-flex; align-items: center;
+            padding: 6px 14px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em;
+        }
+        .pill-blush { background: rgba(226,192,185,0.18); border: 1px solid rgba(226,192,185,0.45); color: #9B4F4A; }
+        .pill-dark  { background: rgba(226,192,185,0.12); border: 1px solid rgba(226,192,185,0.28); color: #E2C0B9; }
 
+        /* Card flat — for business + extras product cards */
+        .card-flat {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-flat:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+
+        /* Life section editorial cards */
+        .life-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .life-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+
+        /* Sticker cards */
+        .sticker-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .sticker-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -8px rgba(0,0,0,0.1); }
+
+        /* Product image wrapper — used in business + extras cards */
+        .product-img-wrap {
+            width: 100%; aspect-ratio: 1/1;
+            display: flex; align-items: center; justify-content: center;
+            background: white; border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative; overflow: hidden;
+        }
+        .product-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.25rem;
+            transition: transform 0.7s ease;
+        }
+        .group:hover .product-img-wrap img { transform: scale(1.05); }
+        .product-img-wrap::after {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(226,192,185,0); transition: background 0.3s ease; pointer-events: none;
+        }
+        .group:hover .product-img-wrap::after { background: rgba(226,192,185,0.08); }
+
+        /* Life editorial image wrapper */
+        .life-img-wrap {
+            aspect-ratio: 5/4; width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: #F9F6F2; position: relative; overflow: hidden;
+        }
+        .life-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.75rem;
+            transition: transform 0.7s ease;
+        }
+        .life-card:hover .life-img-wrap img { transform: scale(1.04); }
+
+        /* Sticker image wrapper */
+        .sticker-img-wrap {
+            aspect-ratio: 1/1; width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: white; position: relative; overflow: hidden;
+        }
+        .sticker-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.25rem;
+            transition: transform 0.5s ease;
+        }
+        .group:hover .sticker-img-wrap img { transform: scale(1.06); }
+
+        /* In-card category pill */
+        .card-category-pill {
+            display: inline-flex; align-items: center;
+            padding: 4px 10px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em;
+            background: rgba(226,192,185,0.14); border: 1px solid rgba(226,192,185,0.35); color: #9B4F4A;
+        }
+
+        /* Free badge — absolute-positioned inside image container */
+        .badge-free {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            background: #1a1a1a; color: white;
+            font-family: 'Instrument Sans', sans-serif; font-size: 8px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.2em; padding: 4px 10px; border-radius: 4px;
+        }
+
+        /* Price styling */
+        .price-serif { font-family: 'Lora', serif; font-style: italic; font-weight: 400; font-size: 1.2rem; color: #1a1a1a; }
+        .price-serif.price-free { color: #9B4F4A; }
+        .price-serif.price-lg { font-size: 1.75rem; }
+
+        /* Bundle hero */
+        .bundle-hero {
+            background: #1a1a1a; border-radius: var(--radius);
+            overflow: hidden; transition: box-shadow 0.3s ease;
+        }
+        .bundle-hero:hover { box-shadow: 0 28px 64px -12px rgba(0,0,0,0.5); }
+
+        /* Reveal animation */
+        @keyframes blurReveal {
+            from { opacity: 0; filter: blur(6px); transform: translateY(16px); }
+            to   { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: blurReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .reveal.d1.visible { animation-delay: 0.08s; }
+        .reveal.d2.visible { animation-delay: 0.16s; }
+        .reveal.d3.visible { animation-delay: 0.24s; }
+        .reveal.d4.visible { animation-delay: 0.32s; }
+
+        /* Arrow reveal on hover */
+        .arrow-hidden { opacity: 0; transform: translateX(-5px); transition: opacity 0.25s ease, transform 0.25s ease; display: inline-block; }
+        .group:hover .arrow-hidden { opacity: 1; transform: translateX(0); }
+
+        /* Button press */
+        .btn-press { transition: transform 0.1s ease; }
+        .btn-press:active { transform: scale(0.97); }
+
+        /* Header */
         .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; }
         .header-link:hover { color: #E2C0B9; }
 
-        .product-image-container { aspect-ratio: 4/5; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: white; border: 1px solid rgba(0,0,0,0.05); cursor: pointer; position: relative; }
-        .product-image-container img { width: 100%; height: 100%; object-fit: contain; padding: 2.5rem; }
-
-        /* Filter tabs */
+        /* Filter btn — already in style.css but redeclared for clarity */
         .filter-btn { text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.18); background: transparent; cursor: pointer; transition: all 0.2s ease; color: #1a1a1a; border-radius: 4px; }
         .filter-btn:hover { border-color: #C99B92; color: #C99B92; }
         .filter-btn.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
 
-        /* Product badge */
-        .product-badge { position: absolute; top: 12px; left: 12px; font-family: 'Instrument Sans', sans-serif; font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; padding: 4px 10px; }
-        .badge-new { background: #1a1a1a; color: white; }
-        .badge-bundle { background: #1a1a1a; color: white; }
-        .badge-free { background: #1a1a1a; color: white; }
-
-        /* Product card */
-        .product-card { transition: opacity 0.3s ease, transform 0.3s ease; }
+        /* Product card filter state */
+        .product-card { transition: opacity 0.3s ease; }
         .product-card.hidden { display: none; }
 
+        /* Mobile nav */
         #mobile-nav { display: none; flex-direction: column; }
         #mobile-nav.active { display: flex; }
+
+        /* Section visibility transition */
+        [data-section] { transition: opacity 0.2s ease; }
+        [data-section].section-hidden { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="w-full bg-rose py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off + freebies.</p>
-    </div>
 
+
+    <!-- Header -->
     <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -71,15 +208,15 @@
             </div>
 
             <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
-                <a href="/" class="header-link">Home</a>
-                <a href="/shop" class="header-link border-b border-black/20" style="color:#9B4F4A;">Shop</a>
-                <a href="/book" class="header-link">Work With Me</a>
-                <a href="/about" class="header-link">About</a>
-                <a href="/blog" class="header-link">Blog</a>
+                <a href="index.html" class="header-link">Home</a>
+                <a href="about.html" class="header-link">About</a>
+                <a href="services.html" class="header-link">Services</a>
+                <a href="shop.html" class="header-link">Shop</a>
+                <a href="blog.html" class="header-link">Blog</a>
             </nav>
 
             <div class="w-1/3 lg:w-1/5 flex justify-center">
-                <a href="/"><img src="images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain"></a>
+                <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain"></a>
             </div>
 
             <div class="w-1/3 lg:w-2/5 flex justify-end space-x-6 items-center">
@@ -91,202 +228,476 @@
             </div>
         </div>
 
-        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2]">
-            <a href="/" class="header-link">Home</a>
-            <a href="/shop" class="header-link" style="color:#9B4F4A;">Shop</a>
-            <a href="/book" class="header-link">Work With Me</a>
-            <a href="/about" class="header-link">About</a>
-            <a href="/blog" class="header-link">Blog</a>
+        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
+            <a href="index.html" class="header-link block">Home</a>
+            <a href="about.html" class="header-link block">About</a>
+            <a href="services.html" class="header-link block">Services</a>
+            <a href="shop.html" class="header-link block">Shop</a>
+            <a href="blog.html" class="header-link block">Blog</a>
         </nav>
     </header>
 
     <main id="main-content">
 
-        <!-- Page Header -->
-        <section class="bg-[#1a1a1a] py-20 px-6 text-center space-y-4">
-            <h1 class="playfair text-5xl md:text-6xl text-white">The Shop</h1>
-            <p class="text-[10px] uppercase tracking-[0.5em] text-white/70">Digital tools built to evolve with you</p>
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 01 · HERO                              -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-black py-28 px-6 text-center">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <span class="pill pill-dark hero-btn">The Collection</span>
+                <h1 class="hero-headline playfair text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05]">
+                    Plan the life.<br>
+                    <span style="color:#E2C0B9;">Build the business.</span>
+                </h1>
+                <p class="hero-btn text-[11px] text-white/40 uppercase tracking-[0.4em] font-light pt-1">Digital products for every part of your intention.</p>
+            </div>
         </section>
 
-        <!-- Filter Bar -->
-        <section class="max-w-7xl mx-auto px-6 pt-10 pb-12">
-            <div class="flex flex-wrap justify-center gap-2">
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 02 · MARQUEE                           -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="marquee-wrapper marquee-dark" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">Digital Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Life Reset</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Astrology Report</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Financial Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Digital Stickers</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Business Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Planner Templates</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Warm Neutrals</span><span class="marquee-sep"></span>
+                <span class="marquee-item">The Collection</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Digital Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Life Reset</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Astrology Report</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Financial Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Digital Stickers</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Business Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Planner Templates</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Warm Neutrals</span><span class="marquee-sep"></span>
+                <span class="marquee-item">The Collection</span><span class="marquee-sep"></span>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 03 · FILTER BAR                        -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] border-b border-black/8 py-6 px-6">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-2">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="systems">Systems</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="life">Life + Wellness</button>
                 <button class="filter-btn" data-filter="planning">Digital Planning</button>
-                <button class="filter-btn" data-filter="living">Intentional Living</button>
                 <button class="filter-btn" data-filter="bundles">Bundles</button>
-                <button class="filter-btn" data-filter="freebies">Freebies</button>
+                <button class="filter-btn" data-filter="freebies">Freebies + Stickers</button>
             </div>
         </section>
 
-        <!-- Products — single uniform grid -->
-        <section class="max-w-7xl mx-auto pb-16 px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 05 · BUSINESS DIGITAL PRODUCTS         -->
+        <!-- ═══════════════════════════════════════ -->
+        <section data-section="business" class="bg-[#FAF7F2] py-16 px-6">
+            <div class="max-w-7xl mx-auto space-y-10">
 
-                <article class="product-card group flex flex-col" data-category="systems">
-                    <a href="https://intentionaltea.gumroad.com/l/kqmktr" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Life_Reset.png" alt="The Intentional Life Reset" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">The Intentional Life Reset</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">A 12-week guided reset system to realign, refocus, and rebuild.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$55.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/kqmktr" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                <!-- Section intro -->
+                <div class="space-y-3 reveal">
+                    <span class="pill pill-blush">For Your Business</span>
+                    <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Run the business. Keep the life.</h2>
+                    <p class="text-sm text-[#2D2826]/75 font-light leading-relaxed max-w-md">Guided workbooks and diagnostics built for founders managing a business and a real life alongside it.</p>
+                </div>
 
-                <article class="product-card group flex flex-col" data-category="systems">
-                    <a href="https://intentionaltea.gumroad.com/l/grjtk" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Astrology_Report.png" alt="The Intentional Astrology Report" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">The Intentional Astrology Report</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">Personalized birth chart reading synthesizing Astrology, Human Design, and Tarot.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$111.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/grjtk" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                <!-- 4-column workbook grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
 
-                <article class="product-card group flex flex-col" data-category="planning">
-                    <a href="https://intentionaltea.gumroad.com/l/fjkybc" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Calendar_Planner.png" alt="Calendar – Life Planner, Undated + Hyperlinked" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Calendar – Life Planner, Undated + Hyperlinked</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">A flexible, hyperlinked planning container for your rhythm.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$25.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/fjkybc" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                    <!-- Backend Diagnostic Check -->
+                    <article class="product-card group card-flat flex flex-col reveal d1" data-category="business">
+                        <div class="product-img-wrap">
+                            <img src="images/Diagnostic_Check.png" alt="Backend Diagnostic Check">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Diagnostic</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">Backend Diagnostic Check</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">A quick diagnostic to pinpoint where your backend is leaking time and money, and what to fix first.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$5.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/snpesd" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">
+                                    Get It <span class="arrow-hidden">&#x2192;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="product-card group flex flex-col" data-category="planning">
-                    <a href="https://intentionaltea.gumroad.com/l/hjjskb" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Financial_Planner.png" alt="Financial Planner, Undated + Hyperlinked" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Financial Planner, Undated + Hyperlinked</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">A digital tracker focused on sustainable money habits.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$20.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/hjjskb" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                    <!-- Idea to Income -->
+                    <article class="product-card group card-flat flex flex-col reveal d2" data-category="business">
+                        <div class="product-img-wrap">
+                            <img src="images/Business_Clarity.png" alt="Idea to Income: A Brand Clarity Workbook">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Brand Clarity</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">Idea to Income</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">A guided workbook for taking your idea out of your head and turning it into a clear, structured brand you're ready to launch.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$20.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/ftobds" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">
+                                    Get It <span class="arrow-hidden">&#x2192;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="product-card group flex flex-col" data-category="planning">
-                    <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Business_Planner_Templates.png" alt="Business Planner Templates" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Business Planning Templates</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">Templates built for the entrepreneur managing a business and a life.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$15.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                    <!-- Open For Business -->
+                    <article class="product-card group card-flat flex flex-col reveal d3" data-category="business">
+                        <div class="product-img-wrap">
+                            <img src="images/Business_Build.png" alt="Open For Business: A Business Build Workbook">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Business Build</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">Open For Business</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">A guided workbook for creating, pricing, and launching your offer and landing your first paying customers.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$20.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/ojxxr" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">
+                                    Get It <span class="arrow-hidden">&#x2192;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="product-card group flex flex-col" data-category="planning">
-                    <a href="https://intentionaltea.gumroad.com/l/yjgmjo" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Planner_Templates.png" alt="Essential Planning Pack" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Essential Planning Templates</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">The core digital planner templates to get organized.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$10.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/yjgmjo" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
+                    <!-- Built to Run -->
+                    <article class="product-card group card-flat flex flex-col reveal d4" data-category="business">
+                        <div class="product-img-wrap">
+                            <img src="images/Business_Operations.png" alt="Built to Run: An Operations &amp; Systems Workbook">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Operations</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">Built to Run</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">A guided workbook for building the complete backend that keeps your business running without you.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$20.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/drcbjz" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">
+                                    Get It <span class="arrow-hidden">&#x2192;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <article class="product-card group flex flex-col" data-category="bundles">
-                    <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Life_Reset_Astrology_Bundle.png" alt="The Intentional Reset Bundle" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">The Intentional Reset Bundle</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">The Life Reset paired with a personalized Astrology Report.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$165.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-                <article class="product-card group flex flex-col" data-category="bundles" data-free="true">
-                    <a href="https://intentionaltea.gumroad.com/l/viiwtz" class="gumroad-scroll product-image-container mb-6">
-                        <span class="product-badge badge-free">Free</span>
-                        <img src="images/Ebook_Bundle.png" alt="Intentional Starter Kit E-Book Bundle" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Intentional Starter Kit E-Book Bundle</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">Three ebooks to start building your intentional life.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">Free</span>
-                        <a href="https://intentionaltea.gumroad.com/l/viiwtz" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-                <article class="product-card group flex flex-col" data-category="stickers" data-free="true">
-                    <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="gumroad-scroll product-image-container mb-6">
-                        <span class="product-badge badge-free">Free</span>
-                        <img src="images/Free_Planner_Stickers.png" alt="Digital Stickers: Essentials" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Digital Stickers – Essentials</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">A free sticker set to get you started.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">Free</span>
-                        <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-                <article class="product-card group flex flex-col" data-category="stickers">
-                    <a href="https://intentionaltea.gumroad.com/l/petpmt" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Neutral_Planner_Stickers.png" alt="Digital Stickers: Warm Neutrals" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Warm Neutral Digital Stickers</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">Warm-toned stickers for a soft, intentional aesthetic.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$5.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/petpmt" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-                <article class="product-card group flex flex-col" data-category="stickers">
-                    <a href="https://intentionaltea.gumroad.com/l/qmehoo" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Dark_Planner_Stickers.png" alt="Digital Stickers: Black &amp; White" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Digital Stickers: Black &amp; White</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">Clean, minimal stickers for a neutral setup.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$5.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/qmehoo" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-                <article class="product-card group flex flex-col" data-category="stickers">
-                    <a href="https://intentionaltea.gumroad.com/l/icurnz" class="gumroad-scroll product-image-container mb-6">
-                        <img src="images/Pastel_Stickers.png" alt="Digital Stickers: Rainbow" class="group-hover:scale-105 transition-transform duration-700">
-                    </a>
-                    <h3 class="text-lg serif italic">Digital Stickers: Rainbow</h3>
-                    <div class="mt-2 flex-1"><p class="text-xs text-[#2a2a2a] font-light leading-relaxed">A full color set for your planner aesthetic.</p></div>
-                    <div class="flex justify-between items-center border-t border-black/5 pt-4 mt-4">
-                        <span class="text-sm font-light">$5.00</span>
-                        <a href="https://intentionaltea.gumroad.com/l/icurnz" class="gumroad-scroll text-[10px] uppercase tracking-widest font-bold text-[#1a1a1a] hover:text-rose transition-colors">View Details →</a>
-                    </div>
-                </article>
-
-
+                </div>
             </div>
         </section>
 
-        <!-- Newsletter -->
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 06 · BUNDLES                           -->
+        <!-- ═══════════════════════════════════════ -->
+        <section data-section="life" class="bg-white py-16 px-6">
+            <div class="max-w-7xl mx-auto space-y-10">
+
+                <!-- Section intro -->
+                <div class="space-y-3 reveal">
+                    <span class="pill pill-blush">Bundles</span>
+                    <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">More together.</h2>
+                    <p class="text-sm text-[#2D2826]/75 font-light leading-relaxed max-w-lg">The full tools, combined. For the person ready to address both the inner work and the structure around it.</p>
+                </div>
+
+                <!-- 4-column bundle grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+                    <!-- Intentional Reset Bundle -->
+                    <article class="product-card group card-flat flex flex-col reveal d1" data-category="bundles">
+                        <div class="product-img-wrap">
+                            <img src="images/Life_Reset_Astrology_Bundle.png" alt="The Intentional Reset Bundle">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Bundle</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">The Intentional Reset Bundle</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">The Life Reset + Astrology Report. Two tools, one direction.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$125.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">Get It <span class="arrow-hidden">&#x2192;</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- The Intentional Collection -->
+                    <article class="product-card group card-flat flex flex-col reveal d2" data-category="bundles">
+                        <div class="product-img-wrap">
+                            <img src="images/Full_Bundle.png" alt="The Intentional Collection">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Full Collection</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">The Intentional Collection</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">Life Reset + Astrology Report + Life Planner. The full system.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$150.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">Get It <span class="arrow-hidden">&#x2192;</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Intentional Starter Kit -->
+                    <article class="product-card group card-flat flex flex-col reveal d3" data-category="bundles">
+                        <div class="product-img-wrap">
+                            <img src="images/Ebook_Bundle.png" alt="The Intentional Starter Kit">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Free Bundle</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">The Intentional Starter Kit</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">Three ebooks to start building your intentional life. Free.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">Free</span>
+                                <a href="https://intentionaltea.gumroad.com/l/viiwtz" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">Get It <span class="arrow-hidden">&#x2192;</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- The Intentional Business Build -->
+                    <article class="product-card group card-flat flex flex-col reveal d4" data-category="bundles">
+                        <div class="product-img-wrap">
+                            <img src="images/Business_Bundle.png" alt="The Intentional Business Build">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1 gap-3">
+                            <span class="card-category-pill self-start">Business Bundle</span>
+                            <h3 class="lora-italic text-base text-[#1a1a1a] leading-snug">The Intentional Business Build</h3>
+                            <p class="text-xs text-[#2D2826]/80 font-light leading-relaxed flex-1">All three business workbooks in one. Brand clarity to operations.</p>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">—</span>
+                                <a href="https://intentionaltea.gumroad.com/l/yonbmp" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors flex items-center gap-1">Get It <span class="arrow-hidden">&#x2192;</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 07 · PLANNING TOOLS + FREE BUNDLE      -->
+        <!-- ═══════════════════════════════════════ -->
+        <section data-section="extras" class="bg-[#FAF7F2] py-16 px-6">
+            <div class="max-w-7xl mx-auto space-y-10">
+
+                <!-- Section intro -->
+                <div class="space-y-3 reveal">
+                    <span class="pill pill-blush">Also In The Collection</span>
+                    <h2 class="lora-italic text-3xl text-[#1a1a1a]">More to explore.</h2>
+                </div>
+
+                <!-- 2-row grid of 4 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 reveal">
+
+                    <!-- Calendar Planner -->
+                    <article class="product-card group card-flat flex flex-col" data-category="planning">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Calendar_Planner.png" alt="Calendar + Life Planner" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Planner</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Calendar + Life Planner</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$25.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/fjkybc" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Financial Planner -->
+                    <article class="product-card group card-flat flex flex-col" data-category="planning">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Financial_Planner.png" alt="Intentional Financial Planner" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Finance</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Intentional Financial Planner</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$20.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/hjjskb" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Life Reset -->
+                    <article class="product-card group card-flat flex flex-col" data-category="life">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Life_Reset.png" alt="The Intentional Life Reset" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Life Reset</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">The Intentional Life Reset</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$55.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/fjkybc" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Astrology Report -->
+                    <article class="product-card group card-flat flex flex-col" data-category="life">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Astrology_Report.png" alt="The Intentional Astrology Report" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Astrology</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">The Intentional Astrology Report</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$111.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/zsqgf" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Essential Planning Templates -->
+                    <article class="product-card group card-flat flex flex-col" data-category="planning">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Planner_Templates.png" alt="Essential Planning Templates" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Templates</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Essential Planning Templates</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$15.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/yjgmjo" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Business Planning Templates -->
+                    <article class="product-card group card-flat flex flex-col" data-category="planning">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Business_Planner_Templates.png" alt="Business Planning Templates" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Templates</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Business Planning Templates</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">$10.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/srfsf" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Astrology Basics Booklet -->
+                    <article class="product-card group card-flat flex flex-col" data-category="life">
+                        <div style="width:100%; aspect-ratio:1/1; overflow:hidden; position:relative; border-bottom:1px solid rgba(0,0,0,0.05);">
+                            <img src="images/Astrology_Report.png" alt="Astrology Basics Booklet" style="width:100%; height:100%; object-fit:cover; object-position:top; transition:transform 0.7s ease;">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <span class="card-category-pill self-start">Astrology</span>
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Astrology Basics Booklet</h3>
+                            <div class="flex justify-between items-center pt-3 border-t border-black/6 mt-auto">
+                                <span class="price-serif">Free</span>
+                                <a href="https://intentionaltea.gumroad.com/l/zsqgf" class="gumroad-scroll text-[9px] uppercase tracking-[0.3em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get It &#x2192;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 08 · DIGITAL STICKERS                  -->
+        <!-- ═══════════════════════════════════════ -->
+        <section data-section="stickers" class="py-16 px-6" style="background:#FAF7F2;">
+            <div class="max-w-7xl mx-auto space-y-10">
+
+                <!-- Section intro -->
+                <div class="space-y-3 reveal">
+                    <span class="pill pill-blush">Digital Stickers</span>
+                    <h2 class="lora-italic text-3xl text-[#1a1a1a]">Decorate the system.</h2>
+                    <p class="text-sm text-[#2D2826]/75 font-light leading-relaxed max-w-sm">Sticker packs for every aesthetic. Built for GoodNotes, Notability, and any digital planner setup.</p>
+                </div>
+
+                <!-- 4-column compact sticker grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+                    <!-- Essentials (Free) -->
+                    <article class="product-card group sticker-card flex flex-col reveal d1" data-category="stickers" data-free="true">
+                        <div class="sticker-img-wrap" style="position:relative;">
+                            <span class="badge-free">Free</span>
+                            <img src="images/Free_Planner_Stickers.png" alt="Digital Stickers: Essentials">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Digital Stickers – Essentials</h3>
+                            <div class="flex justify-between items-center pt-2 border-t border-black/6 mt-auto">
+                                <span style="font-family:'Lora',serif; font-style:italic; font-size:0.85rem; color:#9B4F4A;">Free</span>
+                                <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="gumroad-scroll text-[8px] uppercase tracking-[0.25em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Warm Neutrals -->
+                    <article class="product-card group sticker-card flex flex-col reveal d2" data-category="stickers">
+                        <div class="sticker-img-wrap">
+                            <img src="images/Neutral_Planner_Stickers.png" alt="Warm Neutral Digital Stickers">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Warm Neutral Stickers</h3>
+                            <div class="flex justify-between items-center pt-2 border-t border-black/6 mt-auto">
+                                <span style="font-family:'Lora',serif; font-style:italic; font-size:0.85rem;">$5.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/petpmt" class="gumroad-scroll text-[8px] uppercase tracking-[0.25em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dark / Black & White -->
+                    <article class="product-card group sticker-card flex flex-col reveal d3" data-category="stickers">
+                        <div class="sticker-img-wrap">
+                            <img src="images/Dark_Planner_Stickers.png" alt="Digital Stickers: Black &amp; White">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Digital Stickers: Black &amp; White</h3>
+                            <div class="flex justify-between items-center pt-2 border-t border-black/6 mt-auto">
+                                <span style="font-family:'Lora',serif; font-style:italic; font-size:0.85rem;">$5.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/qmehoo" class="gumroad-scroll text-[8px] uppercase tracking-[0.25em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Rainbow / Pastel -->
+                    <article class="product-card group sticker-card flex flex-col reveal d4" data-category="stickers">
+                        <div class="sticker-img-wrap">
+                            <img src="images/Pastel_Stickers.png" alt="Digital Stickers: Rainbow">
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 gap-2">
+                            <h3 class="lora-italic text-sm text-[#1a1a1a] leading-snug">Digital Stickers: Rainbow</h3>
+                            <div class="flex justify-between items-center pt-2 border-t border-black/6 mt-auto">
+                                <span style="font-family:'Lora',serif; font-style:italic; font-size:0.85rem;">$5.00</span>
+                                <a href="https://intentionaltea.gumroad.com/l/icurnz" class="gumroad-scroll text-[8px] uppercase tracking-[0.25em] font-bold text-[#1a1a1a] hover:text-[#C99B92] transition-colors">Get →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SERVICES CTA                           -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="py-20 px-6" style="background:#1a1a1a;">
+            <div class="max-w-4xl mx-auto text-center space-y-6 reveal">
+                <span class="pill pill-dark">Business Operations</span>
+                <h2 class="lora-italic text-3xl md:text-4xl text-white leading-[1.15]">Already running something real?<br>Let's build the structure around it.</h2>
+                <p class="text-sm text-white/55 font-light leading-relaxed max-w-xl mx-auto">Done doing everything manually. The Infrastructure Build is a full operational setup — website, systems, automations — scoped to exactly what you need. Start with a Clarity &amp; Audit and we'll map it out.</p>
+                <a href="services.html" class="btn-press inline-block bg-[#E2C0B9] text-black px-10 py-3.5 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition-all duration-300" style="border-radius:8px;">See Business Operations</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- 09 · NEWSLETTER                        -->
+        <!-- ═══════════════════════════════════════ -->
         <section class="bg-[#1a1a1a] py-0 px-0">
             <div class="max-w-5xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-px bg-white/10">
-                    <div class="bg-[#1a1a1a] p-10 md:p-14 space-y-5">
-                        <div class="w-10 h-10 border border-[#C99B92]/40 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 border border-[#C99B92]/40 flex items-center justify-center flex-shrink-0" style="border-radius:10px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list</h2>
                         </div>
-                        <div class="space-y-2">
-                            <p class="text-[9px] uppercase tracking-[0.4em] font-bold" style="color:#C99B92;">Mailing List</p>
-                            <h2 class="baskerville text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list for 20% off + freebies.</h2>
-                        </div>
-                        <p class="text-xs text-white/70 font-light leading-relaxed">Free sticker pack, e-books, and your discount code. Delivered instantly after you sign up.</p>
+                        <p class="text-sm text-white/45 font-light leading-relaxed">New content, resources, and 20% off your first order.</p>
                     </div>
                     <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center space-y-4">
                         <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
@@ -302,6 +713,7 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-[#FAF7F2] py-5 px-8 border-t border-black/5" role="contentinfo">
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
             <div class="flex items-center justify-center md:justify-start gap-5">
@@ -324,6 +736,7 @@
         </div>
     </footer>
 
+    <!-- Policy Modal -->
     <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
@@ -332,6 +745,7 @@
     </div>
 
     <script>
+        /* ─── Newsletter ─── */
         async function handleNewsletterSubmit(e) {
             e.preventDefault();
             const form = e.target;
@@ -350,41 +764,58 @@
             window.location.href = 'thank-you-newsletter.html';
         }
 
+        /* ─── Mobile nav ─── */
         function toggleMenu() {
             const nav = document.getElementById('mobile-nav');
             nav.classList.toggle('active');
         }
 
-        // Category filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
+        /* ─── Section visibility after filter ─── */
+        function updateSectionVisibility() {
+            document.querySelectorAll('[data-section]').forEach(function(section) {
+                var cards = section.querySelectorAll('.product-card');
+                var hasVisible = Array.from(cards).some(function(c) {
+                    return !c.classList.contains('hidden');
+                });
+                if (hasVisible) {
+                    section.classList.remove('section-hidden');
+                } else {
+                    section.classList.add('section-hidden');
+                }
+            });
+        }
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+        /* ─── Filter logic ─── */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
                 btn.classList.add('active');
-                const filter = btn.dataset.filter;
+                var filter = btn.dataset.filter;
 
-                productCards.forEach(card => {
-                    let show = filter === 'all'
-                        || (filter === 'freebies' && card.dataset.free === 'true')
+                productCards.forEach(function(card) {
+                    var show = filter === 'all'
+                        || (filter === 'freebies' && (card.dataset.category === 'stickers' || card.dataset.free === 'true'))
                         || card.dataset.category === filter;
                     card.classList.toggle('hidden', !show);
                 });
+
+                updateSectionVisibility();
             });
         });
 
-        const policyContent = {
-            terms: `<h2 class="serif italic text-3xl mb-6">Terms & Conditions</h2><p class="text-sm leading-relaxed text-gray-600">Standard terms for digital licensing. Products are for personal use only.</p>`,
-            refund: `<h2 class="serif italic text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-gray-600">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>`,
-            privacy: `<h2 class="serif italic text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-gray-600">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`,
-            disclaimer: `<h2 class="serif italic text-3xl mb-6">Disclaimers</h2>
-                         <p class="text-sm leading-relaxed text-gray-600 mb-4"><strong>Affiliate:</strong> Some links on the Favorites page are affiliate links, meaning I may earn a small commission at no extra cost to you.</p>
-                         <p class="text-sm leading-relaxed text-gray-600"><strong>Results:</strong> Mentions of personal or professional growth are illustrative. Results of the Life Reset and other tools may vary based on individual effort and circumstances.</p>`
+        /* ─── Modals ─── */
+        var policyContent = {
+            terms: '<h2 class="serif italic text-3xl mb-6">Terms & Conditions</h2><p class="text-sm leading-relaxed text-gray-600">Standard terms for digital licensing. Products are for personal use only.</p>',
+            refund: '<h2 class="serif italic text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-gray-600">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>',
+            privacy: '<h2 class="serif italic text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-gray-600">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>',
+            disclaimer: '<h2 class="serif italic text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-gray-600 mb-4"><strong>Affiliate:</strong> Some links on the Favorites page are affiliate links, meaning I may earn a small commission at no extra cost to you.</p><p class="text-sm leading-relaxed text-gray-600"><strong>Results:</strong> Mentions of personal or professional growth are illustrative. Results of the Life Reset and other tools may vary based on individual effort and circumstances.</p>'
         };
 
         function openModal(type) {
-            const modal = document.getElementById('policy-modal');
+            var modal = document.getElementById('policy-modal');
             document.getElementById('modal-content').innerHTML = policyContent[type];
             modal.style.display = 'flex';
             modal.classList.remove('hidden');
@@ -392,21 +823,52 @@
         }
 
         function closeModal() {
-            const modal = document.getElementById('policy-modal');
+            var modal = document.getElementById('policy-modal');
             modal.style.display = 'none';
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        /* ─── Make product images clickable (triggers same Gumroad link as "Get It") ─── */
+        document.querySelectorAll('.product-card').forEach(function(card) {
+            var imgWrap = card.querySelector('.product-img-wrap, .sticker-img-wrap, .life-img-wrap');
+            if (!imgWrap) {
+                imgWrap = card.querySelector('div[style*="aspect-ratio"]');
+            }
+            var link = card.querySelector('a.gumroad-scroll');
+            if (imgWrap && link) {
+                imgWrap.style.cursor = 'pointer';
+                imgWrap.addEventListener('click', function() { link.click(); });
+            }
+        });
+
+        /* ─── Reveal on scroll (IntersectionObserver) ─── */
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        /* ─── Legacy fade-up support (style.css .fade-up class) ─── */
+        var fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.querySelectorAll('.stagger-child').forEach(function(el, i) {
+                        setTimeout(function() { el.classList.add('visible'); }, i * 130);
+                    });
                     fadeObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
     </script>
 </body>
 </html>

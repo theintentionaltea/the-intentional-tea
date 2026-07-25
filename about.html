@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,191 +18,437 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap');
 
-        body { background-color: #FAF7F2; color: #1a1a1a; font-family: 'Instrument Sans', sans-serif; }
-        .playfair { font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: 0.02em; }
+        :root {
+            --cream: #FAF7F2;
+            --blush: #E2C0B9;
+            --blush-muted: #C99B92;
+            --ink: #1a1a1a;
+            --text: #2D2826;
+            --shadow-card: 0 4px 24px -4px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 16px 40px -8px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 14px;
+        }
+
+        body { background: var(--cream); color: var(--text); font-family: 'Instrument Sans', sans-serif; }
+
+        .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
         .playfair-italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
-        .lora-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; letter-spacing: 0.01em; }
-        .baskerville { font-family: 'Libre Baskerville', serif !important; font-style: italic; font-weight: 400; letter-spacing: 0.04em; }
-        .ui-label { font-family: 'Instrument Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.35em; font-size: 10px; font-weight: 700; }
+        .lora { font-family: 'Lora', serif; font-weight: 400; }
+        .lora-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
+        .label-text { font-family: 'Instrument Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.35em; font-size: 10px; font-weight: 700; }
 
-        .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+        }
+        .card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
+        .card-static { background: white; border-radius: var(--radius); box-shadow: var(--shadow-card); }
+        .card-flat { background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: var(--radius); }
+
+        /* Reveal animation */
+        @keyframes blurReveal {
+            from { opacity: 0; filter: blur(6px); transform: translateY(16px); }
+            to   { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: blurReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .reveal.d1.visible { animation-delay: 0.08s; }
+        .reveal.d2.visible { animation-delay: 0.16s; }
+        .reveal.d3.visible { animation-delay: 0.24s; }
+        .reveal.d4.visible { animation-delay: 0.32s; }
+
+        /* Pills */
+        .pill {
+            display: inline-flex; align-items: center;
+            padding: 6px 14px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em;
+        }
+        .pill-blush { background: rgba(226,192,185,0.18); border: 1px solid rgba(226,192,185,0.45); color: #9B4F4A; }
+        .pill-dark  { background: rgba(226,192,185,0.12); border: 1px solid rgba(226,192,185,0.28); color: #E2C0B9; }
+
+        /* Blurred orbs */
+        .blur-orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); pointer-events: none; z-index: 0;
+        }
+
+        /* Button press state */
+        .btn-press { transition: transform 0.1s ease; }
+        .btn-press:active { transform: scale(0.97); }
+
+        /* Arrow reveal on card hover */
+        .arrow-hidden { opacity: 0; transform: translateX(-6px); transition: opacity 0.3s ease, transform 0.3s ease; }
+        .group:hover .arrow-hidden { opacity: 1; transform: translateX(0); }
+
+        /* Nav */
+        .header-link { transition: color 0.3s; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
         .header-link:hover { color: #E2C0B9; }
-
         #mobile-nav { display: none; flex-direction: column; }
         #mobile-nav.active { display: flex; }
+
+        /* Large ghost number on philosophy cards */
+        .philo-num {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 5rem;
+            line-height: 1;
+            color: rgba(226,192,185,0.35);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Credential tag */
+        .cred-tag {
+            display: inline-block;
+            border: 1px solid rgba(226,192,185,0.55);
+            color: #9B4F4A;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            padding: 6px 14px;
+            border-radius: 6px;
+        }
+
+        /* Bullet dot */
+        .bullet-dot {
+            width: 5px; height: 5px; border-radius: 50%;
+            background: #C99B92; flex-shrink: 0; margin-top: 5px;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="w-full bg-[#E2C0B9] py-3 flex justify-center items-center" role="presentation">
-        <p class="text-[10px] tracking-[0.2em] text-black/70 uppercase font-bold">Join our mailing list for 20% off + freebies.</p>
-    </div>
 
-    <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/10" role="banner">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+            <!-- Mobile menu button -->
             <div class="lg:hidden w-1/3">
                 <button onclick="toggleMenu()" class="header-link flex items-center gap-2" aria-label="Toggle Menu">
-                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                     <span class="pointer-events-none">Menu</span>
                 </button>
             </div>
 
+            <!-- Desktop nav left -->
             <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
-                <a href="/" class="header-link">Home</a>
-                <a href="/shop" class="header-link">Shop</a>
-                <a href="/book" class="header-link">Work With Me</a>
-                <a href="/about" class="header-link border-b border-black/20" style="color:#9B4F4A;">About</a>
-                <a href="/blog" class="header-link">Blog</a>
+                <a href="index.html" class="header-link">Home</a>
+                <a href="about.html" class="header-link">About</a>
+                <a href="services.html" class="header-link">Services</a>
+                <a href="shop.html" class="header-link">Shop</a>
+                <a href="blog.html" class="header-link">Blog</a>
             </nav>
 
+            <!-- Logo center -->
             <div class="w-1/3 lg:w-1/5 flex justify-center">
-                <a href="/">
+                <a href="index.html">
                     <img src="images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain">
                 </a>
             </div>
 
-            <div class="w-1/3 lg:w-2/5 flex justify-end space-x-6 items-center">
-                <button class="hidden md:block header-link">Search</button>
-                <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-[#E2C0B9] transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                    <span class="header-link">Cart</span>
-                </a>
+            <!-- Desktop nav right -->
+            <div class="w-1/3 lg:w-2/5 flex justify-end items-center gap-4">
+                <a href="services.html" class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Work With Me</a>
             </div>
         </div>
 
-        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2]">
-            <a href="/" class="header-link">Home</a>
-            <a href="/shop" class="header-link">Shop</a>
-            <a href="/book" class="header-link">Work With Me</a>
-            <a href="/about" class="header-link" style="color:#9B4F4A;">About</a>
-            <a href="/blog" class="header-link">Blog</a>
+        <!-- Mobile nav -->
+        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
+            <a href="index.html" class="header-link block">Home</a>
+            <a href="about.html" class="header-link block">About</a>
+            <a href="services.html" class="header-link block">Services</a>
+            <a href="shop.html" class="header-link block">Shop</a>
+            <a href="blog.html" class="header-link block">Blog</a>
         </nav>
     </header>
 
     <main id="main-content">
 
-        <!-- Hero -->
-        <section class="bg-[#1a1a1a] py-20 px-6 text-center">
-            <div class="max-w-3xl mx-auto space-y-6">
-                <h1 class="playfair-italic text-5xl md:text-6xl text-white leading-[1.15]">About Tiara</h1>
-                <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
-                    <span class="border border-[#C99B92]/40 text-[9px] uppercase tracking-[0.3em] font-bold px-4 py-2" style="color:#C99B92;">Certified Project Manager</span>
-                    <span class="border border-[#C99B92]/40 text-[9px] uppercase tracking-[0.3em] font-bold px-4 py-2" style="color:#C99B92;">Web Designer</span>
-                    <span class="border border-[#C99B92]/40 text-[9px] uppercase tracking-[0.3em] font-bold px-4 py-2" style="color:#C99B92;">Operations Specialist</span>
+        <!-- ═══════════════════════════════════ -->
+        <!-- 01 · HERO — The person, not the work -->
+        <!-- ═══════════════════════════════════ -->
+        <section class="relative bg-black overflow-hidden py-28">
+
+            <!-- Blurred orb decorations -->
+            <div class="blur-orb w-[480px] h-[480px] -top-32 -left-32" style="background:rgba(226,192,185,0.07);"></div>
+            <div class="blur-orb w-[320px] h-[320px] bottom-0 right-0" style="background:rgba(226,192,185,0.05);"></div>
+
+            <!-- Content -->
+            <div class="relative z-10 w-full max-w-3xl mx-auto px-6 text-center">
+                <div class="hero-btn mb-8">
+                    <span class="pill pill-dark">The Strategist</span>
                 </div>
+                <h1 class="hero-headline playfair text-5xl md:text-6xl lg:text-7xl text-white leading-[1.08] mb-0">
+                    Where alignment<br>becomes <span style="color:#E2C0B9;">structure.</span>
+                </h1>
             </div>
         </section>
 
-        <!-- My Story -->
-        <section class="bg-[#FAF7F2] py-24 px-6">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-[280px_1fr] gap-16 items-start">
-                    <div class="aspect-[3/4] border border-black/5 overflow-hidden rounded-md shadow-lg grayscale">
-                        <img src="images/Founder_Portrait.png" alt="Tiara Stewart, Founder of The Intentional Tea" class="w-full h-full object-cover object-top">
-                    </div>
-                    <div class="space-y-6 py-4">
-                        <p class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#9B4F4A;">My Story</p>
-                        <div class="space-y-4 text-sm text-[#2a2a2a] leading-[1.9] font-light">
-                            <p>Hey, I'm Tiara, but everyone calls me T! I'm a Certified Project Manager, business operations specialist, and web designer, but I also create digital planning products, study astrology, and love to write.</p>
-                            <p>Before I founded The Intentional Tea, I spent just under seven years at one of the largest tech companies in the world. When I was laid off in 2024, it turned out to be a blessing in disguise because I was able to use that season to get intentional about my own life first, and build the professional life I wanted from there.</p>
-                            <p>I decided to build a digital brand that could bring together everything I'm passionate about. One side is built around the personal stuff: the planners, the organizing tools, and the systems I used to put my own life back together. The other side is built for the part of me that never stopped loving business and operational systems, helping other people build that same kind of structure for theirs.</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- MARQUEE: DARK -->
+        <div class="marquee-wrapper marquee-dark" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">Intentional by Design</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Structure That Works</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Alignment &amp; Fit</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Built to Last</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Front End to Fulfillment</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Personal &amp; Professional</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional by Design</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Structure That Works</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Alignment &amp; Fit</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Built to Last</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Front End to Fulfillment</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Personal &amp; Professional</span><span class="marquee-sep"></span>
             </div>
-        </section>
+        </div>
 
-        <!-- My Credentials -->
+        <!-- ═══════════════════════════════════ -->
+        <!-- 02 · FOUNDER BIO -->
+        <!-- ═══════════════════════════════════ -->
         <section class="bg-white py-24 px-6">
-            <div class="max-w-5xl mx-auto space-y-12">
-                <div class="text-center space-y-2">
-                    <p class="text-[10px] uppercase tracking-[0.4em] font-bold" style="color:#9B4F4A;">My Credentials</p>
-                    <h2 class="lora-italic text-2xl md:text-3xl text-[#1a1a1a] leading-[1.3]">Ten years. Three disciplines. One brand.</h2>
-                </div>
-                <div class="divide-y divide-black/8">
-                    <div class="grid md:grid-cols-[72px_1fr_1.5fr] gap-6 md:gap-10 items-center py-8">
-                        <span class="playfair-italic text-5xl text-[#E2C0B9] leading-none">01</span>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]">Certified Project Manager</p>
-                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Certified project manager with real enterprise experience running cross-functional programs at scale. I built the infrastructure, designed the frameworks, and managed the programs.</p>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-[1fr_2fr] gap-14 items-start reveal">
+
+                    <!-- Portrait side -->
+                    <div class="relative">
+                        <div class="overflow-hidden aspect-[3/4]" style="border-radius:var(--radius);">
+                            <img src="images/Founder_Portrait.png" alt="Tiara Stewart, Founder of The Intentional Tea" class="w-full h-full object-cover object-top">
+                        </div>
+                        <!-- Floating card overlaid bottom-right -->
+                        <div class="card-static absolute -bottom-5 -right-5 p-5 max-w-[195px] hidden md:block">
+                            <p class="label-text mb-2" style="color:#9B4F4A;">10+ Years</p>
+                            <p class="text-[11px] text-[#2D2826]/80 font-light leading-relaxed">Certified Project Manager. Operations Specialist. Web Designer.</p>
+                        </div>
                     </div>
-                    <div class="grid md:grid-cols-[72px_1fr_1.5fr] gap-6 md:gap-10 items-center py-8">
-                        <span class="playfair-italic text-5xl text-[#E2C0B9] leading-none">02</span>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]">Web Designer</p>
-                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Custom websites built for brand clarity and long-term performance. No templates, no guesswork.</p>
+
+                    <!-- Bio text side -->
+                    <div class="space-y-6 md:pt-3">
+                        <span class="pill pill-blush">My Story</span>
+                        <h2 class="lora text-3xl md:text-4xl text-[#1a1a1a] leading-[1.2]">I spent years in corporate operations. Then I built something that actually fits.</h2>
+                        <div class="space-y-4 text-sm text-[#2D2826]/80 leading-[1.9] font-light">
+                            <p>Hey, I'm Tiara. Everyone calls me T. I'm a Certified Project Manager, business operations specialist, and web designer, but I also create digital planning products, study astrology, and love to write.</p>
+                            <p>Before I founded The Intentional Tea, I spent just under seven years at one of the largest tech companies in the world. When I was laid off in 2024, it turned out to be the opening I didn't know I needed. That season gave me room to get intentional about my own life first, then build the professional life I actually wanted from there.</p>
+                            <p>I built this brand to bring together everything I know: the operational systems and structures I used to run enterprise programs, and the personal tools I used to put my own life back together. One side is for business owners who need their backend to match how big they're thinking. The other is for anyone building a personal practice with real intention behind it.</p>
+                        </div>
+                        <!-- Credential tags -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="cred-tag">Certified Project Manager</span>
+                            <span class="cred-tag">Web Designer</span>
+                            <span class="cred-tag">Operations Specialist</span>
+                        </div>
                     </div>
-                    <div class="grid md:grid-cols-[72px_1fr_1.5fr] gap-6 md:gap-10 items-center py-8">
-                        <span class="playfair-italic text-5xl text-[#E2C0B9] leading-none">03</span>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]">Cross-Functional Background</p>
-                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Sales, finance, operations, instructional design. I've worked across all of it, which means I can see how the whole business runs, not just one part of it.</p>
-                    </div>
-                    <div class="grid md:grid-cols-[72px_1fr_1.5fr] gap-6 md:gap-10 items-center py-8">
-                        <span class="playfair-italic text-5xl text-[#E2C0B9] leading-none">04</span>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]">Systems &amp; Automation</p>
-                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">Notion, Zapier, Claude, Metricool. I build the backend systems that keep things running so you're not the one holding everything together.</p>
-                    </div>
-                    <div class="grid md:grid-cols-[72px_1fr_1.5fr] gap-6 md:gap-10 items-center py-8">
-                        <span class="playfair-italic text-5xl text-[#E2C0B9] leading-none">05</span>
-                        <p class="text-[11px] uppercase tracking-[0.2em] font-bold text-[#1a1a1a]">Operations Specialist</p>
-                        <p class="text-sm text-[#2a2a2a] font-light leading-relaxed">From solo founders to multi-entity structures, I've seen how businesses break under their own growth. I build the systems that make sure they don't.</p>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="bg-[#1a1a1a] py-24 px-6">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
-                    <a href="/shop" class="group bg-[#1a1a1a] p-10 space-y-4 hover:bg-[#2a2a2a] transition-colors">
-                        <div class="w-10 h-10 border border-[#C99B92]/40 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- 03 · PHILOSOPHY — Three pillars -->
+        <!-- ═══════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] py-24 px-6">
+            <div class="max-w-5xl mx-auto space-y-14">
+
+                <!-- Section intro -->
+                <div class="text-center space-y-4 reveal">
+                    <span class="pill pill-blush">The Philosophy</span>
+                    <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Three things that guide everything here.</h2>
+                    <p class="text-sm text-[#2D2826]/75 font-light leading-relaxed">The worldview behind the products, the services, and the brand.</p>
+                </div>
+
+                <!-- Three pillars -->
+                <div class="grid md:grid-cols-3 gap-6">
+
+                    <!-- Pillar 01 -->
+                    <div class="card-flat p-8 relative overflow-hidden space-y-5 reveal d1">
+                        <span class="philo-num" aria-hidden="true">01</span>
+                        <div class="space-y-3">
+                            <p class="label-text" style="color:#9B4F4A;">Alignment over effort</p>
+                            <h3 class="lora-italic text-xl text-[#1a1a1a] leading-[1.3]">Build structure that matches how you actually function.</h3>
+                            <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Working harder inside a system that doesn't fit you is just friction with extra steps. The goal is always to build something that works with your actual patterns, not against them.</p>
                         </div>
+                    </div>
+
+                    <!-- Pillar 02 -->
+                    <div class="card-flat p-8 relative overflow-hidden space-y-5 reveal d2">
+                        <span class="philo-num" aria-hidden="true">02</span>
+                        <div class="space-y-3">
+                            <p class="label-text" style="color:#9B4F4A;">Systems create freedom</p>
+                            <h3 class="lora-italic text-xl text-[#1a1a1a] leading-[1.3]">The right infrastructure is what gives you room to breathe.</h3>
+                            <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Structure is not constraint. A properly built operational backbone is what lets you step back, delegate, and scale without everything collapsing the moment you do.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 03 -->
+                    <div class="card-flat p-8 relative overflow-hidden space-y-5 reveal d3">
+                        <span class="philo-num" aria-hidden="true">03</span>
+                        <div class="space-y-3">
+                            <p class="label-text" style="color:#9B4F4A;">One life, two sides</p>
+                            <h3 class="lora-italic text-xl text-[#1a1a1a] leading-[1.3]">Your business and your life are not separate problems.</h3>
+                            <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">You cannot build a sustainable business while ignoring the life around it. That's why this brand holds both: operational tools for the business and intentional tools for the person running it.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- 04 · TWO DOORS — Business + Personal -->
+        <!-- ═══════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] py-24 px-6">
+            <div class="max-w-5xl mx-auto space-y-12">
+
+                <!-- Section intro -->
+                <div class="text-center space-y-4 reveal">
+                    <span class="pill pill-blush">Two Ways to Work Together</span>
+                    <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Same philosophy. Different entry point.</h2>
+                    <p class="text-sm text-[#2D2826]/75 max-w-xs mx-auto font-light leading-relaxed">Choose the path that fits where you are right now.</p>
+                </div>
+
+                <!-- Two cards -->
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <!-- Business Operations -->
+                    <div class="card p-10 flex flex-col gap-6 reveal d1">
                         <div>
-                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-white/70 mb-1">Explore</p>
-                            <h3 class="text-[11px] uppercase tracking-[0.25em] font-bold text-white">Shop the Collection</h3>
+                            <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:rgba(226,192,185,0.12); border-radius:10px; border:1px solid rgba(226,192,185,0.3);">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                                </svg>
+                            </div>
+                            <p class="label-text mb-2" style="color:#9B4F4A;">For Business Owners</p>
+                            <h3 class="lora-italic text-2xl text-[#1a1a1a] mb-3 leading-[1.25]">Business Operations</h3>
+                            <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Operational infrastructure builds for small business owners done running everything manually. Websites, systems, automations, and the backend structure that makes a real business run.</p>
                         </div>
-                        <p class="text-xs text-white/70 font-light leading-relaxed">Planners, sticker packs, and digital tools.</p>
-                        <span class="text-[9px] uppercase tracking-[0.3em] font-bold group-hover:text-white transition-colors" style="color:#C99B92;">Browse &rarr;</span>
-                    </a>
-                    <a href="/book" class="group bg-[#1a1a1a] p-10 space-y-4 hover:bg-[#2a2a2a] transition-colors">
-                        <div class="w-10 h-10 border border-[#C99B92]/40 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                        <div class="flex flex-col gap-4 mt-auto">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">Business Clarity Intensive</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">Digital Business Foundation</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">Operations &amp; Systems Implementation</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">Strategic Operations Partnership</span>
+                                </div>
+                            </div>
+                            <a href="services.html" class="btn-press inline-block bg-black text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">View Services</a>
                         </div>
+                    </div>
+
+                    <!-- Intentional Living -->
+                    <div class="card p-10 flex flex-col gap-6 reveal d2">
                         <div>
-                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-white/70 mb-1">Personal</p>
-                            <h3 class="text-[11px] uppercase tracking-[0.25em] font-bold text-white">Book a Report</h3>
+                            <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:rgba(226,192,185,0.12); border-radius:10px; border:1px solid rgba(226,192,185,0.3);">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                </svg>
+                            </div>
+                            <p class="label-text mb-2" style="color:#9B4F4A;">For Personal Growth</p>
+                            <h3 class="lora-italic text-2xl text-[#1a1a1a] mb-3 leading-[1.25]">Intentional Living</h3>
+                            <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Digital planners, sticker packs, and tools built for people building a life with intention. Self-guided, practical, and designed to actually get used.</p>
                         </div>
-                        <p class="text-xs text-white/70 font-light leading-relaxed">Astrology and human design, personalized.</p>
-                        <span class="text-[9px] uppercase tracking-[0.3em] font-bold group-hover:text-white transition-colors" style="color:#C99B92;">Book &rarr;</span>
-                    </a>
-                    <a href="/book" class="group bg-[#1a1a1a] p-10 space-y-4 hover:bg-[#2a2a2a] transition-colors">
-                        <div class="w-10 h-10 border border-[#C99B92]/40 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <div class="flex flex-col gap-4 mt-auto">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">Digital planners and sticker packs</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">The Intentional Life Reset</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="bullet-dot"></div>
+                                    <span class="text-xs text-[#2D2826]/75 font-light">The Intentional Astrology Report</span>
+                                </div>
+                            </div>
+                            <a href="shop.html" class="btn-press inline-block border border-black text-black px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-black hover:text-white transition-all duration-300" style="border-radius:8px;">Shop the Collection</a>
                         </div>
-                        <div>
-                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-white/70 mb-1">Business</p>
-                            <h3 class="text-[11px] uppercase tracking-[0.25em] font-bold text-white">Work With Me</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- 05 · NEWSLETTER -->
+        <!-- ═══════════════════════════════════ -->
+        <section style="background:#1a1a1a;">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-10 md:p-14 space-y-5">
+                        <div class="w-10 h-10 border border-[#C99B92]/35 flex items-center justify-center" style="border-radius:10px;">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
                         </div>
-                        <p class="text-xs text-white/70 font-light leading-relaxed">Systems and infrastructure for small business owners.</p>
-                        <span class="text-[9px] uppercase tracking-[0.3em] font-bold group-hover:text-white transition-colors" style="color:#C99B92;">Connect &rarr;</span>
-                    </a>
+                        <div class="space-y-2">
+                            <p class="label-text" style="color:#C99B92;">Mailing List</p>
+                            <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list.</h2>
+                        </div>
+                        <p class="text-xs text-white/40 font-light leading-relaxed">Free sticker pack, e-books, and your discount code. Delivered instantly.</p>
+                    </div>
+                    <div class="p-10 md:p-14 flex flex-col justify-center space-y-3">
+                        <input type="email" placeholder="YOUR EMAIL ADDRESS" class="w-full bg-transparent border border-white/15 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/20 focus:border-[#C99B92] transition-colors" style="border-radius:8px;">
+                        <button class="btn-press w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-white" style="background:#C99B92; border-radius:8px;">Join the List</button>
+                        <p class="text-[9px] uppercase tracking-[0.2em] text-white/25 font-bold text-center">No spam. Unsubscribe anytime.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-[#FAF7F2] py-5 px-8 border-t border-black/5" role="contentinfo">
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
             <div class="flex items-center justify-center md:justify-start gap-5">
-                <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
-                <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
-                <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+                <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                </a>
+                <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
             </div>
             <div class="text-center">
                 <p class="text-[9px] uppercase tracking-[0.35em] font-bold text-[#1a1a1a]/70">The Intentional Tea</p>
@@ -217,6 +463,7 @@
         </div>
     </footer>
 
+    <!-- Policy modal -->
     <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
         <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
@@ -253,6 +500,18 @@
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
+
+        // Scroll-triggered reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.07 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

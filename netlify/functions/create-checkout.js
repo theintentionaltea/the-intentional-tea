@@ -1,9 +1,11 @@
 const Stripe = require('stripe');
 
 const ALLOWED_PRICES = [
-  'price_1Te2pf9B8x1wR8APP38jKqR4', // Clarity & Audit $400
-  'price_1TkMQD9B8x1wR8APYxruPtTA', // Infrastructure Build Deposit $500
-  'price_1TkMQD9B8x1wR8APn0lTDyS3', // Multi-Entity Build Deposit $500
+  'price_1Te2pf9B8x1wR8APP38jKqR4', // Clarity & Audit $400 (book.html)
+  'price_1TkMQD9B8x1wR8APYxruPtTA', // Infrastructure Build Deposit (book.html + Digital Business Foundation)
+  'price_1TkMQD9B8x1wR8APn0lTDyS3', // Multi-Entity Build Deposit (book.html + Operations & Systems)
+  'price_1Twvnq9B8x1wR8APSwpGarOt', // Business Clarity Intensive
+  'price_1Twvzo9B8x1wR8APp8dXR4TX', // Strategic Operations Partnership
 ];
 
 exports.handler = async (event) => {
