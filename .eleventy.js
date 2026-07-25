@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
     "social.html",
     "404.html",
     "thank-you-newsletter.html",
+    "thank-you-booking.html",
   ];
   staticPages.forEach((page) => {
     eleventyConfig.addPassthroughCopy(page);
