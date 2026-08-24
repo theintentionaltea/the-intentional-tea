@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Resources | The Intentional Tea</title>
+    <meta name="description" content="Free tools, ebooks, and sticker packs from The Intentional Tea. Start here — no catch, no email required (unless you want the extras).">
+    <meta property="og:title" content="Free Resources | The Intentional Tea">
+    <meta property="og:description" content="Free tools and ebooks for building an intentional life and business.">
+    <meta property="og:image" content="images/Logo_Main.png">
+    <meta property="og:url" content="https://theintentionaltea.com/resources.html">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+        :root {
+            --cream: #FAF7F2;
+            --blush: #E2C0B9;
+            --blush-muted: #C99B92;
+            --ink: #1a1a1a;
+            --text: #2D2826;
+        }
+
+        body { background-color: var(--cream); color: var(--text); font-family: 'Instrument Sans', sans-serif; }
+
+        .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .lora { font-family: 'Lora', serif; font-weight: 400; }
+        .lora-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
+
+        .pill {
+            display: inline-flex; align-items: center;
+            padding: 6px 14px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em;
+        }
+        .pill-blush { background: rgba(226,192,185,0.18); border: 1px solid rgba(226,192,185,0.45); color: #9B4F4A; }
+        .pill-dark  { background: rgba(226,192,185,0.12); border: 1px solid rgba(226,192,185,0.28); color: #E2C0B9; }
+
+        .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; }
+        .header-link:hover { color: #E2C0B9; }
+        .header-link.active { color: #C99B92; }
+
+        #mobile-nav { display: none; flex-direction: column; }
+        #mobile-nav.active { display: flex; }
+
+        /* Resource card */
+        .resource-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.07);
+            background: white;
+            transition: box-shadow 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .resource-card { grid-template-columns: 2fr 3fr; }
+            .resource-card.reverse { grid-template-columns: 3fr 2fr; }
+            .resource-card.reverse .resource-img { order: 2; }
+            .resource-card.reverse .resource-body { order: 1; }
+        }
+        .resource-card:hover { box-shadow: 0 20px 56px -12px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06); }
+
+        .resource-img {
+            min-height: 260px;
+            background: #F5F1EC;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative;
+        }
+        .resource-img img {
+            width: 100%; height: 100%; object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.7s ease;
+        }
+        .resource-card:hover .resource-img img { transform: scale(1.04); }
+
+        .resource-body {
+            padding: 2.5rem 2rem;
+            display: flex; flex-direction: column; gap: 1.25rem;
+            justify-content: center;
+        }
+        @media (min-width: 768px) {
+            .resource-body { padding: 3rem 2.75rem; }
+        }
+
+        .resource-bullet {
+            font-size: 11px; color: #2D2826; opacity: 0.7;
+            font-family: 'Instrument Sans', sans-serif; font-weight: 400;
+            line-height: 1.6;
+            padding-left: 1rem; position: relative;
+        }
+        .resource-bullet::before {
+            content: '—';
+            position: absolute; left: 0;
+            color: #C99B92; font-size: 9px; top: 1px;
+        }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #1a1a1a; color: white;
+            padding: 12px 28px;
+            font-family: 'Instrument Sans', sans-serif; font-size: 9px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em;
+            border-radius: 8px; transition: background 0.25s ease, color 0.25s ease;
+            align-self: flex-start;
+        }
+        .btn-primary:hover { background: #C99B92; }
+
+        @keyframes blurReveal {
+            from { opacity: 0; filter: blur(6px); transform: translateY(16px); }
+            to   { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: blurReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .reveal.d1.visible { animation-delay: 0.1s; }
+        .reveal.d2.visible { animation-delay: 0.2s; }
+        .reveal.d3.visible { animation-delay: 0.3s; }
+
+        .btn-press { transition: transform 0.1s ease; }
+        .btn-press:active { transform: scale(0.97); }
+
+        .divider-line {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .divider-line::before, .divider-line::after {
+            content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-black/15" role="banner">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="lg:hidden w-1/3">
+                <button onclick="toggleMenu()" class="header-link flex items-center gap-2">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <span class="pointer-events-none">Menu</span>
+                </button>
+            </div>
+
+            <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="about.html" class="header-link">About</a>
+                <a href="services.html" class="header-link">Services</a>
+                <a href="shop.html" class="header-link">Shop</a>
+                <a href="resources.html" class="header-link active">Resources</a>
+                <a href="blog.html" class="header-link">Blog</a>
+            </nav>
+
+            <div class="w-1/3 lg:w-1/5 flex justify-center">
+                <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain"></a>
+            </div>
+
+            <div class="w-1/3 lg:w-2/5 flex justify-end space-x-6 items-center">
+                <a href="shop.html" class="header-link hidden md:block">Shop</a>
+            </div>
+        </div>
+
+        <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
+            <a href="index.html" class="header-link block">Home</a>
+            <a href="about.html" class="header-link block">About</a>
+            <a href="services.html" class="header-link block">Services</a>
+            <a href="shop.html" class="header-link block">Shop</a>
+            <a href="resources.html" class="header-link active block">Resources</a>
+            <a href="blog.html" class="header-link block">Blog</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- HERO                                   -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-black py-24 px-6 text-center">
+            <div class="max-w-2xl mx-auto space-y-5">
+                <span class="pill pill-dark">Free Resources</span>
+                <h1 class="playfair text-5xl md:text-6xl text-white leading-[1.08]">
+                    Know where you are.<br>
+                    <span style="color:#E2C0B9;">Build from there.</span>
+                </h1>
+                <p class="text-[11px] text-white/40 uppercase tracking-[0.4em] font-light pt-1">Free tools from The Intentional Tea.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- MARQUEE                                -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="marquee-wrapper marquee-dark" aria-hidden="true">
+            <div class="marquee-track">
+                <span class="marquee-item">Free Download</span><span class="marquee-sep"></span>
+                <span class="marquee-item">No Email Required</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Free Download</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Start Here</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Digital Planning</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Free Download</span><span class="marquee-sep"></span>
+                <span class="marquee-item">No Email Required</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Intentional Living</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Free Download</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Start Here</span><span class="marquee-sep"></span>
+                <span class="marquee-item">Digital Planning</span><span class="marquee-sep"></span>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- INTRO COPY                             -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] py-14 px-6">
+            <div class="max-w-2xl mx-auto text-center space-y-4 reveal">
+                <p class="playfair text-4xl md:text-5xl text-[#1a1a1a] leading-[1.1]">Start here. On us.</p>
+                <p class="text-sm text-[#2D2826]/65 font-light leading-relaxed">Free tools to start building a life and business that fits.</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- RESOURCE 01 · BUSINESS DIAGNOSTIC      -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] pt-0 pb-16 px-6">
+            <div class="max-w-5xl mx-auto reveal d1">
+                <article class="resource-card">
+                    <div class="resource-img" style="background:#F0EDE8;">
+                        <img src="images/Diagnostic_Check.png" alt="Free Business Diagnostic">
+                    </div>
+                    <div class="resource-body">
+                        <div class="space-y-2">
+                            <span class="pill pill-blush">Free Tool</span>
+                            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a] leading-[1.1]">The Business<br>Diagnostic</h2>
+                        </div>
+                        <p class="text-sm text-[#2D2826]/70 font-light leading-relaxed">A quick audit to pinpoint exactly where your backend is leaking time and money — before you invest in fixing anything. Know what's off before you start building around it.</p>
+
+                        <div class="space-y-2">
+                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#2D2826]/50 mb-3">What's inside</p>
+                            <p class="resource-bullet">Five backend areas every business needs to audit</p>
+                            <p class="resource-bullet">What a healthy operation actually looks like</p>
+                            <p class="resource-bullet">A prioritized view of where to focus first</p>
+                        </div>
+
+                        <a href="#" class="btn-primary btn-press gumroad-scroll">
+                            Download Free
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- RESOURCE 02 · STARTER KIT              -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-white py-16 px-6 border-t border-black/5">
+            <div class="max-w-5xl mx-auto reveal d2">
+                <article class="resource-card reverse">
+                    <div class="resource-img">
+                        <img src="images/Ebook_Bundle.png" alt="The Intentional Starter Kit — free ebook bundle">
+                    </div>
+                    <div class="resource-body">
+                        <div class="space-y-2">
+                            <span class="pill pill-blush">Free Bundle</span>
+                            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a] leading-[1.1]">The Intentional<br>Starter Kit</h2>
+                        </div>
+                        <p class="text-sm text-[#2D2826]/70 font-light leading-relaxed">Three ebooks to start building your intentional life — structure for your mornings, your weeks, and the version of yourself you're working toward. Free. No strings.</p>
+
+                        <div class="space-y-2">
+                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#2D2826]/50 mb-3">What's inside</p>
+                            <p class="resource-bullet">A morning routine framework you'll actually use</p>
+                            <p class="resource-bullet">An intentional journaling guide for clarity, not just venting</p>
+                            <p class="resource-bullet">A weekly reset ritual to stay aligned with what matters</p>
+                        </div>
+
+                        <a href="https://intentionaltea.gumroad.com/l/viiwtz" class="btn-primary btn-press gumroad-scroll">
+                            Download Free
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- RESOURCE 03 · FREE STICKER PACK        -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] py-16 px-6 border-t border-black/5">
+            <div class="max-w-5xl mx-auto reveal d3">
+                <article class="resource-card">
+                    <div class="resource-img">
+                        <img src="images/Free_Planner_Stickers.png" alt="Essential Digital Sticker Pack — free">
+                    </div>
+                    <div class="resource-body">
+                        <div class="space-y-2">
+                            <span class="pill pill-blush">Free Download</span>
+                            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a] leading-[1.1]">Digital Stickers<br>Essentials Pack</h2>
+                        </div>
+                        <p class="text-sm text-[#2D2826]/70 font-light leading-relaxed">A full pack of essential digital stickers for GoodNotes, Notability, or any planner app. If you're building your digital planning setup, start here.</p>
+
+                        <div class="space-y-2">
+                            <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#2D2826]/50 mb-3">What's inside</p>
+                            <p class="resource-bullet">50+ planning and productivity stickers</p>
+                            <p class="resource-bullet">Works with GoodNotes, Notability, and any planner app</p>
+                            <p class="resource-bullet">Instant download, no hoops</p>
+                        </div>
+
+                        <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="btn-primary btn-press gumroad-scroll">
+                            Download Free
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SHOP CTA                               -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#FAF7F2] py-16 px-6 border-t border-black/8">
+            <div class="max-w-2xl mx-auto text-center space-y-5 reveal">
+                <div class="divider-line">
+                    <span class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#2D2826]/40">Ready for more?</span>
+                </div>
+                <h2 class="lora-italic text-3xl text-[#1a1a1a]">Explore the full collection.</h2>
+                <p class="text-sm text-[#2D2826]/60 font-light leading-relaxed">Planners, workbooks, and tools for every part of your intention — from daily structure to full business builds.</p>
+                <a href="shop.html" class="btn-primary btn-press mx-auto">
+                    Visit the Shop
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- NEWSLETTER                             -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="bg-[#1a1a1a] py-0 px-0">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-px bg-white/10">
+                    <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 border border-[#C99B92]/40 flex items-center justify-center flex-shrink-0" style="border-radius:10px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list</h2>
+                        </div>
+                        <p class="text-sm text-white/45 font-light leading-relaxed">New content, resources, and 20% off your first order.</p>
+                    </div>
+                    <div class="bg-[#1a1a1a] p-10 md:p-14 flex flex-col justify-center space-y-4">
+                        <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
+                            <label for="newsletter-email-resources" class="sr-only">Email address</label>
+                            <input id="newsletter-email-resources" type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address for newsletter signup" class="w-full bg-transparent border border-white/20 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/30 focus:border-[#C99B92] transition-colors">
+                            <button type="submit" class="w-full bg-[#C99B92] text-white py-4 text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all">Join the List</button>
+                        </form>
+                        <p class="text-[9px] uppercase tracking-[0.2em] text-white/70 font-bold text-center">No spam. Unsubscribe anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#FAF7F2] py-5 px-8 border-t border-black/5" role="contentinfo">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
+            <div class="flex items-center justify-center md:justify-start gap-5">
+                <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+                <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+            </div>
+            <div class="text-center">
+                <p class="text-[9px] uppercase tracking-[0.35em] font-bold text-[#1a1a1a]/70">The Intentional Tea</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/40 mt-1">© 2026 The Intentional Tea</p>
+            </div>
+            <div class="flex justify-center md:justify-end gap-5 text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/50">
+                <button onclick="openModal('terms')" class="hover:text-black transition-colors">Terms</button>
+                <button onclick="openModal('privacy')" class="hover:text-black transition-colors">Privacy</button>
+                <button onclick="openModal('refund')" class="hover:text-black transition-colors">Refunds</button>
+                <button onclick="openModal('disclaimer')" class="hover:text-black transition-colors">Disclaimer</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Policy Modal -->
+    <div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
+        <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        async function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value.trim();
+            if (!email) return;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Subscribing...';
+            btn.disabled = true;
+            try {
+                await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ email, listId: 7 })
+                });
+            } catch (err) {}
+            window.location.href = 'thank-you-newsletter.html';
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+
+        var policyContent = {
+            terms: '<h2 class="serif italic text-3xl mb-6">Terms & Conditions</h2><p class="text-sm leading-relaxed text-gray-600">Standard terms for digital licensing. Products are for personal use only.</p>',
+            refund: '<h2 class="serif italic text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-gray-600">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>',
+            privacy: '<h2 class="serif italic text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-gray-600">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>',
+            disclaimer: '<h2 class="serif italic text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-gray-600 mb-4"><strong>Affiliate:</strong> Some links on the Favorites page are affiliate links, meaning I may earn a small commission at no extra cost to you.</p><p class="text-sm leading-relaxed text-gray-600"><strong>Results:</strong> Mentions of personal or professional growth are illustrative. Results of the Life Reset and other tools may vary based on individual effort and circumstances.</p>'
+        };
+
+        function openModal(type) {
+            var modal = document.getElementById('policy-modal');
+            document.getElementById('modal-content').innerHTML = policyContent[type];
+            modal.style.display = 'flex';
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('policy-modal');
+            modal.style.display = 'none';
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
