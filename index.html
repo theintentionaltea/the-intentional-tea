@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Intentional Tea | Intentional Living + Business Operations</title>
+    <meta name="description" content="Digital planning tools, business workbooks, and done-for-you operational systems — all built from one idea: structure has to fit how you function.">
+    <meta property="og:title" content="The Intentional Tea">
+    <meta property="og:description" content="Digital planning tools, business workbooks, and done-for-you operational systems — all built from one idea: structure has to fit how you function.">
+    <meta property="og:image" content="images/Hero_Home.jpg">
+    <meta property="og:url" content="https://theintentionaltea.com/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap');
@@ -79,6 +87,9 @@
         .btn-press { transition: transform 0.1s ease; }
         .btn-press:active { transform: scale(0.97); }
 
+        h1, h2, h3, h4 { text-wrap: balance; }
+        p { text-wrap: pretty; }
+
         .header-link { transition: color 0.3s; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
         .header-link:hover { color: #E2C0B9; }
         #mobile-nav { display: none; flex-direction: column; }
@@ -87,8 +98,10 @@
 </head>
 <body class="antialiased">
 
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:text-xs focus:uppercase focus:tracking-widest focus:font-bold">Skip to content</a>
+
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-[#FAF7F2]/96 backdrop-blur-md border-b border-black/10">
+<header class="sticky top-0 z-50 bg-[#FAF7F2] border-b border-black/10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
             <a href="index.html" class="header-link" style="color:#9B4F4A;">Home</a>
@@ -96,9 +109,10 @@
             <a href="services.html" class="header-link">Services</a>
             <a href="shop.html" class="header-link">Shop</a>
             <a href="resources.html" class="header-link">Resources</a>
+            <a href="social.html" class="header-link">Connect</a>
         </nav>
         <div class="lg:hidden w-1/3">
-            <button onclick="document.getElementById('mobile-nav').classList.toggle('active')" class="header-link flex items-center gap-2">
+            <button onclick="document.getElementById('mobile-nav').classList.toggle('active'); this.setAttribute('aria-expanded', document.getElementById('mobile-nav').classList.contains('active'))" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation menu" class="header-link flex items-center gap-2">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 Menu
             </button>
@@ -106,8 +120,11 @@
         <div class="w-1/3 lg:w-1/5 flex justify-center">
             <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea" class="h-8 md:h-12 w-auto object-contain"></a>
         </div>
-        <div class="w-1/3 lg:w-2/5 flex justify-end items-center gap-4">
-            <a href="services.html" class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Work With Me</a>
+        <div class="w-1/3 lg:w-2/5 flex justify-end space-x-6 items-center">
+            <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:text-[#C99B92] transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span class="header-link">Cart</span>
+            </a>
         </div>
     </div>
     <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
@@ -116,10 +133,11 @@
         <a href="services.html" class="header-link block">Services</a>
         <a href="shop.html" class="header-link block">Shop</a>
         <a href="resources.html" class="header-link block">Resources</a>
+        <a href="social.html" class="header-link block">Social</a>
     </nav>
 </header>
 
-<main>
+<main id="main-content">
 
 <!-- ══════════════════════════════════════════════════════════════ -->
 <!-- 01 · HERO -->
@@ -134,7 +152,7 @@
             Where strategy meets <span style="color:#E2C0B9;">intention.</span>
         </h1>
         <p class="text-sm md:text-base text-white/60 leading-relaxed max-w-md mx-auto font-light mb-10">
-            Operational infrastructure for founders building something real   and digital tools for the life you're creating alongside it.
+            Planners, templates, and done-for-you systems, all built from one idea: structure has to fit how you function.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="services.html" class="btn-press inline-block bg-[#E2C0B9] text-black px-10 py-4 text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-white transition-all duration-300" style="border-radius:8px;">Work With Me</a>
@@ -171,58 +189,31 @@
 </div>
 
 
-<!-- 02 - POSITIONING -->
-<section class="bg-white py-28 px-6">
-    <div class="max-w-5xl mx-auto reveal">
-        <div class="text-center mb-16">
-            <span class="pill pill-blush mb-6 inline-block">Sound Familiar?</span>
-            <h2 class="lora text-4xl md:text-5xl leading-[1.1] text-[#1a1a1a] mb-6" style="max-width:640px; margin-left:auto; margin-right:auto;">Built for founders who already have the thing.</h2>
-            <p class="text-base text-[#2D2826]/65 leading-relaxed font-light" style="max-width:480px; margin-left:auto; margin-right:auto;">The business is running. It's just running through you, every step.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="card p-8 flex flex-col gap-4 reveal d1">
-                <p class="label-text" style="color:#9B4F4A;">01</p>
-                <p class="lora-italic text-lg text-[#1a1a1a] leading-snug">The business is moving. The backend isn't.</p>
-                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">You have real momentum. The structure that keeps it running without you holding it all together manually — that part's still missing.</p>
-            </div>
-            <div class="card p-8 flex flex-col gap-4 reveal d2">
-                <p class="label-text" style="color:#9B4F4A;">02</p>
-                <p class="lora-italic text-lg text-[#1a1a1a] leading-snug">The goals are clear. Follow-through keeps slipping.</p>
-                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">You know what you want. But without the right tools behind it, intention alone isn't enough.</p>
-            </div>
-            <div class="card p-8 flex flex-col gap-4 reveal d3">
-                <p class="label-text" style="color:#9B4F4A;">03</p>
-                <p class="lora-italic text-lg text-[#1a1a1a] leading-snug">More isn't the answer. Better structure is.</p>
-                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">Intentionality isn't about doing more. It's about building the right structure for where you're actually going.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ══════════════════════════════════════ -->
 <!-- 05 · WORKBOOKS   The self-guided path -->
 <!-- ══════════════════════════════════════ -->
-<section class="bg-[#FAF7F2] pt-16 pb-24 px-6">
-    <div class="max-w-5xl mx-auto space-y-16">
+<section class="bg-[#FAF7F2] pt-24 pb-16 px-6">
+    <div class="max-w-5xl mx-auto space-y-12">
 
         <div class="text-center space-y-3 reveal">
             <span class="pill pill-blush">The Self-Guided Path</span>
             <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Do it yourself. With the right tools.</h2>
-            <p class="text-sm text-[#2D2826]/75 max-w-md mx-auto font-light leading-relaxed">Three workbooks that walk you through brand clarity, business build, and operations setup — at your own pace, without hiring anyone.</p>
+            <p class="text-sm text-[#2D2826]/75 max-w-md mx-auto font-light leading-relaxed">Three workbooks that walk you through brand clarity, business build, and operations setup, at your own pace, without hiring anyone.</p>
         </div>
 
         <!-- Bundle CTA -->
         <div class="reveal">
             <div class="card-static p-8 md:p-10">
-                <div class="grid md:grid-cols-[3fr_2fr] gap-10 items-center">
+                <div class="grid md:grid-cols-[5fr_3fr] gap-10 items-center">
                     <div class="space-y-4">
                         <span class="pill pill-blush">The Bundle</span>
                         <h3 class="lora-italic text-2xl md:text-3xl text-[#1a1a1a] leading-[1.2]">All three workbooks.<br>One complete system.</h3>
-                        <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Everything you need to build your brand, launch your business, and set up your operations   in one place, at your own pace, without hiring anyone to do it for you.</p>
+                        <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Everything you need to build your brand, launch your business, and set up your operations, all in one place, at your own pace, without hiring anyone to do it for you.</p>
                         <a href="shop.html" class="btn-press inline-block bg-black text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Get the Bundle</a>
                     </div>
                     <div class="hidden md:block">
-                        <img src="images/Business_Bundle.png" alt="The Intentional Business Build" style="width:100%; height:180px; object-fit:cover; object-position:center 80%; border-radius:10px; box-shadow:0 12px 36px -8px rgba(0,0,0,0.18); display:block;">
+                        <img src="images/Business_Bundle.png" alt="The Intentional Business Build" style="width:100%; height:240px; object-fit:cover; object-position:center 80%; border-radius:10px; box-shadow:0 12px 36px -8px rgba(0,0,0,0.18); display:block;">
                     </div>
                 </div>
             </div>
@@ -231,32 +222,35 @@
         <!-- 3 Workbooks -->
         <div class="grid md:grid-cols-3 gap-10">
 
-            <div class="flex flex-col gap-5 reveal d1">
-                <div style="aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
+            <div class="flex flex-col gap-4 reveal d1">
+                <div style="aspect-ratio:4/5; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
                     <img src="images/Business_Clarity.png" alt="Idea to Income" style="width:100%; height:100%; object-fit:cover; object-position:top;">
                 </div>
-                <div class="space-y-2.5">
+                <div class="flex flex-col flex-1 gap-2">
                     <p class="lora-italic text-base text-[#1a1a1a]">Idea to Income</p>
+                    <p class="text-xs text-[#2D2826]/65 leading-relaxed font-light flex-1">Map your idea, name your audience, and build the brand foundation before you spend time on anything else.</p>
                     <a href="https://intentionaltea.gumroad.com/l/ftobds" class="gumroad-scroll btn-press inline-block bg-black text-white px-6 py-2.5 text-[9px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:6px;">Get It</a>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-5 reveal d2">
-                <div style="aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
+            <div class="flex flex-col gap-4 reveal d2">
+                <div style="aspect-ratio:4/5; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
                     <img src="images/Business_Build.png" alt="Open for Business" style="width:100%; height:100%; object-fit:cover; object-position:top;">
                 </div>
-                <div class="space-y-2.5">
+                <div class="flex flex-col flex-1 gap-2">
                     <p class="lora-italic text-base text-[#1a1a1a]">Open for Business</p>
+                    <p class="text-xs text-[#2D2826]/65 leading-relaxed font-light flex-1">Set up your offers, pricing, and client acquisition so you have something ready to sell from day one.</p>
                     <a href="https://intentionaltea.gumroad.com/l/ojxxr" class="gumroad-scroll btn-press inline-block bg-black text-white px-6 py-2.5 text-[9px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:6px;">Get It</a>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-5 reveal d3">
-                <div style="aspect-ratio:3/4; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
+            <div class="flex flex-col gap-4 reveal d3">
+                <div style="aspect-ratio:4/5; border-radius:10px; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,0.13); transition:box-shadow 0.3s ease, transform 0.3s ease; cursor:pointer;" onmouseover="this.style.boxShadow='0 20px 48px -8px rgba(0,0,0,0.2)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 8px 28px -6px rgba(0,0,0,0.13)'; this.style.transform='translateY(0)'">
                     <img src="images/Business_Operations.png" alt="Built to Run" style="width:100%; height:100%; object-fit:cover; object-position:top;">
                 </div>
-                <div class="space-y-2.5">
+                <div class="flex flex-col flex-1 gap-2">
                     <p class="lora-italic text-base text-[#1a1a1a]">Built to Run</p>
+                    <p class="text-xs text-[#2D2826]/65 leading-relaxed font-light flex-1">Build the backend: systems, workflows, and automations so the business runs without you holding it together manually.</p>
                     <a href="https://intentionaltea.gumroad.com/l/drcbjz" class="gumroad-scroll btn-press inline-block bg-black text-white px-6 py-2.5 text-[9px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:6px;">Get It</a>
                 </div>
             </div>
@@ -274,55 +268,91 @@
 
         <div class="text-center space-y-4">
             <span class="pill pill-blush">Prefer Done-For-You?</span>
-            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Don
-'
-t want to do it yourself? Work with me.</h2>
-            <p class="text-base text-[#2D2826]/70 max-w-md mx-auto font-light leading-relaxed">Website, systems, and automations built for you — strategy to handoff.</p>
+            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Have it built for you, from strategy to handoff.</h2>
+            <p class="text-base text-[#2D2826]/70 max-w-md mx-auto font-light leading-relaxed">Website, systems, and automations — scoped to what your business actually needs.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-5 items-stretch">
 
-            <a href="services.html#clarity" class="group flex flex-col gap-5 h-full p-8 reveal d1" style="background:rgba(226,192,185,0.12); border:1px solid rgba(226,192,185,0.4); border-top:3px solid #E2C0B9; border-radius:14px; transition:background 0.3s ease, box-shadow 0.3s ease;">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 flex items-center justify-center" style="background:rgba(226,192,185,0.2); border-radius:10px;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                    </div>
-                    <svg class="arrow-hidden w-4 h-4 text-[#C99B92] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <a href="services.html#clarity" class="group card flex flex-col reveal d1" style="border-radius:14px; transition:box-shadow 0.3s ease, transform 0.3s ease;">
+                <div class="overflow-hidden flex items-center justify-center" style="border-radius:14px 14px 0 0; aspect-ratio:5/2; background:linear-gradient(145deg,#EDE5D8 0%,#F5F0EA 100%);">
+                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                      <circle cx="24" cy="24" r="16" stroke="#E2C0B9" stroke-width="2.5"/>
+                      <circle cx="24" cy="24" r="9" stroke="#C99B92" stroke-width="2.5"/>
+                      <line x1="36" y1="36" x2="49" y2="49" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+                      <circle cx="24" cy="24" r="2.5" fill="#1a1a1a"/>
+                    </svg>
                 </div>
-                <div>
-                    <p class="label-text mb-2" style="color:#9B4F4A;">Strategy First</p>
-                    <h3 class="lora-italic text-2xl text-[#1a1a1a] mb-3">Clarity &amp; Audit</h3>
-                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">One session, one document, a clear picture of what to build and in what order. Start here before spending money on implementation.</p>
+                <div class="p-7 flex flex-col flex-1 gap-3">
+                    <p class="label-text" style="color:#9B4F4A;">Strategy First</p>
+                    <h3 class="lora-italic text-xl text-[#1a1a1a]">Clarity &amp; Audit</h3>
+                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">One session, one document, a clear picture of what to build and in what order.</p>
+                    <ul class="mt-1 space-y-1.5">
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>In-depth intake questionnaire</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>One focused strategy session</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Written action plan + priority roadmap</li>
+                    </ul>
+                    <div class="flex items-center gap-2 mt-auto pt-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C99B92]">Request a Quote</span>
+                        <svg class="arrow-hidden w-3 h-3 text-[#C99B92]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
             </a>
 
-            <a href="services.html#foundation" class="group flex flex-col gap-5 h-full p-8 reveal d2" style="background:rgba(226,192,185,0.12); border:1px solid rgba(226,192,185,0.4); border-top:3px solid #E2C0B9; border-radius:14px; transition:background 0.3s ease, box-shadow 0.3s ease;">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 flex items-center justify-center" style="background:rgba(226,192,185,0.2); border-radius:10px;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    </div>
-                    <svg class="arrow-hidden w-4 h-4 text-[#C99B92] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <a href="services.html#foundation" class="group card flex flex-col reveal d2" style="border-radius:14px; transition:box-shadow 0.3s ease, transform 0.3s ease;">
+                <div class="overflow-hidden flex items-center justify-center" style="border-radius:14px 14px 0 0; aspect-ratio:5/2; background:linear-gradient(145deg,#EDE5D8 0%,#F5F0EA 100%);">
+                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                      <rect x="4" y="8" width="48" height="36" rx="5" stroke="#E2C0B9" stroke-width="2.5" fill="none"/>
+                      <line x1="4" y1="20" x2="52" y2="20" stroke="#C99B92" stroke-width="2.5"/>
+                      <line x1="13" y1="30" x2="43" y2="30" stroke="#C99B92" stroke-width="2" stroke-linecap="round"/>
+                      <line x1="13" y1="36" x2="34" y2="36" stroke="#E2C0B9" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="12" cy="14" r="3" fill="#1a1a1a"/>
+                    </svg>
                 </div>
-                <div>
-                    <p class="label-text mb-2" style="color:#9B4F4A;">Digital Foundation</p>
-                    <h3 class="lora-italic text-2xl text-[#1a1a1a] mb-3">Custom Website</h3>
-                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Custom website design and build, plus the client experience infrastructure that makes your business feel real and professional.</p>
+                <div class="p-7 flex flex-col flex-1 gap-3">
+                    <p class="label-text" style="color:#9B4F4A;">Digital Foundation</p>
+                    <h3 class="lora-italic text-xl text-[#1a1a1a]">Custom Website</h3>
+                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Website strategy, design, and build — alongside the client experience setup that makes your business convert.</p>
+                    <ul class="mt-1 space-y-1.5">
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Custom website design + build</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Client experience + booking systems</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Recorded walkthrough + handoff</li>
+                    </ul>
+                    <div class="flex items-center gap-2 mt-auto pt-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C99B92]">Request a Quote</span>
+                        <svg class="arrow-hidden w-3 h-3 text-[#C99B92]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
             </a>
 
-            <a href="services.html#operations" class="group flex flex-col gap-5 h-full p-8 reveal d3" style="background:rgba(226,192,185,0.12); border:1px solid rgba(226,192,185,0.4); border-top:3px solid #E2C0B9; border-radius:14px; transition:background 0.3s ease, box-shadow 0.3s ease;">
-                <div class="flex items-start justify-between">
-                    <div class="w-10 h-10 flex items-center justify-center" style="background:rgba(226,192,185,0.2); border-radius:10px;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-                    </div>
-                    <svg class="arrow-hidden w-4 h-4 text-[#C99B92] mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <a href="services.html#operations" class="group card flex flex-col reveal d3" style="border-radius:14px; transition:box-shadow 0.3s ease, transform 0.3s ease;">
+                <div class="overflow-hidden flex items-center justify-center" style="border-radius:14px 14px 0 0; aspect-ratio:5/2; background:linear-gradient(145deg,#EDE5D8 0%,#F5F0EA 100%);">
+                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                      <line x1="14" y1="14" x2="28" y2="28" stroke="#E2C0B9" stroke-width="2.5"/>
+                      <line x1="42" y1="14" x2="28" y2="28" stroke="#E2C0B9" stroke-width="2.5"/>
+                      <line x1="14" y1="42" x2="28" y2="28" stroke="#E2C0B9" stroke-width="2.5"/>
+                      <line x1="42" y1="42" x2="28" y2="28" stroke="#E2C0B9" stroke-width="2.5"/>
+                      <circle cx="14" cy="14" r="5" stroke="#E2C0B9" stroke-width="2.5" fill="none"/>
+                      <circle cx="42" cy="14" r="5" stroke="#E2C0B9" stroke-width="2.5" fill="none"/>
+                      <circle cx="14" cy="42" r="5" stroke="#E2C0B9" stroke-width="2.5" fill="none"/>
+                      <circle cx="42" cy="42" r="5" stroke="#E2C0B9" stroke-width="2.5" fill="none"/>
+                      <circle cx="28" cy="28" r="10" stroke="#C99B92" stroke-width="2.5" fill="none"/>
+                      <circle cx="28" cy="28" r="2.5" fill="#1a1a1a"/>
+                    </svg>
                 </div>
-                <div>
-                    <p class="label-text mb-2" style="color:#9B4F4A;">Full Systems Build</p>
-                    <h3 class="lora-italic text-2xl text-[#1a1a1a] mb-3">Operations &amp; Systems Implementation</h3>
-                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">Audit, workflow mapping, SOPs, automations, and dashboards. The complete operational infrastructure for a business that
-'
-s outgrown its current systems.</p>
+                <div class="p-7 flex flex-col flex-1 gap-3">
+                    <p class="label-text" style="color:#9B4F4A;">Full Systems Build</p>
+                    <h3 class="lora-italic text-xl text-[#1a1a1a]">Operations &amp; Systems Implementation</h3>
+                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">The operational infrastructure your business needs to scale — without everything still running through you manually.</p>
+                    <ul class="mt-1 space-y-1.5">
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Workflows, SOPs + automations</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Operations audit + system mapping</li>
+                        <li class="flex items-start gap-2 text-sm text-[#2D2826]/65 font-light"><span class="text-[#C99B92] mt-0.5 flex-shrink-0">—</span>Dashboards + recorded handoff</li>
+                    </ul>
+                    <div class="flex items-center gap-2 mt-auto pt-2">
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C99B92]">Request a Quote</span>
+                        <svg class="arrow-hidden w-3 h-3 text-[#C99B92]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
             </a>
 
@@ -338,7 +368,7 @@ s outgrown its current systems.</p>
 <!-- ══════════════════════════════════════ -->
 <!-- 07 · LIFE PRODUCTS -->
 <!-- ══════════════════════════════════════ -->
-<section class="bg-[#FAF7F2] py-24 px-6">
+<section class="bg-[#FAF7F2] py-16 px-6">
     <div class="max-w-5xl mx-auto space-y-12">
         <div class="text-center space-y-3 reveal">
             <span class="pill pill-blush">Beyond the Business</span>
@@ -348,13 +378,13 @@ s outgrown its current systems.</p>
 
         <div class="grid md:grid-cols-2 gap-6">
             <a href="shop.html" class="group card flex flex-col reveal d1">
-                <div class="overflow-hidden" style="border-radius:var(--radius) var(--radius) 0 0; aspect-ratio:16/9;">
+                <div class="overflow-hidden" style="border-radius:var(--radius) var(--radius) 0 0; aspect-ratio:5/2;">
                     <img src="images/Life_Reset.png" alt="The Intentional Life Reset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
                 <div class="p-7 space-y-3">
                     <p class="label-text text-[#9B4F4A]">Deep Dive</p>
                     <h3 class="lora-italic text-xl text-[#1a1a1a]">The Intentional Life Reset</h3>
-                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">A complete reset of habits, routines, and nervous system   built for the business owner ready to stop running on empty and start building with intention.</p>
+                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">A complete reset of habits, routines, and nervous system, built for the business owner ready to stop running on empty and start building with intention.</p>
                     <div class="flex items-center gap-2 pt-1">
                         <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C99B92]">Get Access</span>
                         <svg class="arrow-hidden w-3 h-3 text-[#C99B92]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -363,13 +393,13 @@ s outgrown its current systems.</p>
             </a>
 
             <a href="shop.html" class="group card flex flex-col reveal d2">
-                <div class="overflow-hidden" style="border-radius:var(--radius) var(--radius) 0 0; aspect-ratio:16/9;">
+                <div class="overflow-hidden" style="border-radius:var(--radius) var(--radius) 0 0; aspect-ratio:5/2;">
                     <img src="images/Astrology_Report_Home.png" alt="The Intentional Astrology Report" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
                 <div class="p-7 space-y-3">
                     <p class="label-text text-[#9B4F4A]">Personalized Report</p>
                     <h3 class="lora-italic text-xl text-[#1a1a1a]">The Intentional Astrology Report</h3>
-                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">A personalized report with a business lens   understand how you're wired, where your natural strengths are, and how to build work that actually fits you.</p>
+                    <p class="text-sm text-[#2D2826]/80 font-light leading-relaxed">A personalized report with a business lens: understand how you're wired, where your natural strengths are, and how to build work that fits how you're built.</p>
                     <div class="flex items-center gap-2 pt-1">
                         <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C99B92]">Learn More</span>
                         <svg class="arrow-hidden w-3 h-3 text-[#C99B92]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -387,18 +417,19 @@ s outgrown its current systems.</p>
     <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2">
             <div class="p-10 md:p-14 flex flex-col justify-center gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 border border-[#C99B92]/35 flex items-center justify-center flex-shrink-0" style="border-radius:10px;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </div>
-                    <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Join our mailing list</h2>
+                <div class="w-12 h-12 border border-[#C99B92]/35 flex items-center justify-center flex-shrink-0" style="border-radius:10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>
-                <p class="text-sm text-white/45 font-light leading-relaxed">New content, resources, and 20% off your first order.</p>
+                <h2 class="lora text-3xl md:text-4xl text-white leading-[1.25]">Get 20% off your first order.</h2>
+                <p class="text-sm text-white/45 font-light leading-relaxed">New products, updates, and resources. Straight to your inbox.</p>
             </div>
             <div class="p-10 md:p-14 flex flex-col justify-center space-y-3">
-                <input type="email" placeholder="YOUR EMAIL ADDRESS" class="w-full bg-transparent border border-white/15 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/20 focus:border-[#C99B92] transition-colors" style="border-radius:8px;">
-                <button class="btn-press w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-white" style="background:#C99B92; border-radius:8px;">Join the List</button>
+                <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
+                <label for="newsletter-email" class="sr-only">Your email address</label>
+                <input id="newsletter-email" name="EMAIL" type="email" placeholder="YOUR EMAIL ADDRESS" required aria-label="Email address for newsletter signup" class="w-full bg-transparent border border-white/15 py-3 px-5 text-[10px] text-white outline-none uppercase tracking-widest placeholder:text-white/20 focus:border-[#C99B92] transition-colors" style="border-radius:8px;">
+                <button type="submit" class="btn-press w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-white" style="background:#C99B92; border-radius:8px;">Join the List</button>
                 <p class="text-[9px] uppercase tracking-[0.2em] text-white/25 font-bold text-center">No spam. Unsubscribe anytime.</p>
+                </form>
             </div>
         </div>
     </div>
@@ -415,15 +446,43 @@ s outgrown its current systems.</p>
         </div>
         <div>
             <p class="text-[9px] uppercase tracking-[0.35em] font-bold text-[#1a1a1a]/45">The Intentional Tea</p>
-            <p class="text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/25 mt-1">Â© 2026 The Intentional Tea</p>
+            <p class="text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/25 mt-1">© 2026 The Intentional Tea</p>
         </div>
         <div class="flex justify-center md:justify-end gap-4 text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/35">
-            <button>Terms</button><button>Privacy</button><button>Refunds</button>
+            <button onclick="openPolicyModal('terms')" class="hover:text-black transition-colors">Terms</button>
+            <button onclick="openPolicyModal('privacy')" class="hover:text-black transition-colors">Privacy</button>
+            <button onclick="openPolicyModal('refund')" class="hover:text-black transition-colors">Refunds</button>
         </div>
     </div>
 </footer>
 
+<!-- Policy modal -->
+<div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closePolicyModal()">
+    <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
+        <button onclick="closePolicyModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
+        <div id="policy-modal-content"></div>
+    </div>
+</div>
+
 <script>
+    async function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.querySelector('input[type="email"]').value.trim();
+        if (!email) return;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Subscribing...';
+        btn.disabled = true;
+        try {
+            await fetch('/.netlify/functions/subscribe', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ email, listId: 7 })
+            });
+        } catch (err) {}
+        window.location.href = 'thank-you-newsletter.html';
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -433,6 +492,27 @@ s outgrown its current systems.</p>
         });
     }, { threshold: 0.18 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const policyContent = {
+        terms: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Terms &amp; Conditions</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">Standard terms for digital licensing. Products are for personal use only.</p>`,
+        refund: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Refund Policy</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>`,
+        privacy: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Privacy Policy</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`
+    };
+
+    function openPolicyModal(type) {
+        const modal = document.getElementById('policy-modal');
+        document.getElementById('policy-modal-content').innerHTML = policyContent[type];
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyModal() {
+        const modal = document.getElementById('policy-modal');
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
 </script>
 </body>
 </html>

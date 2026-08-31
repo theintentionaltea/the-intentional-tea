@@ -91,12 +91,16 @@
         /* Section divider */
         .service-block { border-top: 1px solid rgba(26,26,26,0.08); padding-top: 5rem; margin-top: 5rem; }
         .service-block:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+
+        /* Prevent orphaned words and uneven line breaks */
+        h1, h2, h3, h4 { text-wrap: balance; }
+        p { text-wrap: pretty; }
     </style>
 </head>
 <body class="antialiased">
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-[#FAF7F2]/96 backdrop-blur-md border-b border-black/10">
+<header class="sticky top-0 z-50 bg-[#FAF7F2] border-b border-black/10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <nav class="hidden lg:flex w-2/5 justify-start space-x-6">
             <a href="index.html" class="header-link">Home</a>
@@ -104,6 +108,7 @@
             <a href="services.html" class="header-link" style="color:#9B4F4A;">Services</a>
             <a href="shop.html" class="header-link">Shop</a>
             <a href="resources.html" class="header-link">Resources</a>
+            <a href="social.html" class="header-link">Connect</a>
         </nav>
         <div class="lg:hidden w-1/3">
             <button onclick="document.getElementById('mobile-nav').classList.toggle('active')" class="header-link flex items-center gap-2">
@@ -115,7 +120,7 @@
             <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea" class="h-8 md:h-12 w-auto object-contain"></a>
         </div>
         <div class="w-1/3 lg:w-2/5 flex justify-end">
-            <a href="#contact" class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Start the Conversation</a>
+            <a href="#contact" class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Schedule a Call</a>
         </div>
     </div>
     <nav id="mobile-nav" class="lg:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
@@ -124,6 +129,7 @@
         <a href="services.html" class="header-link block" style="color:#9B4F4A;">Services</a>
         <a href="shop.html" class="header-link block">Shop</a>
         <a href="resources.html" class="header-link block">Resources</a>
+        <a href="social.html" class="header-link block">Social</a>
     </nav>
 </header>
 
@@ -173,7 +179,7 @@
         </div>
         <div class="space-y-6">
             <span class="pill pill-blush">The Approach</span>
-            <h2 class="lora text-3xl md:text-4xl leading-[1.2] text-[#1a1a1a]">Your business already works. Let's make it run.</h2>
+            <h2 class="lora text-3xl md:text-4xl leading-[1.2] text-[#1a1a1a]">Your business already works.<br>Let's make it run.</h2>
             <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">I don't diagnose what's broken. Every business I work with has already done the hard part: they built something real, served real clients, and created actual momentum. What comes to me is the question of what needs to be organized, documented, or automated so that business can scale without the founder being the system.</p>
             <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">My approach is always the same: start by understanding the actual goal, map what exists, identify the gaps, then build the right thing in the right order.</p>
         </div>
@@ -195,7 +201,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-10 relative z-10">
                 <div class="flex flex-col items-center text-center space-y-5 reveal d1">
                     <div class="step-circle">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#E2C0B9" stroke-width="1.5"/><circle cx="11" cy="11" r="4.5" stroke="#C99B92" stroke-width="1.5"/><path d="m17.5 17.5 3 3" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="1.2" fill="#1a1a1a"/></svg>
                         <span class="step-badge">01</span>
                     </div>
                     <div>
@@ -205,7 +211,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d2">
                     <div class="step-circle">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#E2C0B9" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="#C99B92" stroke-width="1.5"/><rect x="10" y="10" width="3" height="3" rx="0.5" fill="#1a1a1a"/></svg>
                         <span class="step-badge">02</span>
                     </div>
                     <div>
@@ -215,7 +221,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d3">
                     <div class="step-circle">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" stroke="#E2C0B9" stroke-width="1.5"/><path d="M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="#C99B92" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="#1a1a1a"/></svg>
                         <span class="step-badge">03</span>
                     </div>
                     <div>
@@ -225,7 +231,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d4">
                     <div class="step-circle">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polyline points="1 18 8.5 10.5 13.5 15.5 23 6" stroke="#E2C0B9" stroke-width="1.5" fill="none"/><polyline points="17 6 23 6 23 12" stroke="#C99B92" stroke-width="1.5" fill="none"/><circle cx="23" cy="6" r="1.5" fill="#1a1a1a"/></svg>
                         <span class="step-badge">04</span>
                     </div>
                     <div>
@@ -262,7 +268,7 @@
                     <div class="space-y-4">
                         <h3 class="lora-italic text-3xl text-[#1a1a1a]">Clarity &amp; Audit</h3>
                         <p class="lora-italic text-sm" style="color:#C99B92;">Strategy before implementation, so you're building the right thing.</p>
-                        <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">You have the ideas. What you need is clarity on which ones to actually pursue, in what order, and what needs to be in place before you spend money building anything. This is where we start.</p>
+                        <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">You have the ideas. What you need is clarity on which ones to pursue, in what order, and what needs to be in place before you spend money building anything. This is where we start.</p>
                         <button onclick="openInquiryForm()" class="btn-press inline-block bg-black text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300 mt-2" style="border-radius:8px;">Request a Quote</button>
                     </div>
                     <div class="space-y-2 md:pt-2">
@@ -284,7 +290,7 @@
                     <div class="space-y-4">
                         <h3 class="lora-italic text-3xl text-[#1a1a1a]">Custom Website</h3>
                         <p class="lora-italic text-sm" style="color:#C99B92;">A professional digital foundation that works as hard as you do.</p>
-                        <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">For founders who need their online presence to actually convert, not just exist. Website strategy, design, and build alongside the client experience setup that makes your business feel real to the people you're trying to reach.</p>
+                        <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">For founders who need their online presence to convert, not just exist. Website strategy, design, and build alongside the client experience setup that makes your business feel real to the people you're trying to reach.</p>
                         <button onclick="openInquiryForm()" class="btn-press inline-block bg-black text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300 mt-2" style="border-radius:8px;">Request a Quote</button>
                     </div>
                     <div class="space-y-2 md:pt-2">
@@ -306,9 +312,10 @@
                 </div>
                 <div class="p-8 md:p-10 grid md:grid-cols-[3fr_2fr] gap-10 items-start">
                     <div class="space-y-4">
-                        <h3 class="lora-italic text-3xl text-[#1a1a1a]">Operations &amp; Systems Implementation</h3>
+                        <h3 class="lora-italic text-3xl text-[#1a1a1a]">Operations &amp;&nbsp;Systems<br>Implementation</h3>
                         <p class="lora-italic text-sm" style="color:#C99B92;">The backend infrastructure that lets your business run without you holding it together manually.</p>
                         <p class="text-sm text-[#2D2826]/80 leading-relaxed font-light">Your business has grown past what manual work can handle. Nothing is documented. Everything lives in your head. This build creates the operational infrastructure: workflows, automations, systems, and dashboards so your business can scale without requiring you to be the system.</p>
+
                         <button onclick="openInquiryForm()" class="btn-press inline-block bg-black text-white px-8 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300 mt-2" style="border-radius:8px;">Request a Quote</button>
                     </div>
                     <div class="space-y-2 md:pt-2">
@@ -339,7 +346,7 @@
         <div class="text-center space-y-3 mb-14">
             <span class="pill pill-blush">The Process</span>
             <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">How every engagement runs.</h2>
-            <p class="text-sm text-[#2D2826]/75 mx-auto font-light leading-relaxed" style="max-width:420px;">No surprises. Every build follows the same structure, regardless of scope.</p>
+            <p class="text-sm text-[#2D2826]/75 mx-auto font-light leading-relaxed" style="max-width:480px;">No surprises. Every build follows the same structure, regardless of scope.</p>
         </div>
 
         <div class="relative">
@@ -347,7 +354,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-10 relative z-10">
                 <div class="flex flex-col items-center text-center space-y-5 reveal d1">
                     <div class="step-circle">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="#E2C0B9" stroke-width="1.5"/><circle cx="11" cy="11" r="4.5" stroke="#C99B92" stroke-width="1.5"/><path d="m17.5 17.5 3 3" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="1.2" fill="#1a1a1a"/></svg>
                         <span class="step-badge">01</span>
                     </div>
                     <div>
@@ -357,7 +364,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d2">
                     <div class="step-circle">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#E2C0B9" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="#C99B92" stroke-width="1.5"/><rect x="10" y="10" width="3" height="3" rx="0.5" fill="#1a1a1a"/></svg>
                         <span class="step-badge">02</span>
                     </div>
                     <div>
@@ -367,7 +374,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d3">
                     <div class="step-circle">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#E2C0B9" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" stroke="#C99B92" stroke-width="1.5"/><circle cx="12" cy="12" r="1.2" fill="#1a1a1a"/></svg>
                         <span class="step-badge">03</span>
                     </div>
                     <div>
@@ -377,7 +384,7 @@
                 </div>
                 <div class="flex flex-col items-center text-center space-y-5 reveal d4">
                     <div class="step-circle">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C99B92" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" stroke="#E2C0B9" stroke-width="1.5"/><line x1="12" y1="15" x2="12" y2="4" stroke="#C99B92" stroke-width="1.5" stroke-linecap="round"/><polyline points="8 8 12 4 16 8" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
                         <span class="step-badge">04</span>
                     </div>
                     <div>
@@ -390,11 +397,70 @@
     </div>
 </section>
 
+<!-- ══════════════════════════════════════ -->
+<!-- IS THIS FOR YOU — founder positioning -->
+<!-- ══════════════════════════════════════ -->
 <section class="bg-white py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+
+        <div class="text-center mb-16 space-y-4 reveal">
+            <span class="pill pill-blush">Is This for You?</span>
+            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">How to know if this is the right fit.</h2>
+        </div>
+
+        <div class="relative grid md:grid-cols-3 gap-0 reveal">
+
+            <!-- vertical dividers, desktop only -->
+            <div class="hidden md:block absolute top-2 bottom-2 w-px bg-[#E2C0B9]" style="left:33.333%;"></div>
+            <div class="hidden md:block absolute top-2 bottom-2 w-px bg-[#E2C0B9]" style="left:66.666%;"></div>
+
+            <!-- 01 Momentum -->
+            <div class="py-2 md:pr-10 border-b border-[#E2C0B9] md:border-b-0 pb-10 md:pb-0 mb-10 md:mb-0">
+                <svg width="52" height="34" viewBox="0 0 52 34" fill="none">
+                    <path d="M2 30a24 24 0 0 1 48 0" stroke="#E2C0B9" stroke-width="2"/>
+                    <path d="M2 30a24 24 0 0 1 34-22" stroke="#C99B92" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="26" y1="30" x2="38" y2="14" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round"/>
+                    <circle cx="26" cy="30" r="2.4" fill="#1a1a1a"/>
+                </svg>
+                <p class="label-text mt-5 mb-0" style="color:#C99B92;">01 &middot; Momentum</p>
+                <h3 class="lora-italic text-xl text-[#1a1a1a] leading-snug mt-3 mb-3">The clients are there. The backend hasn't caught up with them yet.</h3>
+                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">You've built something from scratch, and it works: real clients, real revenue, real referrals. What's missing is the structure underneath — the documented processes and automated workflows that let it run without you personally holding every piece together.</p>
+            </div>
+
+            <!-- 02 Direction -->
+            <div class="py-2 md:px-10 border-b border-[#E2C0B9] md:border-b-0 pb-10 md:pb-0 mb-10 md:mb-0">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                    <circle cx="17" cy="17" r="15" stroke="#E2C0B9" stroke-width="2"/>
+                    <path d="M22 12l-3.2 8.2L11 23l3.2-8.2Z" fill="#C99B92"/>
+                    <circle cx="17" cy="17" r="1.8" fill="#1a1a1a"/>
+                </svg>
+                <p class="label-text mt-5 mb-0" style="color:#C99B92;">02 &middot; Direction</p>
+                <h3 class="lora-italic text-xl text-[#1a1a1a] leading-snug mt-3 mb-3">The direction is clear. Aligning the whole business with it is the harder part.</h3>
+                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">You know what you're building, and the goals have been clear for a while. What keeps slipping is the execution layer — the part where vision turns into consistent, repeatable operations that don't require you to manage every detail by hand.</p>
+            </div>
+
+            <!-- 03 Scale -->
+            <div class="py-2 md:pl-10">
+                <svg width="46" height="34" viewBox="0 0 46 34" fill="none">
+                    <rect x="2" y="20" width="8" height="12" rx="1" fill="#E2C0B9"/>
+                    <rect x="14" y="12" width="8" height="20" rx="1" fill="#E2C0B9"/>
+                    <rect x="26" y="4" width="8" height="28" rx="1" fill="#C99B92"/>
+                    <path d="M2 6l14 8 12-10 14 4" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="label-text mt-5 mb-0" style="color:#C99B92;">03 &middot; Scale</p>
+                <h3 class="lora-italic text-xl text-[#1a1a1a] leading-snug mt-3 mb-3">The volume and the revenue are there. The backend that scales with them isn't.</h3>
+                <p class="text-sm text-[#2D2826]/70 leading-relaxed font-light">The demand is real, and the infrastructure that scales without requiring you to personally manage every increase hasn't been built yet. That's what closes the gap before the next growth cycle forces the issue.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#FAF7F2] py-24 px-6">
     <div class="max-w-5xl mx-auto space-y-10 reveal">
         <div class="text-center space-y-3">
             <span class="pill pill-blush">Client Results</span>
-            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Built for businesses like yours.</h2>
+            <h2 class="lora-italic text-3xl md:text-4xl text-[#1a1a1a]">Hear from businesses like yours.</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-5">
             <div class="card-flat p-8 space-y-5 reveal d1" style="border-top: 2px solid #E2C0B9;">
@@ -418,7 +484,7 @@
 <!-- ══════════════════════════════════════ -->
 <!-- FAQ -->
 <!-- ══════════════════════════════════════ -->
-<section class="bg-[#FAF7F2] py-24 px-6">
+<section class="bg-white py-24 px-6">
     <div class="max-w-3xl mx-auto space-y-10 reveal">
         <div class="text-center space-y-3">
             <span class="pill pill-blush">FAQ</span>
@@ -512,7 +578,7 @@
                     <img src="images/Services_Inquiry_Card.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
 
-                <button onclick="openInquiryForm()" class="btn-press block w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-center text-black bg-[#E2C0B9] hover:bg-black hover:text-white transition-all duration-300" style="border-radius:8px;">Start the Conversation</button>
+                <button onclick="openInquiryForm()" class="btn-press block w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-center text-black bg-[#E2C0B9] hover:bg-black hover:text-white transition-all duration-300" style="border-radius:8px;">Schedule a Call</button>
 
             </div>
 
@@ -534,7 +600,9 @@
             <p class="text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/25 mt-1">© 2026 The Intentional Tea</p>
         </div>
         <div class="flex justify-center md:justify-end gap-4 text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/35">
-            <button>Terms</button><button>Privacy</button><button>Refunds</button>
+            <button onclick="openPolicyModal('terms')" class="hover:text-black transition-colors">Terms</button>
+            <button onclick="openPolicyModal('privacy')" class="hover:text-black transition-colors">Privacy</button>
+            <button onclick="openPolicyModal('refund')" class="hover:text-black transition-colors">Refunds</button>
         </div>
     </div>
 </footer>
@@ -608,6 +676,37 @@
         }
         document.getElementById('checkout-modal').style.display = 'none';
         document.getElementById('checkout-container').innerHTML = '';
+        document.body.style.overflow = 'auto';
+    }
+</script>
+
+<!-- Policy modal -->
+<div id="policy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closePolicyModal()">
+    <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
+        <button onclick="closePolicyModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close [x]</button>
+        <div id="policy-modal-content"></div>
+    </div>
+</div>
+
+<script>
+    const policyContent = {
+        terms: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Terms &amp; Conditions</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">Standard terms for digital licensing. Products are for personal use only.</p>`,
+        refund: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Refund Policy</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>`,
+        privacy: `<h2 style="font-family:'Lora',serif;font-style:italic;font-size:1.75rem;margin-bottom:1.5rem;">Privacy Policy</h2><p style="font-size:0.875rem;line-height:1.75;color:#666;">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`
+    };
+
+    function openPolicyModal(type) {
+        const modal = document.getElementById('policy-modal');
+        document.getElementById('policy-modal-content').innerHTML = policyContent[type];
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyModal() {
+        const modal = document.getElementById('policy-modal');
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
 </script>
