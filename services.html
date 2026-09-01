@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Operations Services | The Intentional Tea</title>
+    <title>Business Operations | The Intentional Tea</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -627,34 +627,6 @@
         if (!isOpen) { answer.classList.add('open'); chevron.classList.add('open'); }
     }
 
-    const STRIPE_PK = 'pk_live_51SAd169B8x1wR8APCGWy7mCcQ7ig8TNhgXubwQTj6Hdk5TUjKPnWV2jSYdboIuonUlPow4fDwgVpSHyUofPe9doe00FfXTsHNx';
-    let stripeCheckoutInstance = null;
-
-    async function openCheckout(priceId) {
-        const modal = document.getElementById('checkout-modal');
-        const container = document.getElementById('checkout-container');
-        container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:240px;"><p style="font-family:\'Instrument Sans\',sans-serif;color:#999;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;">Loading...</p></div>';
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-
-        try {
-            const res = await fetch('/.netlify/functions/create-checkout', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ priceId })
-            });
-            const { clientSecret, error } = await res.json();
-            if (error) throw new Error(error);
-
-            const stripe = Stripe(STRIPE_PK);
-            stripeCheckoutInstance = await stripe.initEmbeddedCheckout({ clientSecret });
-            container.innerHTML = '';
-            stripeCheckoutInstance.mount('#checkout-container');
-        } catch (err) {
-            container.innerHTML = '<div style="padding:40px;text-align:center;font-family:\'Instrument Sans\',sans-serif;font-size:13px;color:#666;">Something went wrong. Please try again or reach out at theintentionaltea@gmail.com.</div>';
-        }
-    }
-
     function openInquiryForm() {
         const modal = document.getElementById('inquiry-modal');
         modal.style.display = 'flex';
@@ -669,15 +641,7 @@
         document.body.style.overflow = 'auto';
     }
 
-    function closeCheckout() {
-        if (stripeCheckoutInstance) {
-            stripeCheckoutInstance.destroy();
-            stripeCheckoutInstance = null;
-        }
-        document.getElementById('checkout-modal').style.display = 'none';
-        document.getElementById('checkout-container').innerHTML = '';
-        document.body.style.overflow = 'auto';
-    }
+
 </script>
 
 <!-- Policy modal -->
@@ -711,9 +675,6 @@
     }
 </script>
 
-<!-- Stripe.js -->
-<script src="https://js.stripe.com/v3/"></script>
-
 <!-- Inquiry Form Modal -->
 <div id="inquiry-modal" style="display:none;position:fixed;inset:0;z-index:9998;align-items:center;justify-content:center;padding:16px 20px;background:rgba(0,0,0,0.70);backdrop-filter:blur(4px);" onclick="if(event.target===this)closeInquiryForm()">
     <div style="background:white;width:100%;max-width:780px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 25px 60px -10px rgba(0,0,0,0.4);border-radius:4px;overflow:hidden;" onclick="event.stopPropagation()">
@@ -733,12 +694,5 @@
     </div>
 </div>
 
-<!-- Checkout modal -->
-<div id="checkout-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:9999;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeCheckout()">
-    <div style="background:#FAF7F2;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;position:relative;border-radius:4px;">
-        <button onclick="closeCheckout()" style="position:absolute;top:16px;right:20px;font-family:'Instrument Sans',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;background:none;border:none;cursor:pointer;color:#999;z-index:1;">Close ×</button>
-        <div id="checkout-container" style="min-height:300px;"></div>
-    </div>
-</div>
 </body>
 </html>
