@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
     "services.html",
     "shop.html",
     "social.html",
+    "resources.html",
     "404.html",
     "thank-you-newsletter.html",
     "thank-you-booking.html",
