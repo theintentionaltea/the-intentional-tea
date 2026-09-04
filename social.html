@@ -249,7 +249,7 @@
                         </div>
                         <span style="font-size:11px; color:#C99B92;">&#x2192;</span>
                     </a>
-                    <a href="https://intentionaltea.gumroad.com/l/yjgmjo" class="mod-link gumroad-scroll">
+                    <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="mod-link gumroad-scroll">
                         <div>
                             <p class="mod-link-label">Business Planning</p>
                             <p class="mod-link-sub">$10</p>
@@ -343,11 +343,12 @@
                 <h2 class="lora-italic" style="font-size:24px; color:white; margin:0 0 8px;">20% off your first order.</h2>
                 <p style="font-size:10px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.3); margin:0;">New content, resources, and exclusive updates.</p>
             </div>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-                <input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address" style="width:100%; background:transparent; border:1px solid rgba(255,255,255,0.1); padding:13px 18px; font-size:10px; color:white; outline:none; text-transform:uppercase; letter-spacing:0.2em; border-radius:8px; font-family:'Instrument Sans',sans-serif;" onfocus="this.style.borderColor='#C99B92'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-                <button class="btn-press" style="width:100%; background:#C99B92; color:white; padding:15px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.35em; border:none; cursor:pointer; border-radius:8px; font-family:'Instrument Sans',sans-serif; transition:background 0.2s;" onmouseover="this.style.background='#E2C0B9'" onmouseout="this.style.background='#C99B92'">Join the List</button>
+            <form onsubmit="handleSocialNewsletterSubmit(event)" style="display:flex; flex-direction:column; gap:10px;">
+                <label for="nl-social" class="sr-only">Email address</label>
+                <input id="nl-social" type="email" name="EMAIL" placeholder="YOUR EMAIL ADDRESS" required aria-label="Email address" style="width:100%; background:transparent; border:1px solid rgba(255,255,255,0.1); padding:13px 18px; font-size:10px; color:white; outline:none; text-transform:uppercase; letter-spacing:0.2em; border-radius:8px; font-family:'Instrument Sans',sans-serif;" onfocus="this.style.borderColor='#C99B92'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                <button type="submit" class="btn-press" style="width:100%; background:#C99B92; color:white; padding:15px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.35em; border:none; cursor:pointer; border-radius:8px; font-family:'Instrument Sans',sans-serif; transition:background 0.2s;" onmouseover="this.style.background='#E2C0B9'" onmouseout="this.style.background='#C99B92'">Join the List</button>
                 <p style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.2); margin:0;">No spam. Unsubscribe anytime.</p>
-            </div>
+            </form>
         </div>
     </section>
 
@@ -387,6 +388,24 @@
         refund: `<h2 id="policy-modal-title" style="font-family:'Lora',serif;font-style:italic;font-size:28px;margin-bottom:20px;">Refund Policy</h2><p style="font-size:14px;line-height:1.7;color:#555;">Due to the nature of digital products, all sales are final. No refunds will be issued once the file has been delivered.</p>`,
         privacy: `<h2 id="policy-modal-title" style="font-family:'Lora',serif;font-style:italic;font-size:28px;margin-bottom:20px;">Privacy Policy</h2><p style="font-size:14px;line-height:1.7;color:#555;">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`
     };
+
+    async function handleSocialNewsletterSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.querySelector('input[type="email"]').value.trim();
+        if (!email) return;
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Subscribing...';
+        btn.disabled = true;
+        try {
+            await fetch('/.netlify/functions/subscribe', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ email, listId: 7 })
+            });
+        } catch (err) {}
+        window.location.href = 'thank-you-newsletter.html';
+    }
 
     var _policyTrigger = null;
     function _policyKeydown(e) {
