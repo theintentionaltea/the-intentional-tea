@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /deliverables/
+Disallow: /thank-you-newsletter.html
+Disallow: /thank-you-booking.html
+Disallow: /_site/
+Disallow: /emails/
+
+Sitemap: https://theintentionaltea.com/sitemap.xml
