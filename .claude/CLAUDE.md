@@ -29,7 +29,7 @@ This file is the operating system for every Claude Code session on The Intention
 | Essential Digital Sticker Pack | Free | Ready |
 | Pastel Sticker Pack | $5 | Ready |
 | Dark Sticker Pack | $5 | Ready |
-| Warm Neutral Sticker Pack | $8 | Ready |
+| Warm Neutral Sticker Pack | $5 | Ready |
 | Business Planning Templates | $10 | Ready |
 | Essential Planning Templates | $15 | Ready |
 | Intentional Financial Planner | $20 | Ready |
@@ -57,14 +57,14 @@ This file is the operating system for every Claude Code session on The Intention
 
 ## BUSINESS OPERATIONS (Work With Me — this was missing entirely, now added)
 
-**Current name: "Business Operations."** Older material used "Business Elevation" and "Business Operations Services" — both retired, don't use them. (Not fully confirmed as the final final name — if in doubt on customer-facing copy, confirm before publishing.)
+**Current name: "Business Operations."** Older material used "Business Elevation" and "Business Operations Services" — both retired, don't use them. "Infrastructure Build" and "Multi-Entity Build" are also retired offer names — don't use them.
 
 **What it is:** Operational infrastructure builds for small businesses — websites, systems, automations, backend structure — for owners done running everything manually. This is the Business Alignment side of the brand philosophy, productized as a service. Separate audience from the digital-products side; see audience-profiles skill Part Two before writing copy for this.
 
 **Current live offers:**
 - **Clarity & Audit — $400 flat.** One intake, one focused session, one written document. Fee credits toward any build booked within 30 days.
-- **Infrastructure Build — starting at $2,500.** Full scoped build: website, systems, automations. Investment scales with complexity, confirmed at intake.
-- **Multi-Entity Build — starting at $5,000.** One backend across multiple brands/locations/entities.
+- **Custom Website — starting at $2,500.** Website strategy, design, and build with client experience setup. Investment scales with complexity, confirmed at intake.
+- **Operations & Systems Implementation — starting at $5,000.** Full operational infrastructure: workflows, automations, systems, dashboards, and SOPs.
 - **Ongoing Support — add-on, no published pricing, scoped per client.** Available with any build.
 
 "Tier" language (Tier 01/02/03) is fully dropped from customer-facing copy. Don't reintroduce it.
