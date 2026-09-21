@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop | The Intentional Tea</title>
+    <meta name="description" content="Explore the collection of digital tools for an intentional life and business. The Intentional Tea: digital planning, life reset, astrology, and more.">
+    <meta property="og:title" content="Shop | The Intentional Tea">
+    <meta property="og:description" content="Digital planning tools and frameworks for an intentional life and business.">
+    <meta property="og:image" content="https://theintentionaltea.com/images/Logo_Main.png">
+    <meta property="og:url" content="https://theintentionaltea.com/shop">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://theintentionaltea.com/shop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@theintentionaltea">
+    <meta name="twitter:title" content="Shop | The Intentional Tea">
+    <meta name="twitter:description" content="Explore the collection of digital tools for an intentional life and business. The Intentional Tea: digital planning, life reset, astrology, and more.">
+    <meta name="twitter:image" content="https://theintentionaltea.com/images/Logo_Main.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The Intentional Tea","url":"https://theintentionaltea.com","logo":"https://theintentionaltea.com/images/favicon.png","sameAs":["https://www.instagram.com/theintentionaltea/","https://www.tiktok.com/@theintentionaltea_"]}</script>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+        :root {
+            --cream: #FAF7F2;
+            --blush: #E2C0B9;
+            --blush-muted: #C99B92;
+            --ink: #1a1a1a;
+            --text: #2D2826;
+            --shadow-card: 0 4px 24px -4px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 16px 40px -8px rgba(0,0,0,0.14), 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 12px;
+        }
+
+        body { background-color: var(--cream); color: var(--text); font-family: 'Instrument Sans', sans-serif; }
+
+        .playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+        .lora { font-family: 'Lora', serif; font-weight: 400; }
+        .lora-italic { font-family: 'Lora', serif; font-style: italic; font-weight: 400; }
+        .baskerville { font-family: 'Libre Baskerville', serif; font-style: italic; font-weight: 400; letter-spacing: 0.04em; }
+        .label-text { font-family: 'Instrument Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.35em; font-size: 10px; font-weight: 700; }
+
+        /* Pills */
+        .pill {
+            display: inline-flex; align-items: center;
+            padding: 6px 14px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em;
+        }
+        .pill-blush { background: rgba(226,192,185,0.18); border: 1px solid rgba(226,192,185,0.45); color: #9B4F4A; }
+        .pill-dark  { background: rgba(226,192,185,0.12); border: 1px solid rgba(226,192,185,0.28); color: #E2C0B9; }
+
+        /* Card flat — for business + extras product cards */
+        .card-flat {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-flat:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+
+        /* Life section editorial cards */
+        .life-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .life-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+
+        /* Sticker cards */
+        .sticker-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .sticker-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px -8px rgba(0,0,0,0.1); }
+
+        /* Product image wrapper — used in business + extras cards */
+        .product-img-wrap {
+            width: 100%; aspect-ratio: 1/1;
+            display: flex; align-items: center; justify-content: center;
+            background: white; border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative; overflow: hidden;
+        }
+        .product-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.25rem;
+            transition: transform 0.7s ease;
+        }
+        .group:hover .product-img-wrap img { transform: scale(1.05); }
+        .product-img-wrap::after {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(226,192,185,0); transition: background 0.3s ease; pointer-events: none;
+        }
+        .group:hover .product-img-wrap::after { background: rgba(226,192,185,0.08); }
+
+        /* Life editorial image wrapper */
+        .life-img-wrap {
+            aspect-ratio: 5/4; width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: #F9F6F2; position: relative; overflow: hidden;
+        }
+        .life-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.75rem;
+            transition: transform 0.7s ease;
+        }
+        .life-card:hover .life-img-wrap img { transform: scale(1.04); }
+
+        /* Sticker image wrapper */
+        .sticker-img-wrap {
+            aspect-ratio: 1/1; width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: white; position: relative; overflow: hidden;
+        }
+        .sticker-img-wrap img {
+            width: 100%; height: 100%; object-fit: contain; padding: 1.25rem;
+            transition: transform 0.5s ease;
+        }
+        .group:hover .sticker-img-wrap img { transform: scale(1.06); }
+
+        /* In-card category pill */
+        .card-category-pill {
+            display: inline-flex; align-items: center;
+            padding: 4px 10px; border-radius: 100px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em;
+            background: rgba(226,192,185,0.14); border: 1px solid rgba(226,192,185,0.35); color: #9B4F4A;
+        }
+
+        /* Free badge — absolute-positioned inside image container */
+        .badge-free {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            background: #1a1a1a; color: white;
+            font-family: 'Instrument Sans', sans-serif; font-size: 8px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.2em; padding: 4px 10px; border-radius: 4px;
+        }
+
+        /* Price styling */
+        .price-serif { font-family: 'Lora', serif; font-style: italic; font-weight: 400; font-size: 1.2rem; color: #1a1a1a; }
+        .price-serif.price-free { color: #9B4F4A; }
+        .price-serif.price-lg { font-size: 1.75rem; }
+
+        /* Bundle hero */
+        .bundle-hero {
+            background: #1a1a1a; border-radius: var(--radius);
+            overflow: hidden; transition: box-shadow 0.3s ease;
+        }
+        .bundle-hero:hover { box-shadow: 0 28px 64px -12px rgba(0,0,0,0.5); }
+
+        /* Reveal animation */
+        @keyframes blurReveal {
+            from { opacity: 0; filter: blur(6px); transform: translateY(16px); }
+            to   { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: blurReveal 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .reveal.d1.visible { animation-delay: 0.08s; }
+        .reveal.d2.visible { animation-delay: 0.16s; }
+        .reveal.d3.visible { animation-delay: 0.24s; }
+        .reveal.d4.visible { animation-delay: 0.32s; }
+
+        /* Arrow reveal on hover */
+        .arrow-hidden { opacity: 0; transform: translateX(-5px); transition: opacity 0.25s ease, transform 0.25s ease; display: inline-block; }
+        .group:hover .arrow-hidden { opacity: 1; transform: translateX(0); }
+
+        /* Button press */
+        .btn-press { transition: transform 0.1s ease; }
+        .btn-press:active { transform: scale(0.97); }
+
+        /* Header */
+        .header-link { transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; }
+        .header-link:hover { color: #E2C0B9; }
+
+        /* Filter btn — already in style.css but redeclared for clarity */
+        .filter-btn { text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.18); background: transparent; cursor: pointer; transition: all 0.2s ease; color: #1a1a1a; border-radius: 4px; }
+        .filter-btn:hover { border-color: #C99B92; color: #C99B92; }
+        .filter-btn.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
+
+        /* Product card filter state */
+        .product-card { transition: opacity 0.3s ease; }
+        .product-card.hidden { display: none; }
+
+        /* Mobile nav */
+        #mobile-nav { display: none; flex-direction: column; }
+        #mobile-nav.active { display: flex; }
+
+        /* Section visibility transition */
+        [data-section] { transition: opacity 0.2s ease; }
+        [data-section].section-hidden { display: none; }
+    </style>
+
+  <title>The Intentional Reset Bundle — The Intentional Tea</title>
+  <link rel="canonical" href="https://theintentionaltea.com/shop/the-intentional-reset-bundle.html">
+  <meta name="description" content="The Intentional Reset Bundle. Bundle from The Intentional Tea — an instant download for GoodNotes, iPad and any PDF annotation app.">
+</head>
+<body class="antialiased">
+
+
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#FAF7F2] border-b border-black/10" role="banner">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="xl:hidden w-1/3">
+                <button onclick="toggleMenu()" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation menu" class="header-link flex items-center gap-2">
+                    <svg class="pointer-events-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <span class="pointer-events-none">Menu</span>
+                </button>
+            </div>
+
+            <nav class="hidden xl:flex w-2/5 justify-start space-x-6">
+                <a href="../index.html" class="header-link">Home</a>
+                <a href="../about.html" class="header-link">About</a>
+                <a href="../services.html" class="header-link">Services</a>
+                <a href="../shop.html" class="header-link" style="color:#9B4F4A;" aria-current="page">Shop</a>
+                <a href="../resources.html" class="header-link">Freebies</a>
+                <a href="../social.html" class="header-link">Connect</a>
+            </nav>
+
+            <div class="w-1/3 xl:w-1/5 flex justify-center">
+                <a href="../index.html"><img src="../images/Logo_Main.png" alt="The Intentional Tea Logo" class="h-8 md:h-12 w-auto object-contain"></a>
+            </div>
+
+            <div class="w-1/3 xl:w-2/5 flex justify-end space-x-6 items-center">
+
+                <a href="https://gumroad.com/cart" class="gumroad-scroll flex items-center space-x-2 group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:text-rose transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="header-link">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <nav id="mobile-nav" class="xl:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
+            <a href="../index.html" class="header-link block">Home</a>
+            <a href="../about.html" class="header-link block">About</a>
+            <a href="../services.html" class="header-link block">Services</a>
+            <a href="../shop.html" class="header-link block" style="color:#9B4F4A;" aria-current="page">Shop</a>
+            <a href="../resources.html" class="header-link block">Freebies</a>
+            <a href="../social.html" class="header-link block">Connect</a>
+        </nav>
+    </header>
+
+    
+<main id="main-content">
+  <section style="max-width:1080px; margin:0 auto; padding:4rem 1.5rem 5rem;">
+    <a href="../shop.html" style="font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; opacity:0.6;">&#8592; Back to the shop</a>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:3rem; align-items:start; margin-top:2.5rem;">
+      <div style="border:1px solid rgba(0,0,0,0.06); border-radius:2px; overflow:hidden;">
+        <img src="../images/Life_Reset_Astrology_Bundle.png" alt="The Intentional Reset Bundle" style="width:100%; height:auto; display:block;">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1.25rem; padding-top:0.5rem;">
+        <span class="card-category-pill self-start">Bundle</span>
+        <h1 class="lora-italic" style="font-size:2rem; line-height:1.25; margin:0;">The Intentional Reset Bundle</h1>
+        <p style="line-height:1.8; opacity:0.8; margin:0;">The Intentional Astrology Report tells you who you are at the energetic and structural level. The Life Reset gives you the framework to do something with that understanding.</p>
+        <div style="padding:1.25rem 0; border-top:1px solid rgba(0,0,0,0.06); border-bottom:1px solid rgba(0,0,0,0.06);">
+          <span class="price-serif" style="font-size:1.6rem;">$125.00</span>
+              <span style="font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; opacity:0.6; display:block; margin-top:0.4rem;">Bundle price &#183; already discounted</span>
+        </div>
+        <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll" style="display:inline-block; text-align:center; background:#1a1a1a; color:#FAF7F2; padding:1rem 2rem; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:700;">
+          Get it
+        </a>
+        <p style="font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; opacity:0.55; margin:0;">
+          Delivered instantly &#183; Works on iPad, tablet and desktop
+        </p>
+      </div>
+    </div>
+    <div style="max-width:720px; margin:4rem auto 0; padding-top:3rem; border-top:1px solid rgba(0,0,0,0.06);">
+          <p style="line-height:1.9; opacity:0.85; margin:0 0 1.35rem;">Most people receive a reading, feel seen for a moment, and then don't know what to do with it. This bundle closes that gap. Your report reveals the patterns, the design, and the places where you've been working against yourself. The Life Reset gives you twelve modules to build from there — a structured process for auditing what's in your life, releasing what doesn't fit, and building something that does.</p>
+          <h2 style="font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; opacity:0.6; margin:2.25rem 0 0.9rem;">What's included</h2>
+          <ul style="margin:0 0 1.5rem; padding-left:1.1rem; line-height:1.9; opacity:0.85;"><li>The Intentional Life Reset (immediate download)</li><li>The Intentional Astrology Report (personalized, delivered within 5–7 business days after intake form submission)</li></ul>
+          <a href="https://intentionaltea.gumroad.com/l/ikpnn" class="gumroad-scroll" style="display:inline-block; margin-top:2rem; background:#1a1a1a; color:#FAF7F2; padding:1rem 2.25rem; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:700;">Get it</a>
+        </div>
+  </section>
+</main>
+<footer class="bg-[#FAF7F2] py-5 px-8 border-t border-black/5" role="contentinfo">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
+            <div class="flex items-center justify-center md:justify-start gap-5">
+                <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+                <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" class="text-[#1a1a1a]/40 hover:text-[#C99B92] transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+            </div>
+            <div class="text-center">
+                <p class="text-[9px] uppercase tracking-[0.35em] font-bold text-[#1a1a1a]/70">The Intentional Tea</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/40 mt-1">© 2026 The Intentional Tea</p>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1 text-[8px] uppercase tracking-[0.2em] text-[#1a1a1a]/50">
+                <button onclick="openModal('terms')" class="hover:text-black transition-colors">Terms</button>
+                <button onclick="openModal('privacy')" class="hover:text-black transition-colors">Privacy</button>
+                <button onclick="openModal('refund')" class="hover:text-black transition-colors">Refunds</button>
+                <button onclick="openModal('disclaimer')" class="hover:text-black transition-colors">Disclaimer</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Policy Modal -->
+    <div id="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-modal-title" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/40 backdrop-blur-sm" onclick="closeModal()">
+        <div class="bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto p-12 relative shadow-2xl" onclick="event.stopPropagation()">
+            <button id="policy-modal-close" aria-label="Close dialog" onclick="closeModal()" class="absolute top-6 right-6 text-[10px] uppercase tracking-widest text-gray-400 hover:text-black">Close <span aria-hidden="true">[x]</span></button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        /* ─── Newsletter ─── */
+        async function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value.trim();
+            if (!email) return;
+            const btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Subscribing...';
+            btn.disabled = true;
+            try {
+                await fetch('/.netlify/functions/subscribe', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ email, listId: 7 })
+                });
+            } catch (err) {}
+            window.location.href = 'thank-you-newsletter.html';
+        }
+
+        /* ─── Mobile nav ─── */
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+            const btn = document.querySelector('[aria-controls="mobile-nav"]');
+            if (btn) btn.setAttribute('aria-expanded', nav.classList.contains('active'));
+        }
+
+        /* ─── Section visibility after filter ─── */
+        function updateSectionVisibility() {
+            document.querySelectorAll('[data-section]').forEach(function(section) {
+                var cards = section.querySelectorAll('.product-card');
+                var hasVisible = Array.from(cards).some(function(c) {
+                    return !c.classList.contains('hidden');
+                });
+                if (hasVisible) {
+                    section.classList.remove('section-hidden');
+                } else {
+                    section.classList.add('section-hidden');
+                }
+            });
+        }
+
+        /* ─── Filter logic ─── */
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                var filter = btn.dataset.filter;
+
+                productCards.forEach(function(card) {
+                    var show = filter === 'all'
+                        || (filter === 'freebies' && (card.dataset.category === 'stickers' || card.dataset.free === 'true'))
+                        || card.dataset.category === filter;
+                    card.classList.toggle('hidden', !show);
+                });
+
+                updateSectionVisibility();
+            });
+        });
+
+        /* ─── Modals ─── */
+        var policyContent = {
+            terms: '<h2 id="policy-modal-title" class="serif italic text-3xl mb-6">Terms & Conditions</h2><p class="text-sm leading-relaxed text-gray-600">Standard terms for digital licensing. Products are for personal use only.</p>',
+            refund: '<h2 id="policy-modal-title" class="serif italic text-3xl mb-6">Refund Policy</h2><p class="text-sm leading-relaxed text-gray-600">Due to the nature of digital products, all sales of The Intentional Tea products are final. No refunds will be issued once the file has been delivered.</p>',
+            privacy: '<h2 id="policy-modal-title" class="serif italic text-3xl mb-6">Privacy Policy</h2><p class="text-sm leading-relaxed text-gray-600">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>',
+            disclaimer: '<h2 id="policy-modal-title" class="serif italic text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-gray-600 mb-4"><strong>Affiliate:</strong> Some links on the Favorites page are affiliate links, meaning I may earn a small commission at no extra cost to you.</p><p class="text-sm leading-relaxed text-gray-600"><strong>Results:</strong> Mentions of personal or professional growth are illustrative. Results of the Life Reset and other tools may vary based on individual effort and circumstances.</p>'
+        };
+
+        var _policyTrigger = null;
+    function _policyKeydown(e) {
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key === 'Tab') {
+            var modal = document.getElementById('policy-modal');
+            var focusable = Array.from(modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')).filter(function(el){ return !el.disabled; });
+            if (!focusable.length) return;
+            var first = focusable[0]; var last = focusable[focusable.length - 1];
+            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+        }
+    }
+    function openModal(type) {
+        _policyTrigger = document.activeElement;
+        var modal = document.getElementById('policy-modal');
+        document.getElementById('modal-content').innerHTML = policyContent[type];
+        modal.style.display = 'flex';
+        if (modal.classList) { modal.classList.remove('hidden'); }
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', _policyKeydown);
+        var closeBtn = document.getElementById('policy-modal-close');
+        if (closeBtn) closeBtn.focus();
+    }
+    function closeModal() {
+        var modal = document.getElementById('policy-modal');
+        modal.style.display = 'none';
+        if (modal.classList) { modal.classList.add('hidden'); }
+        document.body.style.overflow = 'auto';
+        document.removeEventListener('keydown', _policyKeydown);
+        if (_policyTrigger) { _policyTrigger.focus(); _policyTrigger = null; }
+    }
+
+        /* ─── Make product images clickable (triggers same Gumroad link as "Get It") ─── */
+        document.querySelectorAll('.product-card').forEach(function(card) {
+            var imgWrap = card.querySelector('.product-img-wrap, .sticker-img-wrap, .life-img-wrap');
+            if (!imgWrap) {
+                imgWrap = card.querySelector('div[style*="aspect-ratio"]');
+            }
+            var link = card.querySelector('a.gumroad-scroll');
+            if (imgWrap && link) {
+                imgWrap.style.cursor = 'pointer';
+                imgWrap.addEventListener('click', function() { link.click(); });
+            }
+        });
+
+        /* ─── Reveal on scroll (IntersectionObserver) ─── */
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        /* ─── Legacy fade-up support (style.css .fade-up class) ─── */
+        var fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.querySelectorAll('.stagger-child').forEach(function(el, i) {
+                        setTimeout(function() { el.classList.add('visible'); }, i * 130);
+                    });
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+    </script>
+
+</body>
+</html>
