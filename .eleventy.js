@@ -34,6 +34,10 @@ module.exports = function(eleventyConfig) {
   // not being published at all.
   // Neither of these was ever published — both 404'd on the live site, so search engines had no
   // sitemap and no crawl rules.
+  // Google Search Console ownership check — must be served verbatim at the site root
+  eleventyConfig.addPassthroughCopy('google08cf9ffb235122eb.html');
+  eleventyConfig.ignores.add('google08cf9ffb235122eb.html');
+
   eleventyConfig.addPassthroughCopy('robots.txt');
   eleventyConfig.addPassthroughCopy('sitemap.xml');
 
