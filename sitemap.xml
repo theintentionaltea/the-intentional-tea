@@ -2,32 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://theintentionaltea.com/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://theintentionaltea.com/shop</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-23</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://theintentionaltea.com/services</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-23</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://theintentionaltea.com/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://theintentionaltea.com/resources</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-23</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://theintentionaltea.com/social</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-23</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/astrology-basics-booklet.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/built-to-run.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/business-planning-templates.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/calendar-life-planner.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/essential-planning-templates.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/idea-to-income.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/intentional-financial-planner.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/open-for-business.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-dark-sticker-book.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-intentional-astrology-report.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-intentional-business-build.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-intentional-collection.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-intentional-life-reset.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-intentional-reset-bundle.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-pastel-sticker-book.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theintentionaltea.com/shop/the-warm-neutral-sticker-book.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

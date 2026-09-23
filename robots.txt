@@ -7,5 +7,13 @@ Disallow: /thank-you-newsletter.html
 Disallow: /thank-you-booking.html
 Disallow: /_site/
 Disallow: /emails/
+Disallow: /homepage-v2-preview/
+Disallow: /shop-v2-preview/
+Disallow: /about-v2-preview/
+Disallow: /services-v2-preview/
+Disallow: /preview-services-layout/
+Disallow: /intake/
+Disallow: /quote/
+Disallow: /onboarding/
 
 Sitemap: https://theintentionaltea.com/sitemap.xml
