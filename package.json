@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "The Intentional Tea website",
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve --incremental"
+    "build": "npm run css && eleventy",
+    "start": "eleventy --serve --incremental",
+    "css": "tailwindcss -i tailwind-input.css -o tailwind.css --minify"
   },
   "dependencies": {
     "stripe": "^16.0.0"
@@ -12,6 +13,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "puppeteer": "^25.3.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.4",
+    "tailwindcss": "^3.4.19"
   }
 }

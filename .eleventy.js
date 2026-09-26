@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   // Static assets
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("style.css");
+  // Compiled Tailwind, built by `npm run css` before eleventy runs. Replaces the Play CDN.
+  eleventyConfig.addPassthroughCopy("tailwind.css");
   eleventyConfig.addPassthroughCopy("netlify");
 
   // Static HTML pages — copy flat to _site root, skip template processing
