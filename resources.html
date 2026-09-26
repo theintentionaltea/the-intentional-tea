@@ -418,7 +418,7 @@
                 </div>
                 <form onsubmit="handleDownloadSubmit(event)" class="space-y-3">
                     <label for="dg-email" class="sr-only">Email address</label>
-                    <input id="dg-email" type="email" placeholder="YOUR EMAIL ADDRESS" required class="w-full bg-white border border-black/10 py-3 px-4 text-[10px] text-[#1a1a1a] outline-none uppercase tracking-widest placeholder:text-[#1a1a1a]/65 focus:border-[#C99B92] transition-colors" style="border-radius:8px;">
+                    <input id="dg-email" type="email" aria-label="Email address for your free download" placeholder="YOUR EMAIL ADDRESS" required class="w-full bg-white border border-black/10 py-3 px-4 text-[10px] text-[#1a1a1a] outline-none uppercase tracking-widest placeholder:text-[#1a1a1a]/65 focus:border-[#C99B92] transition-colors" style="border-radius:8px;">
                     <button type="submit" id="dg-submit-btn" class="w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-white transition-all" style="background:#1a1a1a; border-radius:8px;">Get Instant Access</button>
                 </form>
                 <p class="text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a]/65 font-bold text-center mt-3">No spam. Unsubscribe anytime.</p>
@@ -475,23 +475,41 @@
             closeDownloadGate();
         }
 
+        function showFormError(anchor, msg) {
+            let box = anchor.parentNode.querySelector('.form-error');
+            if (!box) {
+                box = document.createElement('p');
+                box.className = 'form-error';
+                box.setAttribute('role', 'alert');
+                box.style.cssText = 'margin-top:10px;font-size:12px;line-height:1.5;color:#9B4F4A;';
+                anchor.parentNode.insertBefore(box, anchor.nextSibling);
+            }
+            box.textContent = msg;
+        }
+
         async function handleDownloadSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('dg-email').value.trim();
             if (!email) return;
             const btn = document.getElementById('dg-submit-btn');
+            const label = btn.textContent;
             btn.textContent = 'One sec...';
             btn.disabled = true;
             try {
-                await fetch('/.netlify/functions/subscribe', {
+                const res = await fetch('/.netlify/functions/subscribe', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify({ email, listId: 7 })
                 });
-            } catch (err) {}
-            document.getElementById('dg-download-link').href = _dgUrl;
-            document.getElementById('dg-form-state').classList.add('hidden');
-            document.getElementById('dg-success-state').classList.remove('hidden');
+                if (!res.ok) throw new Error('status ' + res.status);
+                document.getElementById('dg-download-link').href = _dgUrl;
+                document.getElementById('dg-form-state').classList.add('hidden');
+                document.getElementById('dg-success-state').classList.remove('hidden');
+            } catch (err) {
+                btn.textContent = label;
+                btn.disabled = false;
+                showFormError(btn, "That didn't go through. Please try again, or email theintentionaltea@gmail.com and I'll send it over.");
+            }
         }
 
         async function handleNewsletterSubmit(e) {
@@ -500,16 +518,22 @@
             const email = form.querySelector('input[type="email"]').value.trim();
             if (!email) return;
             const btn = form.querySelector('button[type="submit"]');
+            const label = btn.textContent;
             btn.textContent = 'Subscribing...';
             btn.disabled = true;
             try {
-                await fetch('/.netlify/functions/subscribe', {
+                const res = await fetch('/.netlify/functions/subscribe', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify({ email, listId: 7 })
                 });
-            } catch (err) {}
-            window.location.href = 'thank-you-newsletter.html';
+                if (!res.ok) throw new Error('status ' + res.status);
+                window.location.href = 'thank-you-newsletter.html';
+            } catch (err) {
+                btn.textContent = label;
+                btn.disabled = false;
+                showFormError(form, "That didn't go through. Please try again, or email theintentionaltea@gmail.com and I'll add you by hand.");
+            }
         }
 
         function toggleMenu() {

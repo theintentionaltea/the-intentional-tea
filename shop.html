@@ -735,22 +735,40 @@
 
     <script>
         /* ─── Newsletter ─── */
+        function showFormError(anchor, msg) {
+            let box = anchor.parentNode.querySelector('.form-error');
+            if (!box) {
+                box = document.createElement('p');
+                box.className = 'form-error';
+                box.setAttribute('role', 'alert');
+                box.style.cssText = 'margin-top:10px;font-size:12px;line-height:1.5;color:#9B4F4A;';
+                anchor.parentNode.insertBefore(box, anchor.nextSibling);
+            }
+            box.textContent = msg;
+        }
+
         async function handleNewsletterSubmit(e) {
             e.preventDefault();
             const form = e.target;
             const email = form.querySelector('input[type="email"]').value.trim();
             if (!email) return;
             const btn = form.querySelector('button[type="submit"]');
+            const label = btn.textContent;
             btn.textContent = 'Subscribing...';
             btn.disabled = true;
             try {
-                await fetch('/.netlify/functions/subscribe', {
+                const res = await fetch('/.netlify/functions/subscribe', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify({ email, listId: 7 })
                 });
-            } catch (err) {}
-            window.location.href = 'thank-you-newsletter.html';
+                if (!res.ok) throw new Error('status ' + res.status);
+                window.location.href = 'thank-you-newsletter.html';
+            } catch (err) {
+                btn.textContent = label;
+                btn.disabled = false;
+                showFormError(form, "That didn't go through. Please try again, or email theintentionaltea@gmail.com and I'll add you by hand.");
+            }
         }
 
         /* ─── Mobile nav ─── */
