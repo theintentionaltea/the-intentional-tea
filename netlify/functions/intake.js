@@ -13,7 +13,6 @@
 //   NOTION_TOKEN             internal integration token (secret_...)
 //   NOTION_QUOTE_DB          Client Intake database id
 //   NOTION_ONBOARDING_DB     Client Onboarding database id
-//   INTAKE_BOOKING_LINK      booking link for onboarding replies, default the Cal.com 30min event
 
 const SERVICES = {
   clarity: 'Business Clarity Call',
@@ -88,55 +87,134 @@ exports.handler = async (event) => {
   const apiKey = process.env.BREVO_API_KEY;
   const from = { name: 'The Intentional Tea', email: process.env.INTAKE_FROM_EMAIL || 'theintentionaltea@gmail.com' };
   const toTiara = process.env.INTAKE_TO_EMAIL || 'theintentionaltea@gmail.com';
-  const booking = process.env.INTAKE_BOOKING_LINK || 'https://cal.com/tiara-stewart-k2odux/30min';
+  // INTAKE_BOOKING_LINK is no longer read: the onboarding booking button lives in Brevo template 38
+  // and is edited there, which also means changing it needs no deploy. The env var can be removed
+  // from Netlify once this is live.
 
   const answersHtml = answers.map(({ q, a }) =>
-    `<p style="margin:18px 0 4px;font-family:Georgia,serif;font-style:italic;font-size:16px;color:#1A1A1A;">${esc(q)}</p>` +
-    `<p style="margin:0;font-family:Arial,sans-serif;font-size:14px;line-height:1.6;color:#2D2826;">${a ? nl(a) : '<span style="color:#9B4F4A;">(left blank)</span>'}</p>`
+    `<p style="margin:18px 0 4px;font-family:'Lora',Georgia,serif;font-style:italic;font-size:17px;color:#1A1A1A;">${esc(q)}</p>` +
+    `<p style="margin:0;font-family:'Instrument Sans',Arial,sans-serif;font-size:14.5px;line-height:1.7;color:#2D2826;">${a ? nl(a) : '<span style="color:#9B4F4A;">(left blank)</span>'}</p>`
   ).join('');
 
-  const shell = (inner) => `<!DOCTYPE html><html><body style="margin:0;padding:0;background:#EDE3DD;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EDE3DD;"><tr><td align="center" style="padding:40px 16px;">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#FAF7F2;">
-<tr><td align="center" style="background:#1A1A1A;padding:16px 40px;"><p style="margin:0;font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:#E2C0B9;font-weight:bold;">The Intentional Tea</p></td></tr>
-<tr><td style="padding:44px 44px 40px;">${inner}</td></tr>
-<tr><td align="center" style="padding:18px 40px;border-top:1px solid rgba(26,26,26,0.08);"><p style="margin:0;font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(26,26,26,0.45);">Business Operations · theintentionaltea.com</p></td></tr>
+  // The layout below is the CURRENT email design: Lora + Instrument Sans, #FAF7F2 ground, white
+  // card, blush pill eyebrow, dark footer band. It is a deliberate copy of the layout in
+  // EMAILS/_build/build-emails.mjs, because this function lives in the website repo and cannot
+  // import from the IntentionalTeaHQ folder.
+  //
+  // EMAILS/ IS THE SOURCE OF TRUTH FOR THE DESIGN. If that layout changes, this has to be brought
+  // across by hand. It is used for ONE email only: Tiara's internal notification, which carries a
+  // variable-length list of the client's answers and so cannot be a fixed Brevo template. Every
+  // client-facing email is a real Brevo template (16 for quotes, 38 for onboarding intakes).
+  //
+  // This replaced an older design (Georgia, #EDE3DD) that was frozen here on 2026-09-19 and never
+  // migrated, so these emails arrived visibly off-brand next to the templated ones.
+  const SERIF = "'Lora',Georgia,'Times New Roman',serif";
+  const SANS = "'Instrument Sans',Arial,Helvetica,sans-serif";
+
+  const shell = (inner) => `<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet"></head>
+<body style="margin:0;padding:0;background:#FAF7F2;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FAF7F2;"><tr><td align="center" style="padding:36px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+<tr><td align="center" style="padding:0 0 22px;"><a href="https://theintentionaltea.com" style="font-family:${SERIF};font-size:15px;letter-spacing:0.28em;text-transform:uppercase;color:#1A1A1A;text-decoration:none;">The Intentional Tea</a></td></tr>
+<tr><td style="background:#FFFFFF;border-radius:14px;padding:40px 44px;">${inner}</td></tr>
+<tr><td align="center" style="background:#1A1A1A;border-radius:14px;margin-top:18px;padding:26px 40px;">
+  <p style="margin:0 0 8px;font-family:${SERIF};font-style:italic;font-size:20px;color:#FFFFFF;">The Intentional Tea</p>
+  <p style="margin:0;font-family:${SANS};font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:#E2C0B9;">Business Operations &middot; <a href="https://theintentionaltea.com/services" style="color:#E2C0B9;">theintentionaltea.com</a></p>
+</td></tr>
 </table></td></tr></table></body></html>`;
 
-  const eyebrow = (t) => `<p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:#9B4F4A;font-weight:bold;">${esc(t)}</p>`;
-  const h1 = (t) => `<h1 style="margin:0 0 18px;font-family:Georgia,serif;font-style:italic;font-weight:normal;font-size:32px;line-height:1.15;color:#1A1A1A;">${t}</h1>`;
-  const p = (t) => `<p style="margin:0 0 16px;font-family:Arial,sans-serif;font-size:15px;line-height:1.7;color:#2D2826;">${t}</p>`;
-  const button = (href, label) => `<p style="margin:26px 0 8px;"><a href="${esc(href)}" style="display:inline-block;background:#1A1A1A;color:#FFFFFF;font-family:Arial,sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-weight:bold;padding:14px 28px;border-radius:8px;text-decoration:none;">${esc(label)}</a></p>`;
-
-  const clientHtml = kind === 'quote'
-    ? shell(eyebrow(serviceName) + h1('Got it.') +
-        p(`I'll review your answers and follow up within 48 hours with a recommendation and next steps. If you have anything to add in the meantime, reply to this email.`) +
-        p(`Tiara<br>The Intentional Tea`))
-    : shell(eyebrow(serviceName) + h1('Your intake is in.<br><span style="color:#9B4F4A;">Book your call.</span>') +
-        p(`Thank you for the detail. I read every answer before we talk, so the call starts from what you wrote, not from zero.`) +
-        p(`Next step: pick a time that works for you.`) +
-        button(booking, 'Book your call') +
-        p(`<span style="font-size:13px;color:#6b625c;">If you want to add anything before we talk, reply to this email.</span>`) +
-        p(`Tiara<br>The Intentional Tea`));
+  const eyebrow = (t) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 18px;"><tr><td style="background:rgba(226,192,185,0.18);border:1px solid rgba(226,192,185,0.45);border-radius:100px;padding:6px 14px;font-family:${SANS};font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#9B4F4A;">${esc(t)}</td></tr></table>`;
+  const h1 = (t) => `<h1 style="margin:0 0 22px;font-family:${SERIF};font-style:italic;font-weight:400;font-size:34px;line-height:1.15;letter-spacing:0.02em;color:#1A1A1A;">${t}</h1>`;
+  const p = (t) => `<p style="margin:0 0 18px;font-family:${SANS};font-size:15px;line-height:1.75;color:#2D2826;">${t}</p>`;
 
   const tiaraHtml = shell(eyebrow(kind === 'quote' ? 'New quote request' : 'New onboarding intake') +
     h1(`${esc(business)}<br><span style="color:#9B4F4A;">${esc(serviceName)}</span>`) +
     p(`<strong>${esc(name)}</strong> · <a href="mailto:${esc(email)}" style="color:#9B4F4A;">${esc(email)}</a><br><span style="font-size:12px;color:#6b625c;">${submitted.toUTCString()} · ${result.notion ? 'Saved to Notion' : 'Not saved to Notion (' + esc(result.notionError || 'not configured') + ')'}</span>`) +
     answersHtml);
 
+  // ---- 2. Brevo contact ---------------------------------------------------------------------
+  // Written BEFORE anything is sent, and the ordering is load-bearing. The branded quote
+  // confirmation (template 16) merges {{ contact.FIRSTNAME }} and {{ contact.BUSINESS }} — contact
+  // ATTRIBUTES, not send params — so if the contact does not exist yet, those fields render empty
+  // and the email still reports as sent. Nothing looks broken; the client just gets "Hi ,".
+  // quote-02-your-quote, the quote Tiara sends by hand afterwards, merges the same two, so the
+  // contact has to exist for that as well.
+  //
+  // A quote request is a lead, not a client, so it goes to "Business Operations — Leads" (10).
+  // An onboarding intake is someone already working with Tiara, so that goes to Clients (9).
+  const LIST_LEADS = 10;
+  const LIST_CLIENTS = 9;
+  const parts = name.split(/\s+/);
+
   if (apiKey) {
-    const send = (to, subject, htmlContent, replyTo) => fetch('https://api.brevo.com/v3/smtp/email', {
+    try {
+      const r = await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: { accept: 'application/json', 'api-key': apiKey, 'content-type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          attributes: {
+            FIRSTNAME: parts[0] || '',
+            LASTNAME: parts.slice(1).join(' '),
+            BUSINESS: business,
+            PHASE: kind === 'quote' ? 'Quote requested' : 'Onboarding intake received',
+          },
+          listIds: [kind === 'quote' ? LIST_LEADS : LIST_CLIENTS],
+          updateEnabled: true,
+        }),
+      });
+      // 201 created, 204 updated. Anything else must not read as success.
+      result.contact = r.status === 201 || r.status === 204;
+      if (!result.contact) {
+        const detail = await r.text();
+        result.contactError = r.status + ' ' + detail.slice(0, 200);
+      }
+    } catch (err) {
+      result.contactError = err.message;
+    }
+  }
+
+  // ---- 3. Brevo emails ----------------------------------------------------------------------
+  // Tiara's own copy stays inline: it is an internal notification, it carries the full answer set,
+  // and no designed template exists for it.
+  //
+  // The client's copy differs by kind:
+  //   quote      -> Brevo template 16 (quote-01-request-received): the designed email that lives in
+  //                 EMAILS/ and can be edited in Brevo without a deploy. This replaced a hardcoded
+  //                 inline version that had drifted from it — two versions of one email, and only
+  //                 the undesigned one was actually sending.
+  //   onboarding -> still inline. [THIN — no designed onboarding-intake template exists in EMAILS/.
+  //                 astrology-01-intake-received is a different flow. Not invented here.]
+  if (apiKey) {
+    const post = (body) => fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: { accept: 'application/json', 'api-key': apiKey, 'content-type': 'application/json' },
-      body: JSON.stringify({ sender: from, to: [to], subject, htmlContent, replyTo }),
+      body: JSON.stringify(body),
     });
+    const subjectForTiara = (kind === 'quote' ? 'Quote request' : 'Onboarding intake')
+      + ': ' + business + ' · ' + serviceName;
     try {
       const [a, b] = await Promise.all([
-        send({ email: toTiara, name: 'Tiara' }, `${kind === 'quote' ? 'Quote request' : 'Onboarding intake'}: ${business} · ${serviceName}`, tiaraHtml, { email, name }),
-        send({ email, name }, kind === 'quote' ? `Got your request · ${serviceName}` : `Your intake is in · book your call`, clientHtml, { email: toTiara, name: 'Tiara' }),
+        post({
+          sender: from,
+          to: [{ email: toTiara, name: 'Tiara' }],
+          subject: subjectForTiara,
+          htmlContent: tiaraHtml,
+          replyTo: { email, name },
+        }),
+        // Both client emails are now Brevo templates, so subject, sender and copy are all editable
+        // in Brevo without a deploy, and both render in the current design.
+        //   quote      -> 16 (quote-01-request-received)
+        //   onboarding -> 38 (intake-01-received). SERVICE is a send param: the eyebrow shows which
+        //                 service the intake was for, and that is per-submission, not a lasting fact
+        //                 about the person, so it does not belong on the contact record.
+        kind === 'quote'
+          ? post({ to: [{ email, name }], templateId: 16, replyTo: { email: toTiara, name: 'Tiara' } })
+          : post({ to: [{ email, name }], templateId: 38, params: { SERVICE: serviceName }, replyTo: { email: toTiara, name: 'Tiara' } }),
       ]);
       result.emailed = a.ok && b.ok;
-      if (!result.emailed) result.emailError = `${a.status}/${b.status}`;
+      if (!result.emailed) result.emailError = 'tiara=' + a.status + ' client=' + b.status;
     } catch (err) {
       result.emailError = err.message;
     }
