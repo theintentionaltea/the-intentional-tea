@@ -17,6 +17,13 @@ module.exports = function(eleventyConfig) {
     "404.html",
     "thank-you-newsletter.html",
     "thank-you-booking.html",
+    // Legal pages. These were NOT in this list, so eleventy turned each into its own folder and
+    // published them at /privacy/ while every page footer links to /privacy.html. All four legal
+    // links 404 on every page, live (checked 2026-09-27). Flat output matches the links.
+    "privacy.html",
+    "terms.html",
+    "refunds.html",
+    "disclaimer.html",
   ];
   staticPages.forEach((page) => {
     eleventyConfig.addPassthroughCopy(page);
@@ -75,6 +82,11 @@ module.exports = function(eleventyConfig) {
     const d = dateStr instanceof Date ? dateStr : new Date(dateStr + "T12:00:00");
     return d.toISOString().slice(0, 10);
   });
+
+  // The email templates are build sources, not pages of this website. Eleventy was publishing all
+  // 27 of them, and /emails/02-business-elevation-welcome/ was live and readable by anyone
+  // (checked 2026-09-27). Client email copy does not belong on the public site.
+  eleventyConfig.ignores.add("emails/**");
 
   return {
     dir: {
