@@ -126,3 +126,50 @@ article.group:hover { transform: translateY(-4px); box-shadow: 0 16px 48px -12px
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* Touch targets, added 2026-09-27.
+   WCAG 2.2 asks for 44x44 on standalone controls. The nav links, product links and social icons
+   render 14-18px tall on a phone, so they are hard to hit accurately.
+
+   This expands the TAPPABLE area without changing anything visible: an invisible pseudo-element is
+   centred on the link and grown to at least 44x44, while the link itself keeps its own size and
+   position. Nothing moves, nothing resizes, and the layout is untouched — it just becomes possible
+   to hit the thing. Phone widths only; a mouse does not need it. */
+@media (max-width: 767px) {
+  /* Standalone controls only: nav, footer, icon links, product links and buttons. A link that sits
+     inside a sentence is left alone — WCAG 2.2 exempts inline text links, and overlapping hit areas
+     inside prose would make reading worse, not better.
+
+     24px, not 44. WCAG 2.2 Target Size (Minimum) at Level AA is 24x24 CSS pixels; 44x44 is the
+     Enhanced (AAA) figure and the platform guideline. Growing these to 44 pushed the blog page 6px
+     past a 320px viewport and caused horizontal scroll, which is a real defect traded for an
+     optional one. 24 clears the bar the rest of this standard is written to.
+
+     The hit area grows on an invisible ::after, so nothing moves and nothing resizes. */
+  .header-link,
+  a.gumroad-scroll,
+  a:has(> svg),
+  nav a[href],
+  footer a[href],
+  div > a[href],
+  button {
+    position: relative;
+  }
+  .header-link::after,
+  a.gumroad-scroll::after,
+  a:has(> svg)::after,
+  nav a[href]::after,
+  footer a[href]::after,
+  div > a[href]::after,
+  button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max(24px, 100%);
+    height: max(24px, 100%);
+  }
+  /* The skip link is visually hidden until focused; it must keep its 1x1 box. */
+  .sr-only::after { content: none; }
+}
