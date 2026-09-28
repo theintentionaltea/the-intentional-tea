@@ -29,8 +29,9 @@ const TEMPLATE_BY_SLUG = {
   'hub-check-in': 24,            // ops-02-call-confirmation — "Your planning call is confirmed"
   'planning-call': 24,           // ops-02-call-confirmation
 };
-// Deliberately absent: 30min (Discovery Call). Cal.com's own confirmation is enough for a free
-// intro call, and sending a branded "confirmed" email for it would be noise.
+// Deliberately absent: 30min (Discovery Call). RETIRED 2026-09-28 -- the free intro call is no
+// longer offered; the paid Business Clarity Call replaces it. The slug is left unmapped rather than
+// deleted so any straggler booking on an old link still lands here without throwing.
 
 const brevo = (path, body, key, method = 'POST') =>
   fetch(`https://api.brevo.com/v3${path}`, {

@@ -143,7 +143,7 @@
             <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea" class="h-8 md:h-12 w-auto object-contain"></a>
         </div>
         <div class="w-1/3 xl:w-2/5 flex justify-end">
-            <button data-cal-link="tiara-stewart-k2odux/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}' class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300 cursor-pointer border-0" style="border-radius:8px;">Schedule a Call</button>
+            <button data-cal-link="tiara-stewart-k2odux/business-clarity-call" data-cal-namespace="business-clarity-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}' class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300 cursor-pointer border-0" style="border-radius:8px;">Book a Clarity Call</button>
         </div>
     </div>
     <nav id="mobile-nav" class="xl:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
@@ -599,7 +599,7 @@
                     <img loading="lazy" src="images/Services_Inquiry_Card.webp" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
                 </div>
 
-                <button data-cal-link="tiara-stewart-k2odux/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}' class="btn-press block w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-center text-black bg-[#E2C0B9] hover:bg-black hover:text-white transition-all duration-300 cursor-pointer border-0" style="border-radius:8px;">Schedule a Call</button>
+                <button data-cal-link="tiara-stewart-k2odux/business-clarity-call" data-cal-namespace="business-clarity-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}' class="btn-press block w-full py-4 text-[10px] uppercase tracking-[0.35em] font-bold text-center text-black bg-[#E2C0B9] hover:bg-black hover:text-white transition-all duration-300 cursor-pointer border-0" style="border-radius:8px;">Book a Clarity Call</button>
 
             </div>
 
@@ -744,11 +744,9 @@
 <!-- Cal element-click embed code begins -->
 <script type="text/javascript">
   (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", {origin:"https://app.cal.com"});
   Cal("init", "business-clarity-call", {origin:"https://app.cal.com"});
   Cal.config = Cal.config || {};
   Cal.config.forwardQueryParams = true;
-  Cal.ns["30min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#E2C0B9"},"dark":{"cal-brand":"#E2C0B9"}},"hideEventTypeDetails":false,"layout":"month_view"});
   Cal.ns["business-clarity-call"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#E2C0B9"},"dark":{"cal-brand":"#E2C0B9"}},"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 <!-- Cal element-click embed code ends -->
