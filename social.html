@@ -23,91 +23,111 @@
 
     <style>
         /* ── Link in bio ──────────────────────────────────────────────────────────────
-           Rebuilt as an actual link-in-bio page rather than a site page with links on it.
-           Three things drove it:
-             - No site nav. On Linktree, Beacons or Stan the page has one job. A full nav
-               gives a visitor six other places to go before they reach a single link.
-             - Every social is LABELLED. The old icon row was unlabelled custom glyphs and
-               was genuinely unreadable — you could not tell Lemon8 from Substack.
-             - The order is the order things get tapped: where to buy first, then where to
-               follow. Free thing sits near the top because it is the lowest-friction yes.
+           Built to behave like a Stan Store or Beacons page rather than a site page with
+           a list of links on it. What makes those work is that they are VISUAL: a face at
+           the top, covers on the products, prices on the cards. A column of text rows
+           gives someone arriving from TikTok nothing to want.
+             - No site nav. The page has one job.
+             - Every social labelled, with its real mark. The old row was unlabelled custom
+               glyphs and could not be read.
+             - Platforms are called by their names. "The Newsletter" was wrong: that is
+               Tiara's monthly email with the backgrounds and stickers, not Substack.
+             - Order is the order things get tapped: free, buy, follow.
         */
         body { background:#FAF7F2; color:#1a1a1a; font-family:'Instrument Sans',-apple-system,sans-serif; }
 
         .lib-wrap { max-width:520px; margin:0 auto; padding:0 20px 56px; }
 
         /* Profile */
-        .lib-top { text-align:center; padding:40px 0 26px; }
-        .lib-mark { width:64px; height:64px; margin:0 auto 16px; display:block; }
-        .lib-name { font-family:'Lora',Georgia,serif; font-size:23px; letter-spacing:0.22em;
-                    text-transform:uppercase; margin:0 0 8px; }
-        .lib-tag  { font-family:'Lora',Georgia,serif; font-style:italic; font-size:15px;
-                    color:#6E675C; margin:0 0 6px; }
+        .lib-top { text-align:center; padding:36px 0 22px; }
+        .lib-photo { width:96px; height:96px; border-radius:50%; object-fit:cover; display:block;
+                     margin:0 auto 16px; border:3px solid #fff;
+                     box-shadow:0 6px 20px -8px rgba(26,26,26,0.28); }
+        .lib-name { font-family:'Lora',Georgia,serif; font-size:22px; letter-spacing:0.2em;
+                    text-transform:uppercase; margin:0 0 6px; }
         .lib-handle { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#9B4F4A;
-                      font-weight:700; margin:0; }
+                      font-weight:700; margin:0 0 10px; }
+        .lib-tag  { font-size:13px; color:#6E675C; margin:0 auto; max-width:330px; line-height:1.55; }
 
         /* Section label */
         .lib-label { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:#9B4F4A;
-                     font-weight:700; margin:30px 0 12px; display:flex; align-items:center; gap:10px; }
+                     font-weight:700; margin:28px 0 12px; display:flex; align-items:center; gap:10px; }
         .lib-label::after { content:""; flex:1; height:1px; background:rgba(155,79,74,0.22); }
 
-        /* The link buttons. Full width, generous height, one tap target each. */
+        /* Link rows, now with a thumbnail */
         .lib-link { display:flex; align-items:center; gap:14px; width:100%;
-                    background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:12px;
-                    padding:16px 18px; margin-bottom:10px; text-decoration:none; color:#1a1a1a;
+                    background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:14px;
+                    padding:12px 16px 12px 12px; margin-bottom:10px; text-decoration:none;
+                    color:#1a1a1a;
                     transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
         .lib-link:hover { transform:translateY(-2px); border-color:#E2C0B9;
-                          box-shadow:0 6px 18px -8px rgba(26,26,26,0.18); }
-        .lib-link .ico { width:34px; height:34px; flex:none; border-radius:9px; background:#FAF7F2;
-                         display:flex; align-items:center; justify-content:center; }
-        .lib-link .ico svg { width:17px; height:17px; }
+                          box-shadow:0 8px 22px -10px rgba(26,26,26,0.22); }
+        .lib-link .thumb { width:52px; height:52px; flex:none; border-radius:10px; overflow:hidden;
+                           background:#FAF7F2; display:flex; align-items:center; justify-content:center; }
+        .lib-link .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+        .lib-link .thumb.flat svg { width:20px; height:20px; }
         .lib-link .txt { flex:1; min-width:0; }
-        .lib-link .t1 { display:block; font-size:12px; font-weight:700; letter-spacing:0.14em;
+        .lib-link .t1 { display:block; font-size:12px; font-weight:700; letter-spacing:0.12em;
                         text-transform:uppercase; }
-        .lib-link .t2 { display:block; font-size:12px; color:#6E675C; margin-top:2px; }
+        .lib-link .t2 { display:block; font-size:12px; color:#6E675C; margin-top:3px; line-height:1.45; }
         .lib-link .arw { font-size:14px; color:#9B4F4A; flex:none; }
 
-        /* The one highlighted row: free, so it is the easiest yes on the page. */
+        /* The free row: the easiest yes on the page, so it gets the only dark treatment. */
         .lib-link.feature { background:#1a1a1a; border-color:#1a1a1a; color:#FFFFFF; }
-        .lib-link.feature .ico { background:rgba(255,255,255,0.10); }
-        .lib-link.feature .ico svg { stroke:#E2C0B9; }
+        .lib-link.feature .thumb { background:rgba(255,255,255,0.08); }
         .lib-link.feature .t2 { color:rgba(255,255,255,0.62); }
         .lib-link.feature .arw { color:#E2C0B9; }
 
-        /* Socials: labelled, because unlabelled glyphs were the actual complaint. */
-        .lib-socials { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:6px; }
+        /* Product cards. This is the part a text list cannot do. */
+        .lib-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+        .lib-card { background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:14px;
+                    padding:10px 10px 12px; text-decoration:none; color:#1a1a1a; display:block;
+                    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+        .lib-card:hover { transform:translateY(-3px); border-color:#E2C0B9;
+                          box-shadow:0 10px 26px -12px rgba(26,26,26,0.26); }
+        .lib-card .cover { display:block; aspect-ratio:1/1; border-radius:10px; overflow:hidden;
+                           background:#FAF7F2; margin-bottom:9px; }
+        .lib-card .cover img { width:100%; height:100%; object-fit:cover; display:block; }
+        .lib-card .cname { display:block; font-size:11.5px; font-weight:700; letter-spacing:0.06em;
+                           line-height:1.35; }
+        .lib-card .cprice { display:block; font-family:'Lora',Georgia,serif; font-size:14px;
+                            color:#9B4F4A; margin-top:4px; }
+
+        /* Socials: labelled, four across, wrapping to a second row. */
+        .lib-socials { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
         .lib-soc { display:flex; flex-direction:column; align-items:center; gap:7px;
                    background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:12px;
-                   padding:14px 6px; text-decoration:none; color:#1a1a1a;
+                   padding:13px 4px; text-decoration:none; color:#1a1a1a;
                    transition:transform .15s ease, border-color .15s ease; }
         .lib-soc:hover { transform:translateY(-2px); border-color:#E2C0B9; }
-        .lib-soc svg { width:19px; height:19px; }
-        .lib-soc span { font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase;
+        .lib-soc svg { width:18px; height:18px; }
+        .lib-soc span { font-size:8px; letter-spacing:0.14em; text-transform:uppercase;
                         font-weight:700; color:#6E675C; }
 
         /* Email capture */
-        .lib-mail { background:#1a1a1a; border-radius:14px; padding:26px 22px; margin-top:32px;
+        .lib-mail { background:#1a1a1a; border-radius:16px; padding:26px 22px; margin-top:30px;
                     text-align:center; }
         .lib-mail h2 { font-family:'Lora',Georgia,serif; font-style:italic; font-size:21px;
                        color:#FFFFFF; margin:0 0 6px; }
-        .lib-mail p { font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+        .lib-mail p { font-size:10px; letter-spacing:0.18em; text-transform:uppercase;
                       color:rgba(255,255,255,0.55); margin:0 0 16px; }
         .lib-mail input { width:100%; background:transparent; border:1px solid rgba(255,255,255,0.22);
-                          border-radius:9px; padding:13px 16px; font-size:11px; color:#fff;
+                          border-radius:10px; padding:13px 16px; font-size:11px; color:#fff;
                           letter-spacing:0.16em; text-transform:uppercase; outline:none;
                           font-family:'Instrument Sans',sans-serif; }
         .lib-mail input::placeholder { color:rgba(255,255,255,0.32); }
         .lib-mail button { width:100%; margin-top:9px; background:#E2C0B9; color:#1a1a1a;
-                           border:none; border-radius:9px; padding:14px; font-size:10px;
+                           border:none; border-radius:10px; padding:14px; font-size:10px;
                            font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
                            cursor:pointer; font-family:'Instrument Sans',sans-serif; }
         .lib-mail small { display:block; margin-top:10px; font-size:8.5px; letter-spacing:0.2em;
                           text-transform:uppercase; color:rgba(255,255,255,0.35); }
 
-        .lib-foot { text-align:center; margin-top:26px; font-size:8.5px; letter-spacing:0.2em;
+        .lib-foot { text-align:center; margin-top:24px; font-size:8.5px; letter-spacing:0.2em;
                     text-transform:uppercase; color:rgba(26,26,26,0.38); }
         .lib-foot a { color:inherit; text-decoration:none; }
         .lib-foot a:hover { color:#9B4F4A; }
+
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMSTKNWYT7"></script>
@@ -122,61 +142,93 @@
 
 <div class="lib-wrap">
 
-    <!-- ── Profile ─────────────────────────────────────────────────────── -->
+    <!-- ── Profile ─────────────────────────────────────────────────────────
+         A real photo, not a logo mark. Every Stan Store and Beacons page leads with a
+         face, because the link comes from a person's bio and the visitor is checking
+         they landed in the right place. -->
     <header class="lib-top">
-        <img src="/images/favicon.png" alt="" class="lib-mark">
+        <img src="/images/Founder_Portrait.webp" alt="Tiara, founder of The Intentional Tea" class="lib-photo">
         <h1 class="lib-name">The Intentional Tea</h1>
-        <p class="lib-tag">Plan the life. Build the business.</p>
         <p class="lib-handle">@theintentionaltea</p>
+        <p class="lib-tag">Digital planners, workbooks, and the systems behind the business.</p>
     </header>
 
-    <!-- ── Start here: the free one ────────────────────────────────────── -->
-    <a href="https://intentionaltea.gumroad.com/l/snpesd" class="lib-link feature">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v14"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg></span>
-        <span class="txt"><span class="t1">Free Backend Diagnostic</span><span class="t2">Find what is actually slowing your business down</span></span>
+    <!-- ── The free one, first ─────────────────────────────────────────── -->
+    <a href="https://theintentionaltea.com/resources.html" class="lib-link feature">
+        <span class="thumb"><img src="/images/Diagnostic_Check.webp" alt=""></span>
+        <span class="txt"><span class="t1">Start here. On us.</span><span class="t2">Three free resources, including the Backend Diagnostic</span></span>
         <span class="arw">&rarr;</span>
     </a>
 
-    <!-- ── Where to buy ────────────────────────────────────────────────── -->
-    <p class="lib-label">Shop</p>
+    <!-- ── Shop the products, visually ─────────────────────────────────────
+         This is the part a plain link list cannot do. Someone arriving from TikTok is
+         deciding whether to buy, and a row of words gives them nothing to want. Cards
+         carry the cover, the name and the price, and go straight to checkout. -->
+    <p class="lib-label">Shop the best sellers</p>
 
+    <div class="lib-grid">
+        <a href="https://intentionaltea.gumroad.com/l/kqmktr" target="_blank" rel="noopener" class="lib-card">
+            <span class="cover"><img src="/images/Life_Reset.webp" alt="The Intentional Life Reset"></span>
+            <span class="cname">The Intentional Life Reset</span>
+            <span class="cprice">$55</span>
+        </a>
+        <a href="https://intentionaltea.gumroad.com/l/grjtk" target="_blank" rel="noopener" class="lib-card">
+            <span class="cover"><img src="/images/Astrology_Report.webp" alt="The Intentional Astrology Report"></span>
+            <span class="cname">Astrology Report</span>
+            <span class="cprice">$111</span>
+        </a>
+        <a href="https://intentionaltea.gumroad.com/l/fjkybc" target="_blank" rel="noopener" class="lib-card">
+            <span class="cover"><img src="/images/Calendar_Planner.webp" alt="The Intentional Calendar and Life Planner"></span>
+            <span class="cname">Calendar &amp; Life Planner</span>
+            <span class="cprice">$25</span>
+        </a>
+        <a href="https://intentionaltea.gumroad.com/l/yonbmp" target="_blank" rel="noopener" class="lib-card">
+            <span class="cover"><img src="/images/Business_Build.webp" alt="The Intentional Business Build"></span>
+            <span class="cname">Business Build</span>
+            <span class="cprice">$65</span>
+        </a>
+    </div>
+
+    <!-- Named by its domain, not "The Shop". Sitting above "Etsy Shop", a row called
+         "The Shop" reads as a second, separate store rather than as this website. -->
     <a href="https://theintentionaltea.com/shop.html" class="lib-link">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-        <span class="txt"><span class="t1">The Shop</span><span class="t2">Planners, workbooks and the full collection</span></span>
+        <span class="thumb"><img src="/images/Full_Bundle.webp" alt=""></span>
+        <span class="txt"><span class="t1">theintentionaltea.com</span><span class="t2">Every planner, workbook and bundle</span></span>
         <span class="arw">&rarr;</span>
     </a>
+
+    <!-- ── Where else to buy ───────────────────────────────────────────── -->
+    <p class="lib-label">Also find me on</p>
 
     <a href="https://www.amazon.com/shop/tiarastewart" target="_blank" rel="noopener" class="lib-link">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c4 3 14 3 18 0"/><path d="M19 17c1-1 1.5-2.5 1.5-4"/><path d="M4 7h16l-1 6H5z"/></svg></span>
+        <span class="thumb flat"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c4 3 14 3 18 0"/><path d="M19 17c1-1 1.5-2.5 1.5-4"/><path d="M4 7h16l-1 6H5z"/></svg></span>
         <span class="txt"><span class="t1">Amazon Storefront</span><span class="t2">The things I actually use</span></span>
         <span class="arw">&#8599;</span>
     </a>
 
     <a href="https://www.etsy.com/shop/TheIntentionalTea" target="_blank" rel="noopener" class="lib-link">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5z"/><path d="M9 7h7"/><path d="M9 12h5"/><path d="M9 17h7"/></svg></span>
+        <span class="thumb flat"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5z"/><path d="M9 7h7"/><path d="M9 12h5"/><path d="M9 17h7"/></svg></span>
         <span class="txt"><span class="t1">Etsy Shop</span><span class="t2">Printables, templates and sticker books</span></span>
         <span class="arw">&#8599;</span>
     </a>
 
-    <!-- [THIN — LTK. Tiara has not set the account up yet, so there is no URL to link.
-         When it exists, this block goes here, in this order, and nothing else changes.] -->
+    <!-- [THIN — LTK. The account exists but the public profile URL has not been supplied,
+         so there is nothing to link. It belongs here, next to Amazon and Etsy.] -->
 
-    <!-- ── Work with me ────────────────────────────────────────────────── -->
+    <!-- ── Work with me: services only ─────────────────────────────────── -->
     <p class="lib-label">Work with me</p>
 
     <a href="https://theintentionaltea.com/services.html" class="lib-link">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></span>
+        <span class="thumb"><img src="/images/Business_Operations.webp" alt=""></span>
         <span class="txt"><span class="t1">Business Operations</span><span class="t2">Systems, Notion hubs and the build behind the business</span></span>
         <span class="arw">&rarr;</span>
     </a>
 
-    <a href="https://theintentionaltea.substack.com" target="_blank" rel="noopener" class="lib-link">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v3H4z"/><path d="M4 11h16v3H4z"/><path d="M4 17l8 4 8-4"/></svg></span>
-        <span class="txt"><span class="t1">The Newsletter</span><span class="t2">Essays on alignment and building intentionally</span></span>
-        <span class="arw">&#8599;</span>
-    </a>
-
-    <!-- ── Socials, labelled ───────────────────────────────────────────── -->
+    <!-- ── Follow. Substack lives here, under its own name ──────────────────
+         It was labelled "The Newsletter" under Work with me, which is wrong twice: it is
+         not a service, and "the newsletter" is Tiara's monthly email with the free
+         backgrounds and stickers, which is a different thing entirely. Platforms get
+         called by their names. -->
     <p class="lib-label">Follow along</p>
 
     <div class="lib-socials">
@@ -195,6 +247,22 @@
         <a href="https://www.lemon8-app.com/@theintentionaltea_" target="_blank" rel="noopener" class="lib-soc" aria-label="Lemon8">
             <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 0-7 3-7 6.5 0 2 1 3.5 2.5 4.5L7 21l5-2.5L17 21l-.5-7c1.5-1 2.5-2.5 2.5-4.5C19 6 16 3 12 3z"/></svg>
             <span>Lemon8</span>
+        </a>
+        <a href="https://theintentionaltea.substack.com" target="_blank" rel="noopener" class="lib-soc" aria-label="Substack">
+            <svg viewBox="0 0 24 24" fill="#1a1a1a" stroke="none"><path d="M4 3h16v2.5H4z"/><path d="M4 8.2h16v2.5H4z"/><path d="M4 13.4 12 18l8-4.6V21l-8-4.6L4 21z"/></svg>
+            <span>Substack</span>
+        </a>
+        <a href="https://theintentionaltea.com/blog.html" class="lib-soc" aria-label="Blog">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>
+            <span>Blog</span>
+        </a>
+        <a href="mailto:theintentionaltea@gmail.com" class="lib-soc" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>Email</span>
+        </a>
+        <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" class="lib-soc" aria-label="Shop the pins">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Boards</span>
         </a>
     </div>
 
