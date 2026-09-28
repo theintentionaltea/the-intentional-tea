@@ -6,9 +6,11 @@
   --blush-light: #F2E4DF;
   --blush-border: #D4B5AF;
   --blush-dark: #C99B92;
+  /* Text-only rose, 5.44:1 on cream. --blush-dark is 2.29:1 and stays for borders and fills. */
+  --rose-text: #9B4F4A;
   --dark-card: #0A0A0A;
   --text: #2D2826;
-  --muted: #8A7870;
+  --muted: #6E675C;  /* was #8A7870 at 3.93:1; this is 5.23:1 and only ever used for text */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,7 +71,7 @@ body {
   font-style: italic;
   line-height: 1.15;
   text-align: center;
-  color: var(--blush-dark);
+  color: var(--rose-text);
   margin-bottom: 14px;
 }
 
@@ -161,7 +163,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: var(--blush-dark);
+  color: var(--rose-text);
 }
 
 /* ── Moon ───────────────────────────────────── */
@@ -272,7 +274,7 @@ body {
   content: counter(steps) '.';
   position: absolute;
   left: 0;
-  color: var(--blush-dark);
+  color: var(--rose-text);
   font-size: 12px;
   font-weight: 500;
 }
@@ -321,7 +323,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--blush-dark);
+  color: var(--rose-text);
   margin-bottom: 5px;
 }
 
@@ -379,7 +381,7 @@ body {
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
-  color: var(--blush-dark);
+  color: var(--rose-text);
   margin-bottom: 9px;
   line-height: 1.2;
 }
@@ -398,12 +400,12 @@ body {
   font-family: 'Lora', serif;
   font-size: 19px;
   font-weight: 400;
-  color: var(--blush-dark);
+  color: var(--rose-text);
   text-align: center;
   min-width: 54px;
 }
 
-.yr-arrow { color: var(--blush-border); font-size: 13px; }
+.yr-arrow { color: var(--muted); font-size: 13px; }  /* was --blush-border, 1.78:1 as text */
 
 .year-reimport-note {
   font-size: 9px;

@@ -12,7 +12,7 @@ h1, h2, h3, h4, .serif { font-family: 'Lora', serif; font-weight: 400; letter-sp
 
 /* Filter / category buttons — used on shop and blog pages */
 .filter-btn { text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.18); background: transparent; cursor: pointer; transition: all 0.2s ease; color: #1a1a1a; border-radius: 4px; }
-.filter-btn:hover { border-color: #C99B92; color: #C99B92; }
+.filter-btn:hover { border-color: #C99B92; color: #9B4F4A; }
 .filter-btn.active { background: #1a1a1a; color: white; border-color: #1a1a1a; }
 
 /* Corner rounding — cards, containers, buttons, inputs */
