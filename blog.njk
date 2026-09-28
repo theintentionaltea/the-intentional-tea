@@ -310,12 +310,20 @@ eleventyExcludeFromCollections: true
             disclaimer: '<h2 class="serif italic text-3xl mb-6">Disclaimers</h2><p class="text-sm leading-relaxed text-gray-600">The content on this site is for informational and educational purposes only and does not constitute professional advice.</p>'
         };
 
+        // Remembers what opened the modal so focus can be handed back when it closes, which is
+        // what a keyboard or screen-reader user needs and what the launch standard requires.
+        let modalOpener = null;
+
         function openModal(type) {
             const modal = document.getElementById('policy-modal');
+            modalOpener = document.activeElement;
             document.getElementById('modal-content').innerHTML = policyContent[type];
             modal.style.display = 'flex';
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            // Move focus into the dialog rather than leaving it behind on the page underneath.
+            modal.setAttribute('tabindex', '-1');
+            modal.focus();
         }
 
         function closeModal() {
@@ -323,7 +331,16 @@ eleventyExcludeFromCollections: true
             modal.style.display = 'none';
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
+            if (modalOpener && modalOpener.focus) modalOpener.focus();
+            modalOpener = null;
         }
+
+        // Escape closes it. Without this the only way out was a mouse click on the backdrop.
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            const modal = document.getElementById('policy-modal');
+            if (modal && !modal.classList.contains('hidden')) closeModal();
+        });
     </script>
 </body>
 </html>

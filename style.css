@@ -116,3 +116,13 @@ article.group:hover { transform: translateY(-4px); box-shadow: 0 16px 48px -12px
    ============================== */
 .stagger-child { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .stagger-child.visible { opacity: 1; transform: translateY(0); }
+
+/* Added 2026-09-27. A browser pass found focusable elements with no visible focus indicator at
+   all, which makes the site unusable by keyboard. :focus-visible keeps the ring off mouse clicks
+   while guaranteeing it for keyboard users. The colour is the brand's dark ink, not a default
+   blue, so it reads as part of the design rather than a browser artefact. */
+:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

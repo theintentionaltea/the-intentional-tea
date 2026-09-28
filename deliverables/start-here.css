@@ -386,9 +386,11 @@ body {
 
 .undated-body { font-size: 12.5px; line-height: 1.65; color: var(--text); }
 
-.undated-year-col { display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.undated-year-col { display: flex; flex-direction: column; justify-content: center; gap: 8px; max-width: 100%; }
 
-.year-row { display: flex; align-items: center; gap: 5px; }
+/* flex-wrap and max-width added 2026-09-27: these rows did not wrap and forced 403px of
+   horizontal scroll on a 320px screen, which the launch standard forbids. */
+.year-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; max-width: 100%; }
 
 .year-pill {
   border: 1px solid var(--blush-border);
