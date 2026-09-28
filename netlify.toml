@@ -5,6 +5,18 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# The link-in-bio page. /social.html is a poor thing to put in an Instagram bio, and both
+# /connect and /links 404d. The page itself stays where it is; these are the public URLs.
+[[redirects]]
+  from = "/connect"
+  to = "/social.html"
+  status = 301
+
+[[redirects]]
+  from = "/links"
+  to = "/social.html"
+  status = 301
+
 [[redirects]]
   from = "/work-with-me"
   to = "/services"
