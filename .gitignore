@@ -3,3 +3,12 @@ _site/
 .DS_Store
 .mcp.json
 tw-readable.css
+
+# Added 2026-09-27 after a `git add -A` swept these into a commit.
+# .claude/worktrees holds an embedded git repo; .netlify is local build cache including
+# function zips; content-audit is screenshots; emails/ are old template copies that are
+# no longer published (see .eleventy.js) and whose current versions live in the HQ folder.
+.claude/worktrees/
+.netlify/
+content-audit/
+emails/

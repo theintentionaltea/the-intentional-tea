@@ -112,7 +112,20 @@ exports.handler = async (event) => {
   const send = await brevo('/smtp/email', {
     to: [{ email, name: name || undefined }],
     templateId,
-    params: { FIRSTNAME: name.trim().split(/\s+/)[0] || '', CALL_DATE: callDate },
+    // MEETING_LINK feeds the "Google Meet link:" line in ops-02-call-confirmation, which used to read
+    // "[paste link]" — a hand-fill placeholder that went out raw once this function began sending the
+    // template automatically. Cal.com reports the video URL in different places depending on the
+    // integration, so take the first that is actually a URL and leave it empty otherwise: the
+    // template's own default filter then prints a true sentence rather than a blank or a placeholder.
+    params: {
+      FIRSTNAME: name.trim().split(/\s+/)[0] || '',
+      CALL_DATE: callDate,
+      MEETING_LINK: [
+        p.metadata && p.metadata.videoCallUrl,
+        p.videoCallData && p.videoCallData.url,
+        p.location,
+      ].find((v) => typeof v === 'string' && /^https?:\/\//.test(v)) || '',
+    },
   }, apiKey);
 
   if (send.status !== 201) {
