@@ -4,123 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link in Bio | The Intentional Tea</title>
-    <meta name="description" content="Find everything from The Intentional Tea in one place.">
+    <meta name="description" content="Everything from The Intentional Tea in one place: the shop, the Amazon storefront, Etsy, and where to find me.">
     <meta property="og:title" content="The Intentional Tea | Link in Bio">
     <meta property="og:description" content="Plan the life. Build the business.">
     <meta property="og:image" content="https://theintentionaltea.com/images/Logo_Main.png">
-    <meta property="og:url" content="https://theintentionaltea.com/social">
+    <meta property="og:url" content="https://theintentionaltea.com/connect">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://theintentionaltea.com/social">
+    <link rel="canonical" href="https://theintentionaltea.com/connect">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@theintentionaltea">
     <meta name="twitter:title" content="The Intentional Tea | Link in Bio">
-    <meta name="twitter:description" content="Find everything from The Intentional Tea in one place.">
+    <meta name="twitter:description" content="Everything in one place.">
     <meta name="twitter:image" content="https://theintentionaltea.com/images/Logo_Main.png">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The Intentional Tea","url":"https://theintentionaltea.com","logo":"https://theintentionaltea.com/images/favicon.png","sameAs":["https://www.instagram.com/theintentionaltea/","https://www.tiktok.com/@theintentionaltea_"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The Intentional Tea","url":"https://theintentionaltea.com","logo":"https://theintentionaltea.com/images/favicon.png","sameAs":["https://www.instagram.com/theintentionaltea/","https://www.tiktok.com/@theintentionaltea_","https://www.pinterest.com/theintentionaltea/","https://www.lemon8-app.com/@theintentionaltea_"]}</script>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="/tailwind.css">
-    <script src="https://gumroad.com/js/gumroad.js"></script>
     <link rel="stylesheet" href="style.css">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap');
+        /* ── Link in bio ──────────────────────────────────────────────────────────────
+           Rebuilt as an actual link-in-bio page rather than a site page with links on it.
+           Three things drove it:
+             - No site nav. On Linktree, Beacons or Stan the page has one job. A full nav
+               gives a visitor six other places to go before they reach a single link.
+             - Every social is LABELLED. The old icon row was unlabelled custom glyphs and
+               was genuinely unreadable — you could not tell Lemon8 from Substack.
+             - The order is the order things get tapped: where to buy first, then where to
+               follow. Free thing sits near the top because it is the lowest-friction yes.
+        */
+        body { background:#FAF7F2; color:#1a1a1a; font-family:'Instrument Sans',-apple-system,sans-serif; }
 
-        :root {
-            --cream: #FAF7F2;
-            --blush: #E2C0B9;
-            --blush-muted: #C99B92;
-            --ink: #1a1a1a;
-        }
+        .lib-wrap { max-width:520px; margin:0 auto; padding:0 20px 56px; }
 
-        * { box-sizing: border-box; }
-        body { background: var(--cream); color: var(--ink); font-family: 'Instrument Sans', sans-serif; margin: 0; }
-        .lora { font-family: 'Lora', serif; }
-        .lora-italic { font-family: 'Lora', serif; font-style: italic; }
-        .playfair { font-family: 'Playfair Display', serif; font-style: italic; }
-        .label { font-family: 'Instrument Sans', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.35em; }
+        /* Profile */
+        .lib-top { text-align:center; padding:40px 0 26px; }
+        .lib-mark { width:64px; height:64px; margin:0 auto 16px; display:block; }
+        .lib-name { font-family:'Lora',Georgia,serif; font-size:23px; letter-spacing:0.22em;
+                    text-transform:uppercase; margin:0 0 8px; }
+        .lib-tag  { font-family:'Lora',Georgia,serif; font-style:italic; font-size:15px;
+                    color:#6E675C; margin:0 0 6px; }
+        .lib-handle { font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:#9B4F4A;
+                      font-weight:700; margin:0; }
 
-        /* Nav */
-        .header-link { transition: color 0.3s; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9px; font-weight: 700; color: #1a1a1a; }
-        .header-link:hover { color: #E2C0B9; }
-        #mobile-nav { display: none; flex-direction: column; }
-        #mobile-nav.active { display: flex; }
+        /* Section label */
+        .lib-label { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:#9B4F4A;
+                     font-weight:700; margin:30px 0 12px; display:flex; align-items:center; gap:10px; }
+        .lib-label::after { content:""; flex:1; height:1px; background:rgba(155,79,74,0.22); }
 
-        .btn-press { transition: transform 0.1s; }
-        .btn-press:active { transform: scale(0.97); }
+        /* The link buttons. Full width, generous height, one tap target each. */
+        .lib-link { display:flex; align-items:center; gap:14px; width:100%;
+                    background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:12px;
+                    padding:16px 18px; margin-bottom:10px; text-decoration:none; color:#1a1a1a;
+                    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+        .lib-link:hover { transform:translateY(-2px); border-color:#E2C0B9;
+                          box-shadow:0 6px 18px -8px rgba(26,26,26,0.18); }
+        .lib-link .ico { width:34px; height:34px; flex:none; border-radius:9px; background:#FAF7F2;
+                         display:flex; align-items:center; justify-content:center; }
+        .lib-link .ico svg { width:17px; height:17px; }
+        .lib-link .txt { flex:1; min-width:0; }
+        .lib-link .t1 { display:block; font-size:12px; font-weight:700; letter-spacing:0.14em;
+                        text-transform:uppercase; }
+        .lib-link .t2 { display:block; font-size:12px; color:#6E675C; margin-top:2px; }
+        .lib-link .arw { font-size:14px; color:#9B4F4A; flex:none; }
 
-        /* Module cards: 2-column grid */
-        .module-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border: 1px solid rgba(26,26,26,0.08);
-            border-radius: 14px;
-            overflow: hidden;
-            background: white;
-        }
-        .module-left {
-            background: var(--cream);
-            padding: 20px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            border-right: 1px solid rgba(26,26,26,0.06);
-        }
-        .module-right {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: white;
-        }
+        /* The one highlighted row: free, so it is the easiest yes on the page. */
+        .lib-link.feature { background:#1a1a1a; border-color:#1a1a1a; color:#FFFFFF; }
+        .lib-link.feature .ico { background:rgba(255,255,255,0.10); }
+        .lib-link.feature .ico svg { stroke:#E2C0B9; }
+        .lib-link.feature .t2 { color:rgba(255,255,255,0.62); }
+        .lib-link.feature .arw { color:#E2C0B9; }
 
-        /* Right-column link items */
-        .mod-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            border: 1px solid rgba(26,26,26,0.07);
-            border-radius: 8px;
-            text-decoration: none;
-            transition: border-color 0.2s, background 0.2s;
-            gap: 8px;
-        }
-        .mod-link:hover { border-color: #C99B92; background: #FAF7F2; }
-        .mod-link-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #1a1a1a; line-height: 1.3; }
-        .mod-link-sub { font-size: 8px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(26,26,26,0.4); margin-top: 2px; font-weight: 600; }
-        .service-pill { display: inline-block; padding: 2px 7px; border-radius: 100px; font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; background: rgba(226,192,185,0.2); border: 1px solid rgba(226,192,185,0.5); color: #9B4F4A; white-space: nowrap; }
-        .free-pill { display: inline-block; padding: 2px 7px; border-radius: 100px; font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; background: rgba(26,26,26,0.06); border: 1px solid rgba(26,26,26,0.12); color: rgba(26,26,26,0.55); white-space: nowrap; }
+        /* Socials: labelled, because unlabelled glyphs were the actual complaint. */
+        .lib-socials { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:6px; }
+        .lib-soc { display:flex; flex-direction:column; align-items:center; gap:7px;
+                   background:#FFFFFF; border:1px solid rgba(26,26,26,0.10); border-radius:12px;
+                   padding:14px 6px; text-decoration:none; color:#1a1a1a;
+                   transition:transform .15s ease, border-color .15s ease; }
+        .lib-soc:hover { transform:translateY(-2px); border-color:#E2C0B9; }
+        .lib-soc svg { width:19px; height:19px; }
+        .lib-soc span { font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase;
+                        font-weight:700; color:#6E675C; }
 
-        /* Full-width link rows */
-        .link-row {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 14px 18px; background: white;
-            border: 1px solid rgba(26,26,26,0.08); border-radius: 10px;
-            text-decoration: none; transition: border-color 0.2s, background 0.2s;
-        }
-        .link-row:hover { border-color: #C99B92; background: #FAF7F2; }
-        .link-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; color: #1a1a1a; }
-        .link-arrow { font-size: 12px; color: #9B4F4A; }
+        /* Email capture */
+        .lib-mail { background:#1a1a1a; border-radius:14px; padding:26px 22px; margin-top:32px;
+                    text-align:center; }
+        .lib-mail h2 { font-family:'Lora',Georgia,serif; font-style:italic; font-size:21px;
+                       color:#FFFFFF; margin:0 0 6px; }
+        .lib-mail p { font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+                      color:rgba(255,255,255,0.55); margin:0 0 16px; }
+        .lib-mail input { width:100%; background:transparent; border:1px solid rgba(255,255,255,0.22);
+                          border-radius:9px; padding:13px 16px; font-size:11px; color:#fff;
+                          letter-spacing:0.16em; text-transform:uppercase; outline:none;
+                          font-family:'Instrument Sans',sans-serif; }
+        .lib-mail input::placeholder { color:rgba(255,255,255,0.32); }
+        .lib-mail button { width:100%; margin-top:9px; background:#E2C0B9; color:#1a1a1a;
+                           border:none; border-radius:9px; padding:14px; font-size:10px;
+                           font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+                           cursor:pointer; font-family:'Instrument Sans',sans-serif; }
+        .lib-mail small { display:block; margin-top:10px; font-size:8.5px; letter-spacing:0.2em;
+                          text-transform:uppercase; color:rgba(255,255,255,0.35); }
 
-        /* Module section headings */
-        .module-section { padding: 28px 20px; }
-        .module-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .module-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--blush-muted); }
-        .module-title { font-family: 'Lora', serif; font-size: 17px; color: #1a1a1a; margin: 0 0 16px; line-height: 1.3; }
-
-        /* Policy modal */
-        #policy-modal { display: none; }
-        #policy-modal.open { display: flex; }
-
-        /* Etsy card */
-        .etsy-card {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 6px; padding: 20px 16px; background: white;
-            border: 1px solid rgba(26,26,26,0.08); border-radius: 10px;
-            text-decoration: none; transition: border-color 0.2s;
-        }
-        .etsy-card:hover { border-color: #C99B92; }
+        .lib-foot { text-align:center; margin-top:26px; font-size:8.5px; letter-spacing:0.2em;
+                    text-transform:uppercase; color:rgba(26,26,26,0.38); }
+        .lib-foot a { color:inherit; text-decoration:none; }
+        .lib-foot a:hover { color:#9B4F4A; }
     </style>
-    <!-- Google tag (gtag.js) -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMSTKNWYT7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -130,327 +119,132 @@
     </script>
 </head>
 <body class="antialiased">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:text-xs focus:uppercase focus:tracking-widest focus:font-bold">Skip to content</a>
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 bg-[#FAF7F2] border-b border-black/10">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <nav class="hidden xl:flex w-2/5 justify-start space-x-6">
-            <a href="index.html" class="header-link">Home</a>
-            <a href="about.html" class="header-link">About</a>
-            <a href="services.html" class="header-link">Services</a>
-            <a href="shop.html" class="header-link">Shop</a>
-            <a href="resources.html" class="header-link">Freebies</a>
-            <a href="social.html" class="header-link">Connect</a>
-        </nav>
-        <div class="xl:hidden w-1/3">
-            <button onclick="const n=document.getElementById('mobile-nav');n.classList.toggle('active');this.setAttribute('aria-expanded',n.classList.contains('active'))" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation menu" class="header-link flex items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                Menu
-            </button>
-        </div>
-        <div class="w-1/3 xl:w-1/5 flex justify-center">
-            <a href="index.html"><img src="images/Logo_Main.png" alt="The Intentional Tea" class="h-8 md:h-12 w-auto object-contain"></a>
-        </div>
-        <div class="w-1/3 xl:w-2/5 flex justify-end">
-            <a href="services.html" class="btn-press hidden lg:inline-block bg-black text-white px-6 py-3 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-[#E2C0B9] hover:text-black transition-all duration-300" style="border-radius:8px;">Work With Me</a>
-        </div>
+<div class="lib-wrap">
+
+    <!-- ── Profile ─────────────────────────────────────────────────────── -->
+    <header class="lib-top">
+        <img src="/images/favicon.png" alt="" class="lib-mark">
+        <h1 class="lib-name">The Intentional Tea</h1>
+        <p class="lib-tag">Plan the life. Build the business.</p>
+        <p class="lib-handle">@theintentionaltea</p>
+    </header>
+
+    <!-- ── Start here: the free one ────────────────────────────────────── -->
+    <a href="https://intentionaltea.gumroad.com/l/snpesd" class="lib-link feature">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v14"/><path d="m6 10 6 6 6-6"/><path d="M4 20h16"/></svg></span>
+        <span class="txt"><span class="t1">Free Backend Diagnostic</span><span class="t2">Find what is actually slowing your business down</span></span>
+        <span class="arw">&rarr;</span>
+    </a>
+
+    <!-- ── Where to buy ────────────────────────────────────────────────── -->
+    <p class="lib-label">Shop</p>
+
+    <a href="https://theintentionaltea.com/shop.html" class="lib-link">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span class="txt"><span class="t1">The Shop</span><span class="t2">Planners, workbooks and the full collection</span></span>
+        <span class="arw">&rarr;</span>
+    </a>
+
+    <a href="https://www.amazon.com/shop/tiarastewart" target="_blank" rel="noopener" class="lib-link">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c4 3 14 3 18 0"/><path d="M19 17c1-1 1.5-2.5 1.5-4"/><path d="M4 7h16l-1 6H5z"/></svg></span>
+        <span class="txt"><span class="t1">Amazon Storefront</span><span class="t2">The things I actually use</span></span>
+        <span class="arw">&#8599;</span>
+    </a>
+
+    <a href="https://www.etsy.com/shop/TheIntentionalTea" target="_blank" rel="noopener" class="lib-link">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5z"/><path d="M9 7h7"/><path d="M9 12h5"/><path d="M9 17h7"/></svg></span>
+        <span class="txt"><span class="t1">Etsy Shop</span><span class="t2">Printables, templates and sticker books</span></span>
+        <span class="arw">&#8599;</span>
+    </a>
+
+    <!-- [THIN — LTK. Tiara has not set the account up yet, so there is no URL to link.
+         When it exists, this block goes here, in this order, and nothing else changes.] -->
+
+    <!-- ── Work with me ────────────────────────────────────────────────── -->
+    <p class="lib-label">Work with me</p>
+
+    <a href="https://theintentionaltea.com/services.html" class="lib-link">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></span>
+        <span class="txt"><span class="t1">Business Operations</span><span class="t2">Systems, Notion hubs and the build behind the business</span></span>
+        <span class="arw">&rarr;</span>
+    </a>
+
+    <a href="https://theintentionaltea.substack.com" target="_blank" rel="noopener" class="lib-link">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9B4F4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v3H4z"/><path d="M4 11h16v3H4z"/><path d="M4 17l8 4 8-4"/></svg></span>
+        <span class="txt"><span class="t1">The Newsletter</span><span class="t2">Essays on alignment and building intentionally</span></span>
+        <span class="arw">&#8599;</span>
+    </a>
+
+    <!-- ── Socials, labelled ───────────────────────────────────────────── -->
+    <p class="lib-label">Follow along</p>
+
+    <div class="lib-socials">
+        <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" class="lib-soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#1a1a1a" stroke="none"/></svg>
+            <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" class="lib-soc" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="#1a1a1a" stroke="none"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-1.79-2.46V9.8a5.87 5.87 0 1 0 4.88 5.78V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>
+            <span>TikTok</span>
+        </a>
+        <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" class="lib-soc" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="#1a1a1a" stroke="none"><path d="M12 2a10 10 0 0 0-3.65 19.31c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.97 1.19-4.97s-.3-.61-.3-1.5c0-1.41.82-2.46 1.83-2.46.86 0 1.28.65 1.28 1.42 0 .87-.55 2.17-.84 3.37-.24 1.01.5 1.84 1.5 1.84 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .87.34 1.81.76 2.32a.3.3 0 0 1 .07.29c-.08.32-.25 1.01-.28 1.15-.05.19-.15.23-.35.14-1.3-.61-2.11-2.5-2.11-4.03 0-3.28 2.38-6.29 6.87-6.29 3.61 0 6.41 2.57 6.41 6.01 0 3.58-2.26 6.47-5.4 6.47-1.05 0-2.04-.55-2.38-1.2l-.65 2.47c-.23.9-.86 2.03-1.28 2.72A10 10 0 1 0 12 2z"/></svg>
+            <span>Pinterest</span>
+        </a>
+        <a href="https://www.lemon8-app.com/@theintentionaltea_" target="_blank" rel="noopener" class="lib-soc" aria-label="Lemon8">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 0-7 3-7 6.5 0 2 1 3.5 2.5 4.5L7 21l5-2.5L17 21l-.5-7c1.5-1 2.5-2.5 2.5-4.5C19 6 16 3 12 3z"/></svg>
+            <span>Lemon8</span>
+        </a>
     </div>
-    <nav id="mobile-nav" class="xl:hidden items-center space-y-4 pb-6 border-t border-black/5 pt-4 bg-[#FAF7F2] px-6">
-        <a href="index.html" class="header-link block">Home</a>
-        <a href="about.html" class="header-link block">About</a>
-        <a href="services.html" class="header-link block">Services</a>
-        <a href="shop.html" class="header-link block">Shop</a>
-        <a href="resources.html" class="header-link block">Freebies</a>
-        <a href="social.html" class="header-link block">Connect</a>
-    </nav>
-</header>
 
-<main id="main-content">
-
-    <!-- BRAND HERO &#183; blurred background image -->
-    <section style="position:relative; padding:56px 24px 52px; text-align:center; overflow:hidden; min-height:340px; display:flex; align-items:center; justify-content:center;">
-        <!-- Background image with blur + dark overlay -->
-        <div style="position:absolute; inset:0; background:url('images/Hero_Home.jpg') center/cover no-repeat; filter:blur(4px) brightness(0.35); transform:scale(1.06); z-index:0;"></div>
-        <!-- Extra dark tint so text reads cleanly -->
-        <div style="position:absolute; inset:0; background:rgba(0,0,0,0.45); z-index:1;"></div>
-
-        <div style="max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:20px; align-items:center; position:relative; z-index:2;">
-
-            <!-- Logo symbol only &#183; name shown as text below -->
-            <img src="images/Logo_Symbol.webp" alt="" aria-hidden="true" style="height:80px; width:auto; max-width:120px; object-fit:contain;">
-
-            <!-- Brand name + tagline -->
-            <div>
-                <h1 class="lora" style="font-size:20px; color:white; letter-spacing:0.18em; text-transform:uppercase; margin:0 0 8px;">The Intentional Tea</h1>
-                <p class="playfair" style="font-size:13px; color:#E2C0B9; margin:0;">Plan the life. Build the business.</p>
-            </div>
-
-            <!-- Social icons -->
-            <div style="display:flex; gap:32px; align-items:center;">
-                <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,0.65); transition:color 0.2s;" onmouseover="this.style.color='#E2C0B9'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" style="color:rgba(255,255,255,0.65); transition:color 0.2s;" onmouseover="this.style.color='#E2C0B9'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-                </a>
-                <a href="https://www.lemon8-app.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="Lemon8" style="color:rgba(255,255,255,0.65); transition:color 0.2s;" onmouseover="this.style.color='#E2C0B9'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><text x="12" y="15.5" text-anchor="middle" font-size="8" font-weight="700" font-family="Instrument Sans, sans-serif" fill="currentColor" stroke="none" letter-spacing="0.05em">L8</text></svg>
-                </a>
-                <a href="https://theintentionaltea.substack.com" target="_blank" rel="noopener" aria-label="Substack Newsletter" style="color:rgba(255,255,255,0.65); transition:color 0.2s;" onmouseover="this.style.color='#E2C0B9'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M12 14v5"/><path d="M8 14h8"/></svg>
-                </a>
-                <a href="https://www.pinterest.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Pinterest" style="color:rgba(255,255,255,0.65); transition:color 0.2s;" onmouseover="this.style.color='#E2C0B9'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.3 0-.7 0-1.8.2-2.6.2-.9 1.3-5.6 1.3-5.6s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.5 2 1.6 2 1.9 0 3.2-2.4 3.2-5.3 0-2.2-1.5-3.8-3.7-3.8-2.5 0-4 1.9-4 3.9 0 .8.3 1.6.7 2.1.1.1.1.2 0 .3l-.3 1.1c0 .2-.2.2-.3.1-1.3-.6-2.1-2.5-2.1-4 0-3.2 2.3-6.2 6.7-6.2 3.5 0 6.2 2.5 6.2 5.8 0 3.5-2.2 6.3-5.2 6.3-1 0-2-.5-2.3-1.1l-.6 2.3c-.2.9-.8 1.9-1.2 2.6.9.3 1.8.4 2.7.4 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- â”€â”€ START HERE â”€â”€ -->
-    <section class="module-section" style="background:var(--cream);">
-        <div style="max-width:480px; margin:0 auto;">
-            <div class="module-eyebrow">
-                <span class="label" style="color: #9B4F4A;">New here? Start here.</span>
-            </div>
-            <h2 class="module-title">Find Everything<br><span style="font-style:italic; color: #9B4F4A;">Quick links</span></h2>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-                <a href="https://theintentionaltea.com" class="link-row">
-                    <span class="link-label">theintentionaltea.com</span>
-                    <span class="link-arrow">&#x2192;</span>
-                </a>
-                <a href="https://a.co/d/08rk5hIr" target="_blank" rel="noopener" class="link-row">
-                    <span class="link-label">Amazon Storefront</span>
-                    <span class="link-arrow">&#x2197;</span>
-                </a>
-                <a href="services.html" class="link-row">
-                    <span class="link-label">Work With Me</span>
-                    <span class="link-arrow">&#x2192;</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- â”€â”€ MODULE 1: BUSINESS OPERATIONS â”€â”€ -->
-    <section class="module-section" style="background:white; border-top:1px solid rgba(26,26,26,0.05);">
-        <div style="max-width:480px; margin:0 auto;">
-            <div class="module-eyebrow">
-                <span class="label" style="color: #9B4F4A;">Operations Architecture</span>
-            </div>
-            <h2 class="module-title">Business Operations<br><span style="font-style:italic; color: #9B4F4A;">DIY Tools &amp; Services</span></h2>
-
-            <div class="module-card">
-                <!-- Left: Backend Diagnostic Check -->
-                <div class="module-left">
-                    <div style="width:100%; aspect-ratio:1; overflow:hidden; border-radius:8px; background:var(--cream);">
-                        <img loading="lazy" src="images/Diagnostic_Check.webp" alt="Backend Diagnostic Check" style="width:100%; height:100%; object-fit:cover; object-position:center;">
-                    </div>
-                    <div>
-                        <p class="label" style="color:rgba(26,26,26,0.45); font-size:7px; margin-bottom:4px;">Start Here</p>
-                        <p class="lora" style="font-size:12px; color:#1a1a1a; line-height:1.4; margin:0 0 4px;">Backend Diagnostic Check</p>
-                        <p style="font-size:14px; font-weight:700; color:#9B4F4A; margin:0 0 10px;">Free</p>
-                    </div>
-                    <a href="https://intentionaltea.gumroad.com/l/snpesd" class="btn-press gumroad-scroll" style="display:block; background:#1a1a1a; color:white; text-align:center; padding:10px 8px; font-size:8px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; border-radius:7px; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='#C99B92'" onmouseout="this.style.background='#1a1a1a'">Get the Diagnostic</a>
-                </div>
-                <!-- Right: three workbooks + services -->
-                <div class="module-right">
-                    <a href="https://intentionaltea.gumroad.com/l/yjgmjo" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Essential Planning</p>
-                            <p class="mod-link-sub">$15</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="https://intentionaltea.gumroad.com/l/mcgxqk" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Business Planning</p>
-                            <p class="mod-link-sub">$10</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="https://intentionaltea.gumroad.com/l/hjjskb" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Financial Planner</p>
-                            <p class="mod-link-sub">$20</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="services.html" class="mod-link">
-                        <div>
-                            <p class="mod-link-label">Business Operations</p>
-                            <p class="mod-link-sub">Request a Quote</p>
-                        </div>
-                        <span class="service-pill">Services</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- â”€â”€ MODULE 2: INTENTIONAL LIVING â”€â”€ -->
-    <section class="module-section" style="background:var(--cream); border-top:1px solid rgba(26,26,26,0.05);">
-        <div style="max-width:480px; margin:0 auto;">
-            <div class="module-eyebrow">
-                <span class="label" style="color: #9B4F4A;">Intentional Living</span>
-            </div>
-            <h2 class="module-title">Life Planners &amp; Resets<br><span style="font-style:italic; color: #9B4F4A;">Gumroad &amp; Etsy</span></h2>
-
-            <div class="module-card">
-                <!-- Left: Life Reset featured -->
-                <div class="module-left">
-                    <div style="width:100%; aspect-ratio:1; overflow:hidden; border-radius:8px; background:white;">
-                        <img loading="lazy" src="images/Life_Reset.webp" alt="The Intentional Life Reset" style="width:100%; height:100%; object-fit:cover; object-position:center;">
-                    </div>
-                    <div>
-                        <p class="label" style="color:rgba(26,26,26,0.45); font-size:7px; margin-bottom:4px;">Best Seller</p>
-                        <p class="lora" style="font-size:12px; color:#1a1a1a; line-height:1.4; margin:0 0 4px;">The Intentional Life Reset</p>
-                        <p style="font-size:14px; font-weight:700; color:#9B4F4A; margin:0 0 10px;">$55</p>
-                    </div>
-                    <a href="https://intentionaltea.gumroad.com/l/kqmktr" class="btn-press gumroad-scroll" style="display:block; background:#1a1a1a; color:white; text-align:center; padding:10px 8px; font-size:8px; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; border-radius:7px; text-decoration:none; transition:background 0.2s;" onmouseover="this.style.background='#C99B92'" onmouseout="this.style.background='#1a1a1a'">Reset Your Life</a>
-                </div>
-                <!-- Right: life products + astrology + shop all -->
-                <div class="module-right">
-                    <a href="https://intentionaltea.gumroad.com/l/fjkybc" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Life Planner</p>
-                            <p class="mod-link-sub">$25</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="https://intentionaltea.gumroad.com/l/hjjskb" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Financial Planner</p>
-                            <p class="mod-link-sub">$20</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="https://intentionaltea.gumroad.com/l/grjtk" class="mod-link gumroad-scroll">
-                        <div>
-                            <p class="mod-link-label">Astrology Report</p>
-                            <p class="mod-link-sub">$111 · Personalized</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="https://intentionaltea.gumroad.com/l/zsqgf" target="_blank" rel="noopener" class="mod-link">
-                        <div>
-                            <p class="mod-link-label">Astrology Basics</p>
-                            <p class="mod-link-sub">Booklet</p>
-                        </div>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                    <a href="shop.html" class="mod-link">
-                        <span class="mod-link-label">Shop All</span>
-                        <span style="font-size:11px; color: #9B4F4A;">&#x2192;</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section style="background:#1a1a1a; padding:56px 24px; text-align:center;">
-        <div style="max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:28px;">
-            <div>
-                <p class="label" style="color: #C99B92; margin-bottom:10px;">Join the List</p>
-                <h2 class="lora-italic" style="font-size:24px; color:white; margin:0 0 8px;">20% off your first order.</h2>
-                <p style="font-size:10px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.3); margin:0;">New content, resources, and exclusive updates.</p>
-            </div>
-            <form onsubmit="handleSocialNewsletterSubmit(event)" style="display:flex; flex-direction:column; gap:10px;">
-                <label for="nl-social" class="sr-only">Email address</label>
-                <input id="nl-social" type="email" name="EMAIL" placeholder="YOUR EMAIL ADDRESS" required aria-label="Email address" style="width:100%; background:transparent; border:1px solid rgba(255,255,255,0.1); padding:13px 18px; font-size:10px; color:white; outline:none; text-transform:uppercase; letter-spacing:0.2em; border-radius:8px; font-family:'Instrument Sans',sans-serif;" onfocus="this.style.borderColor='#C99B92'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-                <button type="submit" class="btn-press" style="width:100%; background:#C99B92; color:#1A1A1A; padding:15px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.35em; border:none; cursor:pointer; border-radius:8px; font-family:'Instrument Sans',sans-serif; transition:background 0.2s;" onmouseover="this.style.background='#E2C0B9'" onmouseout="this.style.background='#C99B92'">Join the List</button>
-                <p style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.2); margin:0;">No spam. Unsubscribe anytime.</p>
-            </form>
-        </div>
-    </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer style="background:var(--cream); padding:20px 32px; border-top:1px solid rgba(26,26,26,0.06);">
-    <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; text-align:center;">
-        <div style="display:flex; gap:20px; align-items:center; justify-content:flex-start;">
-            <a href="https://www.instagram.com/theintentionaltea/" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(26,26,26,0.3); transition:color 0.2s;" onmouseover="this.style.color='#C99B92'" onmouseout="this.style.color='rgba(26,26,26,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.tiktok.com/@theintentionaltea_" target="_blank" rel="noopener" aria-label="TikTok" style="color:rgba(26,26,26,0.3); transition:color 0.2s;" onmouseover="this.style.color='#C99B92'" onmouseout="this.style.color='rgba(26,26,26,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
-            <a href="mailto:theintentionaltea@gmail.com" aria-label="Email" style="color:rgba(26,26,26,0.3); transition:color 0.2s;" onmouseover="this.style.color='#C99B92'" onmouseout="this.style.color='rgba(26,26,26,0.3)'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
-        </div>
-        <div>
-            <p style="font-size:9px; text-transform:uppercase; letter-spacing:0.35em; font-weight:700; color:rgba(26,26,26,0.45);">The Intentional Tea</p>
-            <p style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(26,26,26,0.25); margin-top:3px;">&copy; 2026</p>
-        </div>
-        <div style="display:flex; justify-content:flex-end; gap:16px; flex-wrap:wrap; max-width:100%;">
-            <a href="/terms.html" style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(26,26,26,0.35); background:none; border:none; cursor:pointer;">Terms</a>
-            <a href="/privacy.html" style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(26,26,26,0.35); background:none; border:none; cursor:pointer;">Privacy</a>
-            <a href="/refunds.html" style="font-size:8px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(26,26,26,0.35); background:none; border:none; cursor:pointer;">Refunds</a>
-        </div>
+    <!-- ── Email ───────────────────────────────────────────────────────── -->
+    <div class="lib-mail">
+        <h2>20% off your first order.</h2>
+        <p>New products, resources and updates</p>
+        <form onsubmit="return handleNewsletterSubmit(event)">
+            <label for="lib-email" class="sr-only">Your email address</label>
+            <input id="lib-email" name="EMAIL" type="email" placeholder="Your email address" required aria-label="Email address">
+            <button type="submit">Join the list</button>
+        </form>
+        <small>No spam. Unsubscribe anytime.</small>
     </div>
-</footer>
 
-<!-- POLICY MODAL -->
-<div id="policy-modal" role="dialog" aria-modal="true" aria-labelledby="policy-modal-title" style="position:fixed; inset:0; z-index:100; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,0.4);" onclick="closeModal()">
-    <div style="background:white; max-width:560px; width:100%; max-height:80vh; overflow-y:auto; padding:48px; border-radius:14px; position:relative; box-shadow:0 24px 60px rgba(0,0,0,0.2);" onclick="event.stopPropagation()">
-        <button id="policy-modal-close" aria-label="Close dialog" onclick="closeModal()" style="position:absolute; top:20px; right:20px; font-size:9px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(0,0,0,0.35); background:none; border:none; cursor:pointer;">Close <span aria-hidden="true">&#215;</span></button>
-        <div id="modal-content"></div>
-    </div>
+    <p class="lib-foot">
+        &copy; 2026 The Intentional Tea &nbsp;&middot;&nbsp;
+        <a href="/privacy.html">Privacy</a> &nbsp;&middot;&nbsp;
+        <a href="/terms.html">Terms</a>
+    </p>
+
 </div>
 
 <script>
-    const policyContent = {
-        terms: `<h2 id="policy-modal-title" style="font-family:'Lora',serif;font-style:italic;font-size:28px;margin-bottom:20px;">Terms &amp; Conditions</h2><p style="font-size:14px;line-height:1.7;color:#555;">Standard terms for digital licensing. Products are for personal use only.</p>`,
-        refund: `<h2 id="policy-modal-title" style="font-family:'Lora',serif;font-style:italic;font-size:28px;margin-bottom:20px;">Refund Policy</h2><p style="font-size:14px;line-height:1.7;color:#555;">Due to the nature of digital products, all sales are final. No refunds will be issued once the file has been delivered.</p>`,
-        privacy: `<h2 id="policy-modal-title" style="font-family:'Lora',serif;font-style:italic;font-size:28px;margin-bottom:20px;">Privacy Policy</h2><p style="font-size:14px;line-height:1.7;color:#555;">We value your privacy. Your data is only used to fulfill orders and send newsletter updates.</p>`
-    };
-
-    async function handleSocialNewsletterSubmit(e) {
+    // Same newsletter path as the rest of the site: the Netlify function, then the thank-you page.
+    // The function returns a real status now, so a failure is shown rather than swallowed.
+    async function handleNewsletterSubmit(e) {
         e.preventDefault();
-        const form = e.target;
-        const email = form.querySelector('input[type="email"]').value.trim();
-        if (!email) return;
-        const btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Subscribing...';
+        var form = e.target;
+        var email = form.querySelector('input[type="email"]').value;
+        var btn = form.querySelector('button');
+        var original = btn.textContent;
+        btn.textContent = 'Joining...';
         btn.disabled = true;
         try {
-            await fetch('/.netlify/functions/subscribe', {
+            var res = await fetch('/.netlify/functions/subscribe', {
                 method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify({ email, listId: 7 })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, listId: 7 })
             });
-        } catch (err) {}
-        window.location.href = 'thank-you-newsletter.html';
-    }
-
-    var _policyTrigger = null;
-    function _policyKeydown(e) {
-        if (e.key === 'Escape') { closeModal(); return; }
-        if (e.key === 'Tab') {
-            var modal = document.getElementById('policy-modal');
-            var focusable = Array.from(modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')).filter(function(el){ return !el.disabled; });
-            if (!focusable.length) return;
-            var first = focusable[0]; var last = focusable[focusable.length - 1];
-            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+            if (!res.ok) throw new Error('signup failed');
+            window.location.href = '/thank-you-newsletter.html';
+        } catch (err) {
+            btn.textContent = 'Something went wrong, try again';
+            btn.disabled = false;
+            setTimeout(function () { btn.textContent = original; }, 3500);
         }
-    }
-    function openModal(type) {
-        _policyTrigger = document.activeElement;
-        var modal = document.getElementById('policy-modal');
-        document.getElementById('modal-content').innerHTML = policyContent[type];
-        modal.style.display = 'flex';
-        if (modal.classList) { modal.classList.remove('hidden'); }
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', _policyKeydown);
-        var closeBtn = document.getElementById('policy-modal-close');
-        if (closeBtn) closeBtn.focus();
-    }
-    function closeModal() {
-        var modal = document.getElementById('policy-modal');
-        modal.style.display = 'none';
-        if (modal.classList) { modal.classList.add('hidden'); }
-        document.body.style.overflow = 'auto';
-        document.removeEventListener('keydown', _policyKeydown);
-        if (_policyTrigger) { _policyTrigger.focus(); _policyTrigger = null; }
+        return false;
     }
 </script>
+
 </body>
 </html>
-
