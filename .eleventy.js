@@ -53,6 +53,10 @@ module.exports = function(eleventyConfig) {
   // the intake pages load these; without them the forms render unstyled and inert
   eleventyConfig.addPassthroughCopy('intake');
 
+  // The Services & Pricing Guide, downloaded from services.html and handed out by ManyChat.
+  // Built by BUSINESS-OPERATIONS/guide/build-services-guide.mjs in the HQ folder; do not hand-edit.
+  eleventyConfig.addPassthroughCopy('downloads');
+
   eleventyConfig.addPassthroughCopy('deliverables/*.html');
   eleventyConfig.addPassthroughCopy('deliverables/*.pdf');
   eleventyConfig.addPassthroughCopy('deliverables/start-here.css');
