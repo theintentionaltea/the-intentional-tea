@@ -17,7 +17,7 @@
 const SERVICES = {
   clarity: 'Business Clarity Call',
   operations: 'Custom Operations & Systems Hub',
-  build: 'Brand & Systems Build',
+  build: 'Full Business Build',
 };
 
 const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

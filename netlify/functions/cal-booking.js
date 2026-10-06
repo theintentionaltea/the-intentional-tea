@@ -24,10 +24,15 @@ const CLIENTS_LIST = 9;
 
 // Cal.com event slug -> the Brevo template that should go out on a new booking.
 // Ids confirmed against the live account; names come from EMAILS/_build/content.mjs.
+// Every bookable Cal.com event type needs an entry. Anything missing here falls through to the
+//  branch below, which saves the contact and returns success having sent nothing —
+// so an unmapped slug is a client booking a call and hearing from no one. Checked against the live
+// Cal.com account on 2026-10-05: these five are all of them.
 const TEMPLATE_BY_SLUG = {
   'business-clarity-call': 18,   // clarity-01-welcome — "Your Business Clarity Call is confirmed"
-  'hub-check-in': 24,            // ops-02-call-confirmation — "Your planning call is confirmed"
   'planning-call': 24,           // ops-02-call-confirmation
+  'hub-check-in': 41,            // checkin-01-confirmation — was 24, which called it a planning call
+  'walkthrough': 40,             // walkthrough-01-confirmation — sent nothing at all before
 };
 // Deliberately absent: 30min (Discovery Call). RETIRED 2026-09-28 -- the free intro call is no
 // longer offered; the paid Business Clarity Call replaces it. The slug is left unmapped rather than
@@ -94,6 +99,9 @@ exports.handler = async (event) => {
       FIRSTNAME: name.trim().split(/\s+/)[0] || '',
       LASTNAME: name.trim().split(/\s+/).slice(1).join(' ') || '',
       CALL_DATE: callDate,
+      // A machine-readable copy of the same moment. CALL_DATE stays text because the emails print it
+      // as written; scheduled-reminders.js cannot schedule against that, so it reads this instead.
+      CALL_AT: (() => { try { return new Date(p.startTime).toISOString().slice(0, 10); } catch { return ''; } })(),
       PHASE: 'Call booked',
     },
     listIds: [CLIENTS_LIST],
